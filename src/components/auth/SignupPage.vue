@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="bg-red-50">
+<div class="main-bg">
       <div class="min-h-screen flex flex-col items-center justify-center py-6 px-4">
         <div class="max-w-md w-full">
           <a href="javascript:void(0)"><img
@@ -66,3 +66,15 @@
     </div>
 </template>
 
+<style>
+.main-bg {
+  width: 100%;
+  height: 100%;
+  background-image: url('/src/assets/images/backgrounds/bg-1.jpg');  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+</style>

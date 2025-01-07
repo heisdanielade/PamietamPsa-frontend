@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="bg-red-50">
+<div class="main-bg">
       <div class="min-h-screen flex flex-col items-center justify-center py-6 px-4">
         <div class="max-w-md w-full">
           <a href="javascript:void(0)"><img
