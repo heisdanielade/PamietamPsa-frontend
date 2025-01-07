@@ -4,9 +4,22 @@ import LoginPage from '@/components/auth/LoginPage.vue';
 import SignupPage from '@/components/auth/SignupPage.vue';
 
 const routes = [
-  { path: '/', name: 'Home', component: HomePage },
-  { path: '/auth/login', name: 'Login', component: LoginPage },
-  { path: '/auth/signup', name: 'Signup', component: SignupPage },
+  { 
+    path: '/', 
+    name: 'Home', 
+    component: HomePage, 
+    meta: { title: "Home" }
+  },
+  { path: '/auth/login', 
+    name: 'Login', 
+    component: LoginPage, 
+    meta: { title: "Login" } 
+  },
+  { path: '/auth/signup', 
+    name: 'Signup', 
+    component: SignupPage, 
+    meta: { title: "SignUp" } 
+  },
 ];
 
 const router = createRouter({

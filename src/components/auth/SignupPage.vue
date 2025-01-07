@@ -1,14 +1,16 @@
 <script setup>
-    import logoSrc from '@/assets/images/logos/logo.svg';
+    import logoSrc from '@/assets/images/logos/logo.png';
+    import AuthBackground from "@/components/others/AuthBackground.vue";
 </script>
 
 <template>
-<div class="main-bg">
+  <AuthBackground>
+    <div>
       <div class="min-h-screen flex flex-col items-center justify-center py-6 px-4">
         <div class="max-w-md w-full">
-          <a href="javascript:void(0)"><img
-            src="https://readymadeui.com/readymadeui.svg" alt="PamiętamPsa" class='w-40 mb-8 mx-auto block' />
-          </a>
+          <router-link to="/"><img
+            :src="logoSrc" alt="PamiętamPsa" class='w-40 mb-8 mx-auto block' />
+          </router-link>
 
           <div class="p-8 rounded-2xl bg-white shadow">
             <h2 class="text-gray-800 text-center text-2xl font-bold">Utwórz konto</h2>
@@ -61,9 +63,27 @@
               <p class="text-gray-800 text-sm !mt-8 text-center">Masz już konto? <router-link to="/auth/login" class="text-orange-600 hover:underline ml-1 whitespace-nowrap font-semibold">Zaloguj się</router-link></p>
             </form>
           </div>
+
+          <div class="Ts&Cs">
+              <p class="text-gray-800 text-sm text-center mt-8">
+                Korzystając z naszej strony, zgadzasz się na nasze 
+                <router-link to="/" class="text-orange-600 hover:underline">
+                  Warunki korzystania
+                </router-link>
+                 oraz 
+                 <router-link to="/" class="text-orange-600 hover:underline">
+                  Politykę prywatności
+                </router-link>
+                .
+              </p>
+          </div>
+          
         </div>
       </div>
     </div>
+  </AuthBackground>
+
+
 </template>
 
 <style>
