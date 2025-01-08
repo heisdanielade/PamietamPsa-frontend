@@ -1,6 +1,10 @@
-
+<script setup>
+  import Header from "@/components/home/sections/Header.vue";
+  import Home from "@/components/home/sections/Home.vue";
+  import Footer from "@/components/home/sections/Footer.vue";
+</script>
 <template>
-    <div class="bg-red-50">
+    <!-- <div class="bg-red-50">
           <div class="min-h-screen flex flex-col items-center justify-center py-6 px-4">
             <div class="max-w-md w-full">
               <a href="javascript:void(0)"><img
@@ -13,5 +17,14 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
+
+      <!-- Header Section -->
+      <Header></Header>
+
+      <!-- Home Section -->
+      <Home></Home>
+
+      <!-- Footer Section -->
+      <Footer></Footer>
     </template>
