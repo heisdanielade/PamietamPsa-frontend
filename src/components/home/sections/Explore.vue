@@ -6,40 +6,40 @@ const projectName = useProjectStore().projectName;
 </script>
 
 <template>
-    <section class="explore mt-8 bg-purple-50 " id="explore">
+    <section class="explore overflow-hidden mt-8 bg-purple-50 " id="explore">
         <div class="select-none pt-16 pb-16">
             <div class="header text-center flex flex-col items-center justify-center w-full">
                 <h1 class="text-3xl gradient-text-1 font-semibold w-full lg:text-5xl md:text-4xl">
                     Explore our features
                 </h1>
                 <p class="text-xs lg:text-[0.9rem] text-gray-600 mt-4">
-                    All the features you need to keep your pet happy and healthy.
+                    All the features you need to keep your pet<br class="flex md:hidden lg:hidden "> happy and healthy.
                 </p>
             </div>
 
             <div class="features flex flex-wrap justify-center items-center gap-4 mt-10">
-                <div class="card p-2 bg-white text-center flex flex-col items-center justify-center w-[9rem] h-[11rem] rounded-[1.25rem]">
+                <div class="card custom-cursor lg:mr-4 p-2 bg-white text-center flex flex-col items-center justify-center w-[9rem] h-[11rem] rounded-[1.25rem]">
                     <div class="icon bg-pink-400 font-bold text-white p-1 rounded-full w-9 h-9 flex items-center justify-center">
                         <i class="fa-solid fa-dog"></i>
                     </div>
                     <div class="name mt-4 font-semibold text-[0.88rem]">Pet Profiles</div>
                     <div class="info mt-2 text-[0.65rem] text-gray-600">Manage profiles for each pet.</div>
                 </div>
-                <div class="card p-2 bg-purple-400 text-center flex flex-col items-center justify-center w-[9rem] h-[11rem] rounded-[1.25rem] shadow">
+                <div class="card custom-cursor lg:mr-4 p-2 bg-purple-400 text-center flex flex-col items-center justify-center w-[9rem] h-[11rem] rounded-[1.25rem]">
                     <div class="icon bg-white text-pink-400 font-bold p-1 rounded-full w-9 h-9 flex items-center justify-center">
                         <i class="fa-regular fa-bell"></i>
                     </div>
                     <div class="name text-white mt-4 font-semibold text-[0.88rem]">Reminders</div>
                     <div class="info text-white mt-2 text-[0.65rem]">Get reminders for grooming and meds.</div>
                 </div>
-                <div class="card p-2 bg-white text-center flex flex-col items-center justify-center w-[9rem] h-[11rem] rounded-[1.25rem]">
+                <div class="card custom-cursor lg:mr-4 p-2 bg-white text-center flex flex-col items-center justify-center w-[9rem] h-[11rem] rounded-[1.25rem]">
                     <div class="icon bg-yellow-200 font-bold text-white p-1 rounded-full w-9 h-9 flex items-center justify-center">
                         <i class="fa-solid fa-stethoscope"></i>
                     </div>
                     <div class="name mt-4 font-semibold text-[0.88rem]">Health Tracker</div>
                     <div class="info mt-2 text-[0.65rem] text-gray-600">Track vet visits and health records.</div>
                 </div>
-                <div class="card p-2 bg-white text-center flex flex-col items-center justify-center w-[9rem] h-[11rem] rounded-[1.25rem]">
+                <div class="card custom-cursor p-2 bg-white text-center flex flex-col items-center justify-center w-[9rem] h-[11rem] rounded-[1.25rem]">
                     <div class="icon bg-purple-400 font-bold text-white p-1 rounded-full w-9 h-9 flex items-center justify-center">
                         <i class="fa-regular fa-address-book"></i>
                     </div>
@@ -54,19 +54,14 @@ const projectName = useProjectStore().projectName;
 </template>
 
 <style scoped>
-.home h1 {
+.explore h1 {
     background: #1b0525;
     background: repeating-linear-gradient(to right, #1b0525 0%, #450f5e 50%, #8f45a3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.home .box:nth-child(1),
-.home .box:nth-child(3) {
-    transform: translateY(2rem);
-}
-
-.home .box:nth-child(2) img {
-    transform: translateY(-1rem);
+.explore .card{
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 </style>

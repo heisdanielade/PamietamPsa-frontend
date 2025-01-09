@@ -12,8 +12,8 @@ const currentYear = ref(new Date().getFullYear());
 </script>
 
 <template>
-    <footer class="bg-white rounded-lg  dark:bg-gray-900 m-4">
-        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <footer class="bg-white overflow-hidden rounded-lg  dark:bg-gray-900 m-4">
+        <div class="w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                     <img :src="logoSrc" class="h-8" alt="Flowbite Logo" />
