@@ -1,11 +1,13 @@
 <script setup>
+import AuthBackground from "@/components/others/AuthBackground.vue";
 </script>
 
 <template>
-    <section class="home mt-8" id="home">
-        <div class="flex flex-col items-center justify-center w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <AuthBackground>
+        <section class="home mt-8" id="home">
+        <div class="flex flex-col items-center justify-center select-none w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="text-center flex flex-col items-center justify-center w-full">
-                <h1 class="text-3xl font-semibold w-full lg:text-7xl md:text-6xl">
+                <h1 class="text-3xl gradient-text-1 font-semibold w-full lg:text-7xl md:text-6xl">
                     Caring for your pets, <br>made simple and<br> stress-free.
                 </h1>
             </div>
@@ -27,7 +29,7 @@
                     <img class="pet absolute w-[15rem] h-[15rem]" src="/src/assets/images/animals/7.png" alt="Pet">
                 </div>
 
-                <div class="box relative flex items-center justify-center ml-5 mr-5 rounded-[1.75rem] w-[13rem] h-[11rem] bg-purple-200">
+                <div class="box relative flex items-center justify-center ml-4 mr-4 rounded-[1.75rem] w-[13rem] h-[11rem] bg-purple-200">
                     <img class="pet absolute w-[32rem] h-[15rem]" src="/src/assets/images/animals/16.png" alt="Pet">
                 </div>
 
@@ -36,21 +38,12 @@
                 </div>
             </div>
         </div>
-
-
     </section>
-
+    </AuthBackground>
 </template>
 
 
 <style scoped>
-.home h1 {
-    background: #1b0525;
-    background: repeating-linear-gradient(to right, #1b0525 0%, #450f5e 50%, #8f45a3 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .home .box:nth-child(1),
 .home .box:nth-child(3){
     transform: translateY(2rem);

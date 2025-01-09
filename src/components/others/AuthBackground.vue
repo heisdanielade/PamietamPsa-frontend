@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full min-h-screen bg-orange-50">
+  <div class="relative w-full">
     <!-- Scattered dog paw icons -->
     <img
       v-for="(position, index) in positions"
@@ -22,7 +22,7 @@
 import { reactive, onMounted } from "vue";
 
 // Number of dog paw icons to display
-const numIcons = 20;
+const numIcons = 7;
 
 // Reactive array to store positions
 const positions = reactive([]);

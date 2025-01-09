@@ -10,10 +10,27 @@
 
 .primary-btn{
     transition: 0.7s ease-in;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 .primary-btn:hover{
     background: #5e1381;
     background: repeating-linear-gradient(to right, #5e1381 0%, #6c1a92 50%, #9046A5 100%);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
+
+.gradient-text-1{
+    background: #1b0525;
+    background: repeating-linear-gradient(to right, #1b0525 0%, #450f5e 50%, #8f45a3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+img{
+    user-select: none; /* Modern browsers */
+    -webkit-user-drag: none; /* Prevent dragging in WebKit browsers */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    pointer-events: none; /* Disable all pointer interactions */
+  }
+  
