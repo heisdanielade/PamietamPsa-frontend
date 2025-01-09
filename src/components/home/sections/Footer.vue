@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import { useProjectStore } from '@/stores/projectStore';
+import logoSrc from '@/assets/images/logos/logo.png';
+
 const projectName = useProjectStore().projectName;
 
 const currentYear = ref(new Date().getFullYear());
@@ -14,23 +16,23 @@ const currentYear = ref(new Date().getFullYear());
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                    <img :src="logoSrc" class="h-8" alt="Flowbite Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ projectName
                         }}</span>
                 </router-link>
                 <ul
                     class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                     <li>
-                        <a href="#" class="hover:text-purple-500 me-4 md:me-6">About</a>
+                        <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">About</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-purple-500 me-4 md:me-6">Ts & Cs</a>
+                        <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">Ts & Cs</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-purple-500 me-4 md:me-6">Contact</a>
+                        <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">Contact</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-purple-500">Developer</a>
+                        <a href="#" class="hover:text-purple-500 transition">Developer</a>
                     </li>
                 </ul>
             </div>
@@ -38,7 +40,7 @@ const currentYear = ref(new Date().getFullYear());
 
             <div class="sm:flex sm:items-center sm:justify-between">
                 <span class="text-sm text-gray-500 sm:text-center ">
-                    <span>© {{ currentYear }} <router-link to="/" class="hover:text-purple-500 transition">{{ projectName }}</router-link>.
+                    <span>© {{ currentYear }} <router-link to="/" class="hover:text-purple-500 transition transition">{{ projectName }}</router-link>.
                     </span> <!--  ™  -->
                     <span class="ml-1">All Rights Reserved.</span>
                 </span>
