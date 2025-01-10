@@ -5,7 +5,7 @@
     <section class="special overflow-hidden mt-11 mb-20 mx-5 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg sm:p-8 md:p-8" id="special">
         <div class="flex items-center justify-evenly bg-purple-500 rounded-[1rem] select-none pt-14 pb-14 md:pr-10 md:pl-10 lg:pr-10 lg:pl-10">
 
-            <div class="pet left">
+            <div class="pet hidden md:flex lg:flex">
                 <img class="w-24 h-24" src="/src/assets/images/animals/15.png" alt="Pet">
             </div>
 
@@ -23,7 +23,7 @@
                 </router-link>
             </div>
 
-            <div class="pet right">
+            <div class="pet right hidden md:flex lg:flex">
                 <img class="w-28 h-28" src="/src/assets/images/animals/12.png" alt="Pet">
             </div>
         </div>
