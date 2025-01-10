@@ -10,12 +10,12 @@ const routes = [
     component: HomePage, 
     meta: { title: "Home" }
   },
-  { path: '/auth/login', 
+  { path: '/user/login', 
     name: 'Login', 
     component: LoginPage, 
     meta: { title: "Login" } 
   },
-  { path: '/auth/signup', 
+  { path: '/user/signup', 
     name: 'Signup', 
     component: SignupPage, 
     meta: { title: "SignUp" } 

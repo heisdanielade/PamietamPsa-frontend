@@ -1,6 +1,6 @@
 <script setup>
     import logoSrc from '@/assets/images/logos/logo.png';
-    import AuthBackground from "@/components/others/AuthBackground.vue";
+    import AuthBackground from "@/components/others/PawBackground.vue";
 </script>
 
 <template>

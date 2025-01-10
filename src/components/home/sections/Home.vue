@@ -1,5 +1,5 @@
 <script setup>
-import AuthBackground from "@/components/others/AuthBackground.vue";
+import AuthBackground from "@/components/others/PawBackground.vue";
 
 </script>
 
@@ -8,19 +8,21 @@ import AuthBackground from "@/components/others/AuthBackground.vue";
         <section class="home overflow-hidden mt-14 md:mt-8 lg:mt-8" id="home">
         <div class="flex flex-col items-center justify-center select-none w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div class="text-center flex flex-col items-center justify-center w-full">
-                <h1 class="text-3xl gradient-text-1 font-semibold w-full lg:text-7xl md:text-6xl">
+                <h1 class="text-[2rem] leading-[2.625rem] md:leading-[4.5rem] lg:leading-[4.75rem] tracking-wide gradient-text-1 font-bold lg:font-semibold w-full lg:text-7xl md:text-6xl">
                     Caring for your pets, <br>made simple and<br> stress-free.
+                    <!-- Hassle-Free Pet Care<br> Made Easy<br> -->
                 </h1>
             </div>
 
-            <div class="flex flex-col items-center text-center mt-5">
-                <p class="text-xs lg:text-[0.9rem] text-gray-600 mb-7">
-                    From vet visits to daily reminders, keep your<br> pet happy and healthy.
+            <div class="flex flex-col items-center text-center mt-5 lg:mt-6">
+                <p class="text-xs tracking-wide lg:text-[0.9rem] text-gray-500 mb-7 lg:mb-8">
+                    Vet visits and reminders for a <br>happy, healthy pet.
+                    <!-- From vet visits to reminders, keep your<br> pet happy and healthy. -->
                 </p>
-                <router-link to="/auth/signup" class="get-started flex items-center justify-center bg-purple-300 w-[12rem] h-11 rounded-full">
+                <router-link to="/user/signup" class="get-started flex items-center justify-center bg-purple-300 w-[12rem] h-12 rounded-full">
                     <span class="font-semibold">Get Started Now</span>
                     <span class="bg-white text-sm ml-2 font-bold rounded-full w-6 h-6 flex items-center justify-center">
-                        <i class="ri-arrow-right-line"></i>
+                        <i class="transition ri-arrow-right-line"></i>
                     </span>
                 </router-link>
             </div>
@@ -35,7 +37,7 @@ import AuthBackground from "@/components/others/AuthBackground.vue";
                 </div>
 
                 <div class="box custom-cursor relative hidden md:flex lg:flex items-center justify-center rounded-[1.75rem] w-[12rem] h-[12.5rem] bg-yellow-100">
-                    <img class="pet absolute w-[15rem] h-[14rem]" src="/src/assets/images/animals/8.png" alt="Pet">
+                    <img class="pet absolute w-[13rem] h-[13rem]" src="/src/assets/images/animals/8.png" alt="Pet">
                 </div>
             </div>
         </div>
@@ -46,7 +48,7 @@ import AuthBackground from "@/components/others/AuthBackground.vue";
 
 <style scoped>
 .home .get-started{
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 .home .get-started:hover {
     color: white;
@@ -58,22 +60,30 @@ import AuthBackground from "@/components/others/AuthBackground.vue";
 }
 
 .home .box img{
-    transition: all 0.5s ease-in-out;
+    transition: all 0.4s ease-in-out;
     transform: scale(1.03);
 }
+
 .home .box:nth-child(1):hover img,
 .home .box:nth-child(3):hover img{
-    transform: scale(1.1);
+    transform: scale(1.04);
 }
 .home .box:nth-child(1),
 .home .box:nth-child(3){
     transform: translateY(2rem);
 }
+/* .home .box:nth-child(1) img{
+    transform: translateY(-1.5rem);
+}
+.home .box:nth-child(2) img{
+    transform: translateY(-0.7rem);
+} */
+
 .home .box:nth-child(2) img{
     transform: translateY(-2rem);
 }
 .home .box:nth-child(3) img{
-    transform: translateY(-0.5rem);
+    transform: translateY(-0.2rem);
 }
 
 
