@@ -19,7 +19,7 @@ import AuthBackground from "@/components/others/PawBackground.vue";
                     Vet visits and reminders for a <br>happy, healthy pet.
                     <!-- From vet visits to reminders, keep your<br> pet happy and healthy. -->
                 </p>
-                <router-link to="/user/signup" class="get-started flex items-center justify-center bg-purple-300 w-[12rem] h-12 rounded-full">
+                <router-link to="/u/signup" class="get-started flex items-center justify-center bg-purple-300 w-[12rem] h-12 rounded-full">
                     <span class="font-semibold">Get Started Now</span>
                     <span class="bg-white text-sm ml-2 font-bold rounded-full w-6 h-6 flex items-center justify-center">
                         <i class="transition ri-arrow-right-line"></i>

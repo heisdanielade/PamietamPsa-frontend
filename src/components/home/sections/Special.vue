@@ -18,7 +18,7 @@
                     Unlock a surprise for your pet with your sign-up today!
                 </p>
 
-                <router-link to="/user/signup" class="mt-5 flex items-center justify-center font-bold text-sm w-[7rem] h-9 rounded-full bg-white text-purple-500">
+                <router-link to="/u/signup" class="mt-5 flex items-center justify-center font-bold text-sm w-[7rem] h-9 rounded-full bg-white text-purple-500">
                     Join Us
                 </router-link>
             </div>
