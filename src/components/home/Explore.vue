@@ -4,8 +4,8 @@
 <template>
     <section class="explore overflow-hidden mt-11 bg-purple-50 " id="explore">
         <div class="select-none pt-16 pb-16">
-            <div class="not-shown header text-center flex flex-col items-center justify-center w-full">
-                <h1 v-scroll-reveal class="text-3xl gradient-text-1 font-semibold w-full lg:text-5xl md:text-4xl">
+            <div class="header text-center flex flex-col items-center justify-center w-full">
+                <h1 v-scroll-reveal class="not-shown text-3xl gradient-text-1 font-semibold w-full lg:text-5xl md:text-4xl">
                     Explore our features
                 </h1>
                 <p v-scroll-reveal class="not-shown text-xs ml-8 mr-8 text-wrap lg:text-[0.9rem] text-gray-500 mt-4">
