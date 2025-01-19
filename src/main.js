@@ -19,5 +19,27 @@ router.afterEach((to) => {
 });
 
 
+// Custom directive for scroll reveal animation
+const scrollRevealDirective = {
+  mounted(el) {
+    // Intersection Observer logic
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          el.classList.add("shown");
+        } else {
+          el.classList.remove("shown");
+        }
+      });
+    });
+
+    // Observe the element
+    observer.observe(el);
+  },
+};
+
+// Register the directive globally
+app.directive("scroll-reveal", scrollRevealDirective);
+
 
 app.mount("#app");

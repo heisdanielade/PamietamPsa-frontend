@@ -1,9 +1,9 @@
 <script setup>
-  import Header from "@/components/home/sections/Header.vue";
-  import Home from "@/components/home/sections/Home.vue";
-  import Explore from "@/components/home/sections/Explore.vue";
-  import Special from "@/components/home/sections/Special.vue";
-  import Footer from "@/components/home/sections/Footer.vue";
+  import Header from "@/components/home/Header.vue";
+  import Home from "@/components/home/Home.vue";
+  import Explore from "@/components/home/Explore.vue";
+  import Special from "@/components/home/Special.vue";
+  import Footer from "@/components/home/Footer.vue";
 </script>
 <template>
 

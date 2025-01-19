@@ -1,6 +1,5 @@
 <script setup>
 import logoSrc from '@/assets/images/logos/logo.png';
-import AuthBackground from "@/components/others/PawBackground.vue";
 import { useProjectStore } from '@/stores/projectStore';
 
 const projectName = useProjectStore().projectName;

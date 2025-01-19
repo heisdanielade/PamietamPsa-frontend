@@ -13,7 +13,7 @@ const currentYear = ref(new Date().getFullYear());
 
 <template>
     <footer class="bg-white overflow-hidden rounded-lg  dark:bg-gray-900 m-4">
-        <div class="w-full max-w-screen-lg mx-auto p-4 md:py-8">
+        <div v-scroll-reveal class="not-shown w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                     <img :src="logoSrc" class="h-8" alt="Flowbite Logo" />
@@ -40,7 +40,7 @@ const currentYear = ref(new Date().getFullYear());
 
             <div class="sm:flex sm:items-center sm:justify-between">
                 <span class="text-sm text-gray-500 sm:text-center ">
-                    <span>© {{ currentYear }} <router-link to="/" class="hover:text-purple-500 transition transition">{{ projectName }}</router-link>.
+                    <span>© {{ currentYear }} <router-link to="/" class="hover:text-purple-500 transition">{{ projectName }}</router-link>.
                     </span> <!--  ™  -->
                     <span class="ml-1">All Rights Reserved.</span>
                 </span>

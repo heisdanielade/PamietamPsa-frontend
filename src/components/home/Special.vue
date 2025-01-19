@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <section class="special overflow-hidden mt-11 mb-20 mx-5 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg sm:p-8 md:p-8" id="special">
+    <section v-scroll-reveal class="not-shown special overflow-hidden mt-11 mb-20 mx-5 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg sm:p-8 md:p-8" id="special">
         <div class="flex items-center justify-evenly bg-purple-500 rounded-[1rem] select-none pt-14 pb-14 md:pr-10 md:pl-10 lg:pr-10 lg:pl-10">
 
             <div class="pet hidden md:flex lg:flex">

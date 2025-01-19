@@ -45,5 +45,14 @@ img{
 }
 
 
-
+/* --Scroll reveal animation-- */
+.not-shown {
+    opacity: 0;
+    scale: 0.81;
+    transition: all 0.73s;
+  }
+  .shown {
+    opacity: 1;
+    scale: 1;
+  }
   
