@@ -4,18 +4,15 @@ import { useProjectStore } from '@/stores/projectStore';
 import logoSrc from '@/assets/images/logos/logo.png';
 
 const projectName = useProjectStore().projectName;
-
 const currentYear = ref(new Date().getFullYear());
-// function getCurrentYear() {
-//     currentYear.value = new Date().getFullYear();
-// }
+
 </script>
 
 <template>
-    <footer class="bg-white overflow-hidden rounded-lg  dark:bg-gray-900 m-4">
-        <div v-scroll-reveal class="not-shwn w-full max-w-screen-lg mx-auto p-4 md:py-8">
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+    <footer class="bg-white overflow-hidden rounded-lg m-4">
+        <div class="w-full max-w-screen-lg mx-auto p-4 md:py-8">
+            <div v-scroll-reveal class="not-shown sm:flex sm:items-center sm:justify-between">
+                <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-2 rtl:space-x-reverse">
                     <img :src="logoSrc" class="h-8" :alt="projectName + ' logo'" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ projectName
                         }}</span>
@@ -39,13 +36,15 @@ const currentYear = ref(new Date().getFullYear());
                     </li>
                 </ul>
             </div>
-            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <hr v-scroll-reveal class="not-shown my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
 
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center ">
-                    <span>© {{ currentYear }} <router-link to="/" class="hover:text-purple-500 transition font-medium">{{ projectName }}</router-link>
-                    </span>  ™ 
-                    <span class="ml-5">All Rights Reserved.</span>
+            <div v-scroll-reveal class="not-shown sm:flex sm:items-center sm:justify-between">
+                <span class="sm:mb-4 text-sm text-gray-500 sm:text-center flex items-center justify-between">
+                    <span>© {{ currentYear }} 
+                        <router-link to="/" class="hover:text-purple-500 transition font-medium ml-[0.1rem]">{{ projectName }}</router-link>
+                        ™
+                    </span> 
+                    <span class=" md:ml-5 lg:ml-0">All Rights Reserved.</span>
                 </span>
                 <div class="flex mt-4 sm:justify-center sm:mt-0">
                     <router-link to="#" class="text-purple-500 hover:text-gray-500 transition">
