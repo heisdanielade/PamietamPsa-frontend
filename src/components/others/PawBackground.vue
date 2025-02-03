@@ -22,7 +22,7 @@
 import { reactive, onMounted } from "vue";
 
 // Number of dog paw icons to display
-const numIcons = 7;
+const numIcons = 5;
 
 // Reactive array to store positions
 const positions = reactive([]);

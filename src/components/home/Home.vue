@@ -8,13 +8,12 @@ import AuthBackground from "@/components/others/PawBackground.vue";
         <section class="home overflow-hidden mt-14 md:mt-8 lg:mt-8" id="home">
         <div class="flex flex-col items-center justify-center select-none w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div class="text-center flex flex-col items-center justify-center w-full">
-                <h1 v-scroll-reveal class="not-shown text-[2rem] leading-[2.625rem] md:leading-[4.5rem] lg:leading-[4.75rem] tracking-wide gradient-text-1 font-bold lg:font-semibold w-full lg:text-7xl md:text-6xl">
-                    Caring for your pets, <br>made simple and<br> stress-free.
-                    <!-- Hassle-Free Pet Care<br> Made Easy<br> -->
+                <h1 v-scroll-reveal class="not-shown md:mt-8 text-[2rem] leading-[2.625rem] md:leading-[4.5rem] lg:leading-[4.75rem] tracking-wide gradient-text-1 font-bold lg:font-semibold w-full lg:text-7xl md:text-6xl">
+                    Caring for your pets, <br>made simple and<br> stress free.
                 </h1>
             </div>
 
-            <div class="flex flex-col items-center text-center mt-5 lg:mt-6">
+            <div class="hidden flex-col items-center text-center mt-5 lg:mt-6">
                 <p v-scroll-reveal class=" not-shown text-xs tracking-wide lg:text-[0.9rem] text-gray-500 mb-7 lg:mb-8">
                     Vet visits and reminders for a <br>happy, healthy pet.
                     <!-- From vet visits to reminders, keep your<br> pet happy and healthy. -->

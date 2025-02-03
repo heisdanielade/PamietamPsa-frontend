@@ -9,9 +9,6 @@ export default {
       xl: '1280px',
     },
     extend: {
-      fontFamily: {
-        sans: ['Poppins', 'sans-serif'], // 'Space Grotesk',
-      },
       colors: {
         gray: {
           900: "#0F1112",
