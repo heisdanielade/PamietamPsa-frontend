@@ -13,10 +13,10 @@ const currentYear = ref(new Date().getFullYear());
 
 <template>
     <footer class="bg-white overflow-hidden rounded-lg  dark:bg-gray-900 m-4">
-        <div v-scroll-reveal class="not-shown w-full max-w-screen-lg mx-auto p-4 md:py-8">
+        <div v-scroll-reveal class="not-shwn w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                    <img :src="logoSrc" class="h-8" alt="Flowbite Logo" />
+                    <img :src="logoSrc" class="h-8" :alt="projectName + ' logo'" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ projectName
                         }}</span>
                 </router-link>
@@ -26,7 +26,10 @@ const currentYear = ref(new Date().getFullYear());
                         <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">About</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">Ts & Cs</a>
+                        <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">Terms</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">Privacy</a>
                     </li>
                     <li>
                         <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">Contact</a>
@@ -40,9 +43,9 @@ const currentYear = ref(new Date().getFullYear());
 
             <div class="sm:flex sm:items-center sm:justify-between">
                 <span class="text-sm text-gray-500 sm:text-center ">
-                    <span>© {{ currentYear }} <router-link to="/" class="hover:text-purple-500 transition">{{ projectName }}</router-link>.
-                    </span> <!--  ™  -->
-                    <span class="ml-1">All Rights Reserved.</span>
+                    <span>© {{ currentYear }} <router-link to="/" class="hover:text-purple-500 transition font-medium">{{ projectName }}</router-link>
+                    </span>  ™ 
+                    <span class="ml-5">All Rights Reserved.</span>
                 </span>
                 <div class="flex mt-4 sm:justify-center sm:mt-0">
                     <router-link to="#" class="text-purple-500 hover:text-gray-500 transition">

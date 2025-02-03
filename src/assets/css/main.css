@@ -39,15 +39,10 @@ img {
 }
 
 
-.primary-btn {
-  transition: all 0.3s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-}
 
 .primary-btn:hover {
   background: #5e1381;
   background: repeating-linear-gradient(to right, #5e1381 0%, #6c1a92 50%, #9046A5 100%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .gradient-text-1 {
