@@ -40,10 +40,13 @@ img {
 
 
 
-.primary-btn:hover {
-  background: #5e1381;
-  background: repeating-linear-gradient(to right, #5e1381 0%, #6c1a92 50%, #9046A5 100%);
+.color-dark {
+  color: rgb(39, 39, 39);
 }
+.bg-dark {
+  background-color: rgb(39, 39, 39);
+}
+
 
 .gradient-text-1 {
   background: #1b0525;

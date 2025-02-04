@@ -15,7 +15,7 @@ const projectName = useProjectStore().projectName;
                 </router>
                 <div class="flex items-center lg:order-2">
                     <router-link to="/u/login"
-                        class="login-btn primary-btn shadow-sm text-center w-[5rem] p-2 text-sm transition-all text-white font-medium rounded-full focus:outline-none">Login</router-link>
+                        class="bg-dark login-btn shadow-sm text-center w-[5rem] p-2 text-sm transition text-white font-medium rounded-full focus:outline-none">Login</router-link>
                     <button data-collapse-toggle="mobile-menu-2" type="button"
                         class="inline-flex items-center p-2 ml-3 text-sm text-gray-600 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         aria-controls="mobile-menu-2" aria-expanded="false">
@@ -42,16 +42,15 @@ const projectName = useProjectStore().projectName;
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-gray-600">My
-                                Pets</a>
-                        </li>
-                        <li>
-                            <a href="#"
                                 class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-gray-600">Adopt</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-gray-600">Contact</a>
+                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-gray-600">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-gray-600">Services</a>
                         </li>
                     </ul>
                 </div>
@@ -61,8 +60,10 @@ const projectName = useProjectStore().projectName;
 </template>
 
 
+
 <style scoped>
-.login-btn {
-    background-color: rgb(39, 39, 39);
+.login-btn:hover {
+    background: #5e1381;
+    background: repeating-linear-gradient(to right, #5e1381 0%, #6c1a92 50%, #9046A5 100%);
 }
 </style>

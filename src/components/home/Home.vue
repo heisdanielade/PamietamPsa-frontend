@@ -9,7 +9,7 @@ import AuthBackground from "@/components/others/PawBackground.vue";
         <div class="flex flex-col items-center justify-center select-none w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div class="text-center flex flex-col items-center justify-center w-full">
                 <h1 v-scroll-reveal class="not-shown md:mt-8 text-[2rem] leading-[2.1rem] md:leading-[4rem] lg:leading-[4.75rem] tracking-wide gradient-text-1 font-extrabold lg:font-bold w-full lg:text-7xl md:text-6xl">
-                    Caring for your pets, <br>made simple and<br> stress free.
+                    Caring for your pets made simple and stress free.
                 </h1>
             </div>
 
@@ -17,10 +17,10 @@ import AuthBackground from "@/components/others/PawBackground.vue";
                 <p v-scroll-reveal class="not-shown text-xs font-medium tracking-wide lg:text-[0.9rem] text-gray-500 mb-7 lg:mb-8">
                     Vet visits and reminders for a <br>happy, healthy pet.
                 </p>
-                <router-link to="/u/signup" v-scroll-reveal class="not-shown get-started flex items-center justify-center bg-purple-300 w-[12rem] h-12 rounded-full">
+                <router-link to="/u/signup" v-scroll-reveal class="not-shwn get-started hover:[bg-dark] hover:text-white hover:shadow-sm transition flex items-center justify-center bg-purple-300 w-[12rem] h-12 rounded-full">
                     <span class="font-semibold">Get Started Now</span>
                     <span class="bg-white text-sm ml-2 font-bold rounded-full w-6 h-6 flex items-center justify-center">
-                        <i class="transition ri-arrow-right-line"></i>
+                        <i class="transition hover:text-inherit ri-arrow-right-line"></i>
                     </span>
                 </router-link>
             </div>
@@ -45,18 +45,6 @@ import AuthBackground from "@/components/others/PawBackground.vue";
 
 
 <style scoped>
-.home .get-started{
-    transition: all 0.3s ease;
-}
-.home .get-started:hover {
-    color: white;
-    background-color: rgb(39, 39, 39);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-.home .get-started:hover i{
-    color: rgb(39, 39, 39);
-}
-
 .home .box img{
     transition: all 0.4s ease-in-out;
     transform: scale(1.03);
@@ -70,13 +58,6 @@ import AuthBackground from "@/components/others/PawBackground.vue";
 .home .box:nth-child(3){
     transform: translateY(2rem);
 }
-/* .home .box:nth-child(1) img{
-    transform: translateY(-1.5rem);
-}
-.home .box:nth-child(2) img{
-    transform: translateY(-0.7rem);
-} */
-
 .home .box:nth-child(2) img{
     transform: translateY(-2rem);
 }
