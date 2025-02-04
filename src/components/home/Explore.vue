@@ -1,19 +1,18 @@
-<script setup>
-</script>
 
 <template>
     <section class="explore overflow-hidden mt-11 bg-purple-50" id="explore">
         <div class="select-none pt-16 pb-16">
+            
             <div class="header text-center flex flex-col items-center justify-center w-full">
                 <h1 v-scroll-reveal class="not-shown gradient-text-1 text-3xl font-bold w-full lg:text-5xl md:text-4xl">
                     Explore our features
                 </h1>
                 <p v-scroll-reveal class="not-shown gradient-text-1 font-medium text-xs ml-8 mr-8 text-wrap lg:text-[0.9rem] mt-4">
-                    All the features you need to ensure your Pet's health and well-being.
+                    All the features you need to ensure your Pet's well-being.
                 </p>
             </div>
 
-            <div class="features flex flex-wrap justify-center items-center gap-[1.125rem] md:gap-7 lg:gap-10 mt-10 px-2">
+            <div class="features flex flex-wrap justify-center items-center gap-[1.05rem] md:gap-7 lg:gap-10 mt-10 px-2">
                 <div v-scroll-reveal class="not-shown card lg:scale-110 custom-cursor p-2 bg-white text-center flex flex-col items-center justify-center w-[10rem] h-[12rem] rounded-[1.25rem]">
                     <div class="icon bg-pink-400 font-bold text-white p-1 rounded-full w-9 h-9 flex items-center justify-center">
                         <i class="fa-solid fa-dog"></i>
@@ -46,8 +45,9 @@
 
         </div>
     </section>
-
 </template>
+
+
 
 <style scoped>
 .explore h1 {

@@ -15,6 +15,12 @@
 
       <!-- Explore Section -->
       <Explore></Explore>
+      
+      <!-- Blank 1 Section -->
+      <!-- <Explore></Explore> -->
+
+      <!-- Blank 2 Section -->
+      <!-- <Explore></Explore> -->
 
       <!-- Special Section -->
       <Special></Special>
