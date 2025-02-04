@@ -16,7 +16,7 @@ import AuthBackground from "@/components/others/PawBackground.vue";
 
             <div class="flex flex-col items-center text-center mt-5 lg:mt-6">
                 <p v-scroll-reveal class="not-shown text-xs font-medium tracking-wide lg:text-[0.9rem] text-gray-500 mb-7 lg:mb-8">
-                    Vet visits and reminders for a <br>happy, healthy pet.
+                    Vet visits and reminders for a <br class="md:hidden">happy, healthy pet.
                 </p>
                 <router-link to="/u/signup" v-scroll-reveal class="not-shown get-started-btn hover:text-white hover:shadow-sm transition flex items-center justify-center bg-purple-300 w-[12rem] h-12 rounded-full">
                     <span class="font-semibold">Get Started Now</span>
