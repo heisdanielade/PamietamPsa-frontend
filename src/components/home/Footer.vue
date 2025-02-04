@@ -47,19 +47,19 @@ const currentYear = ref(new Date().getFullYear());
                     <span class=" md:ml-5 lg:ml-0">All Rights Reserved.</span>
                 </div>
                 <div class="flex justify-center mt-7 md:mt-0">
-                    <a href="#" class="text-gray-500 hover:text-purple-500 transition">
+                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition">
                         <i class="fa-brands fa-facebook-f"></i>
                         <span class="sr-only">Facebook page</span>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-purple-500 transition ms-6">
+                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
                         <i class="fa-brands fa-linkedin-in"></i>
                         <span class="sr-only">LinkedIn profile</span>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-purple-500 transition ms-6">
+                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
                         <i class="fa-brands fa-instagram"></i>
                         <span class="sr-only">Instagram profile</span>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-purple-500 transition ms-6">
+                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
                         <i class="fa-brands fa-discord"></i>
                         <span class="sr-only">Discord community</span>
                     </a>

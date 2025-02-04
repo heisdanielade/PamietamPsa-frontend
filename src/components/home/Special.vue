@@ -22,7 +22,7 @@
                 </p>
 
                 <router-link to="/u/signup"
-                    class="mt-5 shadow-sm hover:text-white hover:bg-dark flex items-center justify-center font-semibold text-sm w-[7rem] h-9 rounded-full bg-white text-purple-500 transition">
+                    class="join-btn mt-5 shadow-sm hover:text-white flex items-center justify-center font-semibold text-sm w-[7rem] h-9 rounded-full bg-white text-purple-500 transition">
                     Join Us
                 </router-link>
             </div>
@@ -38,6 +38,12 @@
 
 
 <style scoped>
+.join-btn:hover{
+    background-color: var(--main-color);
+}
+.join-btn:hover i{
+    color: var(--main-color);
+}
 .center-pad {
     border-radius: 16% 84% 11% 89% / 84% 14% 86% 16% ;
 }

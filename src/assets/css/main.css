@@ -10,10 +10,16 @@
 @tailwind utilities;
 
 
-/* --Custom cursors */
+/* ========= VARIABLES ========== */
+:root {
+  --main-color:#272727;
+  --fourth-color: #212124;
+
+  --body-font: 'Bai Jamjuree', sans-serif;
+}
+
 body {
-  font-family: 'Bai Jamjuree', sans-serif;
-  /* font-family: 'Poppins', sans-serif; */
+  font-family: var(--body-font);
   cursor: url("src/assets/images/cursors/white-arrow.png"), auto;
 }
 
@@ -40,11 +46,12 @@ img {
 
 
 
+
 .color-dark {
-  color: rgb(39, 39, 39);
+  color: var(--main-color);
 }
 .bg-dark {
-  background-color: rgb(39, 39, 39);
+  background-color: var(--main-color);
 }
 
 
