@@ -8,7 +8,7 @@
                     Explore our features
                 </h1>
                 <p v-scroll-reveal class="not-shown gradient-text-1 font-medium text-xs ml-8 mr-8 text-wrap lg:text-[0.9rem] mt-4">
-                    All the features you need to ensure your Pet's well-being.
+                    All the features you need to ensure your Pets’ well-being.
                 </p>
             </div>
 

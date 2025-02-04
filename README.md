@@ -1,31 +1,23 @@
-# frontend
+## Project Title:  
+PamiętamPsa (Frontend): This project is part of my initiative to build a **pet care reminder and tracking app**. The frontend is designed to offer a seamless and user-friendly experience for pet owners to manage their pets’ care routines efficiently.  
 
-This template should help get you started developing with Vue 3 in Vite.
+🌐 [pamietampsa.netlify.app](https://pamietampsa.netlify.app)
 
-## Recommended IDE Setup
+## Project Description:  
+**PamiętamPsa** is a web application that allows users to track their pets’ activities, appointments, and care routines. The system enables pet owners to set reminders for vaccinations, feeding schedules, grooming sessions, and medical checkups. With a responsive and interactive design, users can effortlessly navigate and organize their pet-related tasks.  
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Features:  
+1. **User Authentication**: Secure login and signup functionality. **[In-progress]**
+2. **Pet Profile Management**: Add, edit, and view pet details such as name, age, breed, and medical history.  **[In-progress]**
+3. **Care Reminders**: Schedule notifications for pet-related tasks like feeding, vet visits, and grooming.  **[In-progress]**
+4. **Responsive Design**: Optimized for both desktop and mobile use.  
 
-## Customize configuration
+## Technologies Used:  
+- **Vue.js** (Frontend framework)  
+- **Tailwind CSS** (Styling)  
+- **Vue Router** (Navigation)  
+- **Axios** (API communication with backend)  
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+![Snapshot](./snapshot.png)
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-# PamiętamPsa - Frontend
-# PamiętamPsa - Frontend
+Feel free to contribute, report issues, or suggest enhancements on GitHub. Your feedback and contributions are welcome to improve the **PamiętamPsa** experience!  
