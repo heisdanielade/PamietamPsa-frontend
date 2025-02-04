@@ -1,10 +1,8 @@
-## Project Title:  
-PamiętamPsa (Frontend): This project is part of my initiative to build a **pet care reminder and tracking app**. The frontend is designed to offer a seamless and user-friendly experience for pet owners to manage their pets’ care routines efficiently.  
+## Project Description:  
+**PamiętamPsa** is a web application that allows users to track their pets’ activities, appointments, and care routines. The system enables pet owners to set reminders for vaccinations, feeding schedules, grooming sessions, and medical checkups. With a responsive and interactive design, users can effortlessly navigate and organize their pet-related tasks.  
 
 🌐 [pamietampsa.netlify.app](https://pamietampsa.netlify.app)
 
-## Project Description:  
-**PamiętamPsa** is a web application that allows users to track their pets’ activities, appointments, and care routines. The system enables pet owners to set reminders for vaccinations, feeding schedules, grooming sessions, and medical checkups. With a responsive and interactive design, users can effortlessly navigate and organize their pet-related tasks.  
 
 ## Features:  
 1. **User Authentication**: Secure login and signup functionality. **[In-progress]**
