@@ -17,29 +17,29 @@
                     <div class="icon bg-pink-400 font-bold text-white p-1 rounded-full w-9 h-9 flex items-center justify-center">
                         <i class="fa-solid fa-dog"></i>
                     </div>
-                    <div class="name mt-4 font-semibold text-[0.88rem]">Pet Profiles</div>
-                    <div class="info mt-2 text-[0.65rem] text-gray-600">Manage profiles for each pet.</div>
+                    <div class="name mt-4 font-semibold text-[0.88rem] color-dark">Pet Profiles</div>
+                    <div class="info mt-2 text-[0.69rem] text-gray-600x color-dark font-normal">Manage profiles for each pet.</div>
                 </div>
                 <div v-scroll-reveal class="not-shown card lg:scale-110 custom-cursor p-2 bg-purple-400 text-center flex flex-col items-center justify-center w-[10rem] h-[12rem] rounded-[1.25rem]">
                     <div class="icon bg-white text-pink-400 font-bold p-1 rounded-full w-9 h-9 flex items-center justify-center">
                         <i class="fa-regular fa-bell"></i>
                     </div>
                     <div class="name text-white mt-4 font-semibold text-[0.88rem]">Reminders</div>
-                    <div class="info text-gray-100 mt-2 text-[0.65rem]">Get reminders for grooming and meds.</div>
+                    <div class="info text-gray-50 mt-2 text-[0.69rem]">Receive reminders for grooming.</div>
                 </div>
                 <div v-scroll-reveal class="not-shown card lg:scale-110 custom-cursor p-2 bg-white text-center flex flex-col items-center justify-center w-[10rem] h-[12rem] rounded-[1.25rem]">
                     <div class="icon bg-yellow-200 font-bold text-white p-1 rounded-full w-9 h-9 flex items-center justify-center">
                         <i class="fa-solid fa-stethoscope"></i>
                     </div>
-                    <div class="name mt-4 font-semibold text-[0.88rem]">Health Tracker</div>
-                    <div class="info mt-2 text-[0.65rem] text-gray-600">Track vet visits and health records.</div>
+                    <div class="name mt-4 font-semibold text-[0.88rem] color-dark">Health Tracker</div>
+                    <div class="info mt-2 text-[0.69rem] text-gray-600x color-dark font-normal">Track vet visits and pet health records.</div>
                 </div>
                 <div v-scroll-reveal class="not-shown card lg:scale-110 custom-cursor p-2 bg-white text-center flex flex-col items-center justify-center w-[10rem] h-[12rem] rounded-[1.25rem]">
                     <div class="icon bg-purple-400 font-bold text-white p-1 rounded-full w-9 h-9 flex items-center justify-center">
                         <i class="fa-regular fa-address-book"></i>
                     </div>
-                    <div class="name mt-4 font-semibold text-[0.88rem]">Contact Storage</div>
-                    <div class="info mt-2 text-[0.65rem] text-gray-600">Save important pet contacts.</div>
+                    <div class="name mt-4 font-semibold text-[0.88rem] color-dark">Contact Vault</div>
+                    <div class="info mt-2 text-[0.69rem] text-gray-600x color-dark font-normal">Save important pet contacts.</div>
                 </div>
             </div>
 
