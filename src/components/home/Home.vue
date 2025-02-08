@@ -21,9 +21,9 @@ import AuthBackground from "@/components/others/PawBackground.vue";
 
             <div class="flex flex-col items-center text-center mt-6 lg:mt-7">
                 <p v-scroll-reveal class="not-shown text-base md:text-lg font-normal tracking-wide text-gray-500 mb-8 lg:mb-9">
-                    Vet visits and reminders for a <br class="xlg:hidden">happy, healthy pet.
+                    Vet visits and reminders for a <br>happy, healthy pet.
                 </p>
-                <router-link to="/u/signup" v-scroll-reveal class="not-shown get-started-btn hover:text-white hover:shadow-sm transition flex items-center justify-center bg-purple-300 w-[12rem] h-12 rounded-full">
+                <router-link to="/u/signup" v-scroll-reveal class="not-shown get-started-btn hover:text-white hover:shadow-sm transition flex items-center justify-center bg-purple-200 w-[12rem] h-12 rounded-2xl">
                     <span class="font-semibold text-base">Get Started Now</span>
                     <span class="bg-white text-sm ml-2 font-bold rounded-full w-6 h-6 flex items-center justify-center">
                         <i class="transition ri-arrow-right-line"></i>
@@ -32,16 +32,16 @@ import AuthBackground from "@/components/others/PawBackground.vue";
             </div>
 
             <div class="relative mt-5 md:mt-20 lg:mt-20 flex flex-wrap justify-center items-center gap-4">
-                <div v-scroll-reveal class="not-shown box custom-cursor relative flex items-center justify-center rounded-[1.75rem] w-[13rem] h-[12.4rem] bg-pink-200">
-                    <img class="pet absolute w-[13.2rem] h-[15rem]" v-lazy="'/src/assets/images/animals/7.png'" alt="Pet">
+                <div v-scroll-reveal class="not-shown box custom-cursor relative flex items-center justify-center w-[13rem] h-[12.4rem] bg-pink-200">
+                    <img class="pet absolute w-[13.2rem] h-[15rem]" v-lazy="'/src/assets/images/animals/webp/7.webp'" alt="Pet">
                 </div>
 
-                <div v-scroll-reveal class="not-shown box custom-cursor mt-24 md:mt-0 lg:mt-0 relative flex items-center justify-center ml-4 mr-4 rounded-[1.75rem] w-[13rem] h-[11rem] bg-purple-200">
-                    <img class="pet absolute w-[32rem] h-[15rem]" v-lazy="'/src/assets/images/animals/4.png'" alt="Pet">
+                <div v-scroll-reveal class="not-shown box custom-cursor mt-24 md:mt-0 lg:mt-0 relative flex items-center justify-center ml-4 mr-4 w-[13rem] h-[11rem] bg-purple-200">
+                    <img class="pet absolute w-[32rem] h-[15rem]" v-lazy="'/src/assets/images/animals/webp/4.webp'" alt="Pet">
                 </div>
 
-                <div v-scroll-reveal class="not-shown box custom-cursor relative hidden md:flex lg:flex items-center justify-center rounded-[1.75rem] w-[13rem] h-[12.4rem] bg-yellow-100">
-                    <img class="pet absolute w-[15rem] h-[13rem] scale-110" v-lazy="'/src/assets/images/animals/11.png'" alt="Pet">
+                <div v-scroll-reveal class="not-shown box custom-cursor relative hidden md:flex lg:flex items-center justify-center w-[13rem] h-[12.4rem] bg-yellow-100">
+                    <img class="pet absolute w-[15rem] h-[13rem] scale-110" v-lazy="'/src/assets/images/animals/webp/11.webp'" alt="Pet">
                 </div>
             </div>
         </div>
@@ -51,15 +51,6 @@ import AuthBackground from "@/components/others/PawBackground.vue";
 
 
 <style scoped>
-/* @media (max-width: 470px) {
-  .desktop-main-text{
-    display: none;
-  }
-  .mobile-main-text{
-    display: none;
-  }
-} */
-
 .mobile-main-text{
     line-height: 1;
 }
@@ -70,7 +61,7 @@ import AuthBackground from "@/components/others/PawBackground.vue";
     color: var(--main-color);
 }
 .box{
-    border-radius: 2rem;
+    border-radius: 1.625rem;
 }
 .box:first-child {
     /* border-radius: 30% 70% 11% 89% / 84% 14% 86% 16% ; */
