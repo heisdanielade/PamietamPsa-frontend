@@ -10,7 +10,7 @@ const currentYear = ref(new Date().getFullYear());
 
 
 <template>
-    <footer class="xbg-white overflow-hidden rounded-lg mt-28 bg-purple-50">
+    <footer class="xbg-white overflow-hidden rounded-lg mt-28 bg-inherit">
         <div class="w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div v-scroll-reveal class="not-shown sm:flex sm:items-center sm:justify-between">
                 <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-2 rtl:space-x-reverse">
@@ -18,7 +18,7 @@ const currentYear = ref(new Date().getFullYear());
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ projectName
                         }}</span>
                 </router-link>
-                <ul class="flex flex-wrap items-center justify-evenly mb-4 text-sm font-medium text-gray-600">
+                <ul class="flex flex-wrap items-center justify-evenly mb-4 text-sm font-medium text-gray-500">
                     <li class="">
                         <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">About Us</a>
                     </li>
@@ -43,7 +43,7 @@ const currentYear = ref(new Date().getFullYear());
 
 
             <div v-scroll-reveal class="not-shown sm:flex sm:items-center sm:justify-between">
-                <div class="text-sm text-gray-600 sm:text-center flex items-center justify-between">
+                <div class="text-sm text-gray-500 sm:text-center flex items-center justify-between">
                     <span>© {{ currentYear }} 
                         <router-link to="/" class="hover:text-purple-500 transition font-medium ml-[0.1rem]">{{ projectName }}</router-link>
                         ™
@@ -51,23 +51,23 @@ const currentYear = ref(new Date().getFullYear());
                     <span class=" md:ml-5 lg:ml-0">All Rights Reserved.</span>
                 </div>
                 <div class="flex justify-center mt-7 md:mt-0">
-                    <a href="#" class="text-base text-gray-600 hover:text-purple-500 transition">
+                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition">
                         <i class="fa-brands fa-facebook-f"></i>
                         <span class="sr-only">Facebook page</span>
                     </a>
-                    <a href="#" class="text-base text-gray-600 hover:text-purple-500 transition ms-6">
+                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
                         <i class="fa-brands fa-linkedin-in"></i>
                         <span class="sr-only">LinkedIn profile</span>
                     </a>
-                    <a href="#" class="text-base text-gray-600 hover:text-purple-500 transition ms-6">
+                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
                         <i class="fa-brands fa-instagram"></i>
                         <span class="sr-only">Instagram profile</span>
                     </a>
-                    <a href="#" class="text-base text-gray-600 hover:text-purple-500 transition ms-6">
+                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
                         <i class="fa-brands fa-medium"></i>
                         <span class="sr-only">Medium page</span>
                     </a>
-                    <a href="#" class="text-base text-gray-600 hover:text-purple-500 transition ms-6">
+                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
                         <i class="fa-brands fa-discord"></i>
                         <span class="sr-only">Discord community</span>
                     </a>

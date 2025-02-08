@@ -18,6 +18,18 @@
 body {
   font-family: var(--body-font);
   cursor: url("src/assets/images/cursors/white-arrow.png"), auto;
+  overflow-x: hidden;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
 }
 
 a,
@@ -28,17 +40,7 @@ button,
 
 img {
   user-select: none;
-  /* Modern browsers */
-  -webkit-user-drag: none;
-  /* Prevent dragging in WebKit browsers */
-  -webkit-user-select: none;
-  /* Safari */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
   pointer-events: none;
-  /* Disable all pointer interactions */
 }
 
 

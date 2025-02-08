@@ -23,7 +23,7 @@
       <Preview></Preview>
 
       <!-- Blank Section -->
-      <Explore></Explore>
+      <!-- <Explore></Explore> -->
 
       <!-- Special Section -->
       <Special></Special>

@@ -12,7 +12,7 @@
                 </p>
             </div>
 
-            <div class="features flex flex-wrap justify-center items-center gap-[1.05rem] md:gap-7 lg:gap-10 mt-10 px-2">
+            <div class="features flex flex-wrap justify-center items-center gap-[1.05rem] md:gap-7 lg:gap-10 mt-12 px-2">
                 <div v-scroll-reveal class="not-shown card lg:scale-110 custom-cursor p-2 bg-white text-center flex flex-col items-center justify-center w-[10rem] h-[12rem] rounded-[1.25rem]">
                     <div class="icon bg-pink-400 font-bold text-white p-1 rounded-full w-9 h-9 flex items-center justify-center">
                         <i class="fa-solid fa-dog"></i>
@@ -50,13 +50,6 @@
 
 
 <style scoped>
-/* .explore h1 {
-    background: #1b0525;
-    background: repeating-linear-gradient(to right, #1b0525 0%, #450f5e 50%, #8f45a3 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-} */
-
 .explore .card{
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
