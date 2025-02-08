@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 import { useProjectStore } from '@/stores/projectStore';
-import logoSrc from '@/assets/images/logos/logo.png';
 
 const projectName = useProjectStore().projectName;
 const currentYear = ref(new Date().getFullYear());
@@ -14,7 +13,7 @@ const currentYear = ref(new Date().getFullYear());
         <div class="w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div v-scroll-reveal class="not-shown sm:flex sm:items-center sm:justify-between">
                 <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-2 rtl:space-x-reverse">
-                    <img :src="logoSrc" class="h-8" :alt="projectName + ' logo'" />
+                    <img v-lazy="'/src/assets/images/logos/logo.png'" class="h-8" :alt="projectName + ' logo'" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ projectName
                         }}</span>
                 </router-link>
@@ -39,7 +38,7 @@ const currentYear = ref(new Date().getFullYear());
             </div>
 
 
-            <hr v-scroll-reveal class="not-shwn my-6 border-gray-200 border-1 sm:mx-auto lg:my-8" />
+            <hr class="my-6 border-gray-200 border-1 sm:mx-auto lg:my-8" />
 
 
             <div v-scroll-reveal class="not-shown sm:flex sm:items-center sm:justify-between">

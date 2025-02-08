@@ -11,7 +11,7 @@ const projectName = useProjectStore().projectName;
         <nav class="blur-bg fixed z-50 top-0 w-full overflow-hidden lg:px-6 py-2.5">
             <div class="rounded-xl px-2 py-2 md:p-4 flex flex-wrap justify-between items-center mx-auto max-w-screen-lg">
                 <router-link to="/" class="flex items-center">
-                    <img :src="logoSrc" class="mr-3 h-6 sm:h-9" alt="Logo" />
+                    <img v-lazy="'/src/assets/images/logos/logo.png'" class="mr-3 h-6 sm:h-9" alt="Logo" />
                     <span class="self-center text-xl font-semibold whitespace-nowrap">{{ projectName }}</span>
                 </router-link>
                 <div class="flex items-center lg:order-2">

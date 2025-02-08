@@ -26,7 +26,7 @@
       <!-- <Explore></Explore> -->
 
       <!-- Special Section -->
-      <Special></Special>
+      <!-- <Special></Special> -->
 
       <!-- Footer Section -->
       <Footer></Footer>

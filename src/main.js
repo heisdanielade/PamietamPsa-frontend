@@ -5,12 +5,20 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 import { useProjectStore } from '@/stores/projectStore';
+import VueLazyload from 'vue-lazyload';
+
 
 
 const app = createApp(App);
 
 app.use(router);
 app.use(createPinia());
+app.use(VueLazyload, {
+  preLoad: 1.7,
+  loading: '/src/assets/loading-placeholder.jpg',
+  error: '/src/assets/error-placeholder.jpg',
+});
+
 
 const projectName = useProjectStore().projectName;
 router.afterEach((to) => {
