@@ -2,9 +2,12 @@
   import Header from "@/components/home/Header.vue";
   import Home from "@/components/home/Home.vue";
   import Explore from "@/components/home/Explore.vue";
+  import Preview from "@/components/home/Preview.vue";
   import Special from "@/components/home/Special.vue";
   import Footer from "@/components/home/Footer.vue";
 </script>
+
+
 <template>
 
       <!-- Header Section -->
@@ -16,15 +19,15 @@
       <!-- Explore Section -->
       <Explore></Explore>
       
-      <!-- Blank 1 Section -->
-      <!-- <Explore></Explore> -->
+      <!-- Preview Section -->
+      <Preview></Preview>
 
-      <!-- Blank 2 Section -->
-      <!-- <Explore></Explore> -->
+      <!-- Blank Section -->
+      <Explore></Explore>
 
       <!-- Special Section -->
       <Special></Special>
 
       <!-- Footer Section -->
       <Footer></Footer>
-    </template>
+</template>

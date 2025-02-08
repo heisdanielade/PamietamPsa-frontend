@@ -7,7 +7,7 @@
                 <h1 v-scroll-reveal class="not-shown gradient-text-1 text-3xl font-bold w-full lg:text-5xl md:text-4xl">
                     Explore our features
                 </h1>
-                <p v-scroll-reveal class="not-shown gradient-text-1 font-medium text-xs ml-8 mr-8 text-wrap lg:text-[0.9rem] mt-4">
+                <p v-scroll-reveal class="hidden not-shown gradient-text-1 font-medium text-xs ml-8 mr-8 text-wrap lg:text-[0.9rem] mt-4">
                     All the features you need to ensure your Pets’ well-being.
                 </p>
             </div>
@@ -50,12 +50,12 @@
 
 
 <style scoped>
-.explore h1 {
+/* .explore h1 {
     background: #1b0525;
     background: repeating-linear-gradient(to right, #1b0525 0%, #450f5e 50%, #8f45a3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
+} */
 
 .explore .card{
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
