@@ -13,7 +13,7 @@ const currentYear = ref(new Date().getFullYear());
         <div class="w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div v-scroll-reveal class="not-shown sm:flex sm:items-center sm:justify-between">
                 <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-2 rtl:space-x-reverse">
-                    <img v-lazy="'/src/assets/images/logos/logo.png'" class="h-8" :alt="projectName + ' logo'" />
+                    <img src="/src/assets/images/logos/logo.png" class="h-8" :alt="projectName + ' logo'" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ projectName
                         }}</span>
                 </router-link>

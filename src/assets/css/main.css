@@ -47,7 +47,6 @@ img {
 
 
 .blur-bg{
-  /* background-color: rgba(238, 189, 248, 0.199); */
   background-color: rgba(246, 245, 255, 0.363);
   
   /* background-color: rgba(255, 255, 255, 0.404); */
@@ -64,20 +63,22 @@ img {
 
 
 .gradient-text-1{
-  background: #1b0525;
   background: linear-gradient(180deg, #1b0525 0%, #6f2b8f 50%, #e09df3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .gradient-text-2 {
-  background: #44105c;
   background: linear-gradient(to right, #4a175e 0%, #ac8cbb 50%, #bc98ca 85%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .gradient-text-3{
-  background: #44105c;
   background: linear-gradient(to right, #cb89e6 0%, #f8e9ff 50%, #f8f8f8 85%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient-text-4{
+  background: linear-gradient(to left, #12031a 0%, #a660c7 50%, #f0c5fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

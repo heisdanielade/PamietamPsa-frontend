@@ -8,7 +8,7 @@
         <div v-scroll-reveal
             class="not-shown xbg-red-300 text h-full relative md:absolute top-0 md:left-1/2 md:-translate-x-1/2 flex flex-col items-center">
             <h1 class="text-[9.25rem] opacity-100 font-semibold">
-                200
+                340
             </h1>
             <h2 class="text-7xl font-semibold opacity-100">
                 thousand
@@ -70,12 +70,16 @@ img:nth-child(4) {
 
 /* -- text -- */
 .text h1 {
+    /* background: linear-gradient(180deg, #a465bd 0%, #e7d2f1 50%, #f8f8f8 74%); */
+
     background: linear-gradient(180deg, #be7cd8 0%, #ecdaf5 50%, #ffffff 75%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .text h2 {
+    /* color: #e0caeb; */
+
     color: #ead6f3;
     transform: translateY(-5.15rem);
 }

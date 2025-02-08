@@ -15,8 +15,9 @@ app.use(router);
 app.use(createPinia());
 app.use(VueLazyload, {
   preLoad: 1.7,
-  loading: '/src/assets/loading-placeholder.jpg',
-  error: '/src/assets/error-placeholder.jpg',
+  attempt: 1
+  // loading: '/src/assets/loading-placeholder.jpg',
+  // error: '/src/assets/error-placeholder.jpg',
 });
 
 
