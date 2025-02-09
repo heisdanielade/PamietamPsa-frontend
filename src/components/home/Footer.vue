@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useProjectStore } from '@/stores/projectStore';
-
-const projectName = useProjectStore().projectName;
+import Logo from "@/components/others/Logo.vue";
 const currentYear = ref(new Date().getFullYear());
 
 </script>
@@ -13,9 +11,7 @@ const currentYear = ref(new Date().getFullYear());
         <div class="w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div v-scroll-reveal class="not-shown sm:flex sm:items-center sm:justify-between">
                 <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-2 rtl:space-x-reverse">
-                    <img src="/src/assets/images/logos/logo.png" class="h-8" :alt="projectName + ' logo'" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap">
-                        {{ projectName }}</span>
+                    <Logo/>
                 </router-link>
                 <ul class="flex flex-wrap items-center justify-evenly mb-4 text-sm font-medium text-gray-500">
                     <li class="">

@@ -17,7 +17,7 @@
 
 body {
   font-family: var(--body-font);
-  cursor: url("src/assets/images/cursors/white-arrow.png"), auto;
+  cursor: url("@/assets/images/cursors/white-arrow.png"), auto;
   overflow-x: hidden;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -35,7 +35,7 @@ body {
 a,
 button,
 .custom-cursor {
-  cursor: url("src/assets/images/cursors/finger.png"), auto;
+  cursor: url("@/assets/images/cursors/finger.png"), auto;
 }
 
 img {

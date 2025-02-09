@@ -1,11 +1,11 @@
 <script setup>
 import AuthBackground from "@/components/others/PawBackground.vue";
-import LoginForm from "@/components/auth/forms/LoginForm.vue";
+import SignUpForm from "@/components/auth/forms/SignUpForm.vue";
 </script>
 
 <template>
   <AuthBackground>
-    <LoginForm></LoginForm>
+    <SignUpForm></SignUpForm>
   </AuthBackground>
 </template>
 

@@ -1,9 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { useProjectStore } from '@/stores/projectStore';
-import logoSrc from '@/assets/images/logos/logo.png';
-
-const projectName = useProjectStore().projectName;
+import Logo from "@/components/others/Logo.vue";
 
 const user = {
     isLoggedIn: false,
@@ -13,7 +10,6 @@ const user = {
 
 const isVisible = ref(false);
 const toggle = () => {
-    console.log("\n(i) Mobile menu button clicked.");
     isVisible.value = !isVisible.value;
 };
 
@@ -25,11 +21,10 @@ const toggle = () => {
     <header>
         <nav class="blur-bg-2 fixed z-50 top-0 w-full overflow-hidden md:px-6 py-2.5">
             <div
-                class="rounded-xl px-2 py-2 md:p-4 flex flex-wrap justify-between items-center mx-auto max-w-screen-lg">
+                class="rounded-xl px-4 md:px-2 py-2 md:p-4 flex flex-wrap justify-between items-center mx-auto max-w-screen-lg">
                 <!-- Logo -->
                 <router-link to="/" class="flex items-center">
-                    <img src="/src/assets/images/logos/logo.png" class="mr-3 h-6 sm:h-9" alt="Logo" />
-                    <span class="self-center text-xl font-semibold whitespace-nowrap">{{ projectName }}</span>
+                    <Logo/>
                 </router-link>
                 <div class="flex items-center md:order-2">
                     <!-- User avatar if user is logged in -->
@@ -59,13 +54,14 @@ const toggle = () => {
 
                 </div>
 
+                
                 <!-- Desktop menu -->
                 <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
                     <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
                         <li>
                             <router-link to="/x"
-                                class="block py-2 pr-4 pl-3 text-gray-800 rounded bg-primary-700 md:bg-transparent md:text-primary-700 md:p-0"
-                                aria-current="page">Home</router-link>
+                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+                                >About Us</router-link>
                         </li>
                         <li>
                             <router-link to="/x"
@@ -73,12 +69,12 @@ const toggle = () => {
                         </li>
                         <li>
                             <router-link to="/x"
-                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Contact
-                                Us</router-link>
+                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">
+                                Support</router-link>
                         </li>
                         <li>
-                            <router-link to="/x"
-                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Services</router-link>
+                            <a href="https://github.com/heisdanielade" target="_blank"
+                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Creator</a>
                         </li>
                     </ul>
                 </div>
@@ -88,13 +84,13 @@ const toggle = () => {
         <!-- Mobile Navbar -->
         <Transition name="slide">
             <div v-if="isVisible"
-                class="mobile-menu pt-16 px-5 block md:hidden fixed top-0 left-0 z-40 w-full h-[17rem] rounded-b-3xl blur-bg">
+                class="mobile-menu pt-16 px-5 block md:hidden fixed top-0 left-0 z-40 w-full h-[15rem] rounded-b-3xl blur-bg">
                 <ul class="flex flex-col mt-6 font-semibold text-sm">
                     <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
-                        <router-link to="/x" aria-current="page" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
+                        <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
                             <i class="mr-2 text-gray-300 fa-solid fa-house"></i>
                             <span class="">
-                                Home
+                                About Us
                             </span>
                         </router-link>
                     </li>
@@ -110,15 +106,7 @@ const toggle = () => {
                         <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
                             <i class="mr-2 text-gray-300 ri-customer-service-line"></i>
                             <span class="">
-                                Contact
-                            </span>
-                        </router-link>
-                    </li>
-                    <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
-                        <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
-                            <i class="mr-2 text-gray-300 ri-service-fill"></i>
-                            <span class="">
-                                Services
+                                Support
                             </span>
                         </router-link>
                     </li>
