@@ -32,7 +32,7 @@ const currentYear = ref(new Date().getFullYear());
                         <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">Support</a>
                     </li>
                     <li class="mt-0 md:mt-0">
-                        <a href="https://heisdanielade.xyz" target="_blank" class="hover:text-purple-500 transition">Dev</a>
+                        <a href="https://github.com/heisdanielade" target="_blank" class="hover:text-purple-500 transition">Creator</a>
                     </li>
                 </ul>
             </div>
