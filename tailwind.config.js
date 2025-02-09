@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}", "./node_modules/flowbite/**/*.js"],
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     screens: {
       sm: '640px',
@@ -16,10 +16,6 @@ export default {
           700: "#181A1E",
           400: "#55565C",
         },
-        indigo: {
-          400: "#927CFF",
-          700: "#4D3E97",
-        },
         green: {
           400: "#01F0C8",
           700: "#009C80",
@@ -31,6 +27,5 @@ export default {
     },
   },
   plugins: [
-    require('flowbite/plugin')
   ],
 };
