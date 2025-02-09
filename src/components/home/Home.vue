@@ -41,7 +41,7 @@ import AuthBackground from "@/components/others/PawBackground.vue";
                 </div>
 
                 <div v-scroll-reveal class="not-shown box custom-cursor relative hidden md:flex lg:flex items-center justify-center w-[13rem] h-[12.4rem] bg-yellow-100">
-                    <img class="pet absolute w-[15rem] h-[13rem] scale-110" src="/src/assets/images/animals/webp/11.webp" alt="Pet">
+                    <img class="pet absolute w-[15rem] h-[13rem]" src="/src/assets/images/animals/webp/11.webp" alt="Pet">
                 </div>
             </div>
         </div>
@@ -63,16 +63,6 @@ import AuthBackground from "@/components/others/PawBackground.vue";
 .box{
     border-radius: 1.625rem;
 }
-.box:first-child {
-    /* border-radius: 30% 70% 11% 89% / 84% 14% 86% 16% ; */
-}
-.box:nth-child(2) {
-    /* border-radius: 9% 91% 9% 91% / 90% 9% 91% 10% ; */
-}
-.box:last-child {
-    /* border-radius: 13% 87% 11% 89% / 89% 38% 62% 11% ; */
-}
-
 .home .box img{
     transition: all 0.4s ease-in-out;
     scale: 1.03;
@@ -90,7 +80,7 @@ import AuthBackground from "@/components/others/PawBackground.vue";
     transform: translateY(-2rem);
 }
 .home .box:nth-child(3) img{
-    transform: translateY(0.65rem);
+    transform: translateY(-0.07rem) scale(1.14);
 }
 
 

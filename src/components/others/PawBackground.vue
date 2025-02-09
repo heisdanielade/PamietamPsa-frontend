@@ -5,9 +5,9 @@
       v-for="(position, index) in positions"
       :key="index"
       src="/src/assets/images/icons/paws.png"
-      class="absolute w-8 h-8"
+      class="absolute w-6 h-6"
       :style="{ top: position.top, left: position.left }"
-      alt="Dog Paw"
+      alt="Dog's paw icon"
       @contextmenu.prevent
     />
 

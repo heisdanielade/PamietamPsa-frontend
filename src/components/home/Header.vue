@@ -7,7 +7,7 @@ const projectName = useProjectStore().projectName;
 
 const user = {
     isLoggedIn: false,
-    isLoggedIn: true,
+    // isLoggedIn: true,
     initials: "H",
 }
 
@@ -23,7 +23,7 @@ const toggle = () => {
 
 <template>
     <header>
-        <nav class="blur-bg fixed z-50 top-0 w-full overflow-hidden md:px-6 py-2.5">
+        <nav class="blur-bg-2 fixed z-50 top-0 w-full overflow-hidden md:px-6 py-2.5">
             <div
                 class="rounded-xl px-2 py-2 md:p-4 flex flex-wrap justify-between items-center mx-auto max-w-screen-lg">
                 <!-- Logo -->
@@ -52,31 +52,33 @@ const toggle = () => {
 
                     <!-- Button to activate mobile menu -->
                     <button @click="toggle" type="button"
-                        class="inline-flex items-center justify-center p-1 w-9 h-9  ml-5 mr-1 text-2xl text-gray-600 rounded-lg md:hidden xhover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-200">
+                        class="inline-flex items-center justify-center p-1 w-[2.125rem] h-[2.125rem]  ml-5 mr-1 text-2xl text-gray-600 rounded-lg md:hidden xhover:bg-gray-100 focus:outline-none ring-2 ring-gray-200 focus:ring-gray-300">
                         <i class="ri-menu-4-line"></i>
                         <span class="sr-only">Open main menu</span>
                     </button>
+
                 </div>
 
+                <!-- Desktop menu -->
                 <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
                     <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
                         <li>
-                            <a href="#"
+                            <router-link to="/x"
                                 class="block py-2 pr-4 pl-3 text-gray-800 rounded bg-primary-700 md:bg-transparent md:text-primary-700 md:p-0"
-                                aria-current="page">Home</a>
+                                aria-current="page">Home</router-link>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Adopt</a>
+                            <router-link to="/x"
+                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Adopt</router-link>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-gray-600">Contact
-                                Us</a>
+                            <router-link to="/x"
+                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Contact
+                                Us</router-link>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-gray-600">Services</a>
+                            <router-link to="/x"
+                                class="block py-2 pr-4 pl-3 text-gray-500 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Services</router-link>
                         </li>
                     </ul>
                 </div>
@@ -85,8 +87,50 @@ const toggle = () => {
 
         <!-- Mobile Navbar -->
         <Transition name="slide">
-            <div v-if="isVisible" class="mobile-menu block md:hidden fixed top-0 right-0 z-40 w-1/2 md:w-2/5 h-full xrounded-bl-3xl blur-bg">
-
+            <div v-if="isVisible"
+                class="mobile-menu pt-16 px-5 block md:hidden fixed top-0 left-0 z-40 w-full h-[17rem] rounded-b-3xl blur-bg">
+                <ul class="flex flex-col mt-6 font-semibold text-sm">
+                    <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
+                        <router-link to="/x" aria-current="page" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
+                            <i class="mr-2 text-gray-300 fa-solid fa-house"></i>
+                            <span class="">
+                                Home
+                            </span>
+                        </router-link>
+                    </li>
+                    <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
+                        <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
+                            <i class="mr-2 text-gray-300 fa-solid fa-cat"></i>
+                            <span class="">
+                                Adopt
+                            </span>
+                        </router-link>
+                    </li>
+                    <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
+                        <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
+                            <i class="mr-2 text-gray-300 ri-customer-service-line"></i>
+                            <span class="">
+                                Contact
+                            </span>
+                        </router-link>
+                    </li>
+                    <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
+                        <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
+                            <i class="mr-2 text-gray-300 ri-service-fill"></i>
+                            <span class="">
+                                Services
+                            </span>
+                        </router-link>
+                    </li>
+                    <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
+                        <a href="https://github.com/heisdanielade" target="_blank" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
+                            <i class="mr-2 text-gray-300 ri-code-s-slash-line"></i>
+                            <span class="">
+                                Creator
+                            </span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </Transition>
 
@@ -101,20 +145,35 @@ const toggle = () => {
     background: repeating-linear-gradient(to right, #5e1381 0%, #6c1a92 50%, #9046A5 100%);
 }
 
-/* Mobile menu visibility animation */
+
+/* -- Moblie menu -- */
+.moblie-menu-link{
+    transition: all 0.3s ease;
+}
+
+/* -- Mobile menu visibility animation -- */
 .slide-enter-active,
 .slide-leave-active {
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease-in-out;
 }
-.slide-enter-from, 
-.slide-leave-to {
-  transform: translateX(120%);
-  opacity: 0;
+
+.slide-enter-from {
+    transform: translateY(-120%);
+    opacity: 0;
 }
 
-.slide-enter-to, 
+.slide-enter-to {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .slide-leave-from {
-  transform: translateX(0);
-  opacity: 1;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-leave-to {
+    transform: translateY(-120%);
+    opacity: 0;
 }
 </style>

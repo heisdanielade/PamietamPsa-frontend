@@ -15,7 +15,7 @@
             <div class="features flex flex-wrap justify-center items-center gap-[1.05rem] md:gap-7 lg:gap-10 mt-12 px-2">
                 <div v-scroll-reveal class="not-shown card lg:scale-110 custom-cursor p-2 bg-white text-center flex flex-col items-center justify-center w-[10rem] h-[12rem] rounded-[1.25rem]">
                     <div class="icon bg-pink-400 font-bold text-white p-1 rounded-full w-9 h-9 flex items-center justify-center">
-                        <i class="fa-solid fa-dog"></i>
+                        <i class="fa-solid fa-cat"></i>
                     </div>
                     <div class="name mt-4 font-semibold text-[0.88rem] color-dark">Pet Profiles</div>
                     <div class="info mt-2 text-[0.69rem] text-gray-600x color-dark font-normal">Manage profiles for each pet.</div>

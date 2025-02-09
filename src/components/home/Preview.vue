@@ -22,13 +22,13 @@
         <!-- Images -->
         <div class="images xbg-green-200 md:mt-28 flex items-center -translate-x-[1.25rem] md:-translate-x-10 lg:-translate-x-14">
             <img v-scroll-reveal src="/src/assets/images/backgrounds/webp/dog-purple.webp" alt="Dog with colored background"
-                class="not-shown w-[14rem] md:w-[16rem] rounded-[1.25rem] opacity-60 mr-8">
+                class="not-shown w-[14rem] h-full md:w-[16rem] rounded-[1.25rem] opacity-60 mr-8">
             <img v-scroll-reveal src="/src/assets/images/backgrounds/webp/dog-yellow.webp" alt="Dog with colored background"
-                class="not-shown w-[14rem] md:w-[16rem] rounded-[1.25rem] opacity-60 mr-8">
+                class="not-shown w-[14rem] h-full md:w-[16rem] rounded-[1.25rem] opacity-60 mr-8">
             <img v-scroll-reveal src="/src/assets/images/backgrounds/webp/dog-green.webp" alt="Dog with colored background"
-                class="not-shown w-[14rem] md:w-[16rem] rounded-[1.25rem] opacity-60 mr-8">
+                class="not-shown w-[14rem] h-full md:w-[16rem] rounded-[1.25rem] opacity-60 mr-8">
             <img v-scroll-reveal src="/src/assets/images/backgrounds/webp/dog-orange.webp" alt="Dog with colored background"
-                class="hidden md:flex not-shown w-[14rem] md:w-[16rem] rounded-[1.25rem] opacity-60">
+                class="hidden md:flex not-shown w-[14rem] h-full md:w-[16rem] rounded-[1.25rem] opacity-60">
         </div>
 
 
