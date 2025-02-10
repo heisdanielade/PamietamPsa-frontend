@@ -84,11 +84,11 @@ const toggle = () => {
         <!-- Mobile Navbar -->
         <Transition name="slide">
             <div v-if="isVisible"
-                class="mobile-menu pt-16 px-5 block md:hidden fixed top-0 left-0 z-40 w-full h-[15rem] rounded-b-3xl blur-bg">
+                class="mobile-menu blur-bg-2 pt-16 px-5 block md:hidden fixed top-0 left-0 z-40 w-full h-[15rem] rounded-b-3xl">
                 <ul class="flex flex-col mt-6 font-semibold text-sm">
                     <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
                         <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
-                            <i class="mr-2 text-gray-300 fa-solid fa-house"></i>
+                            <i class="mr-2 text-gray-400 fa-solid fa-house"></i>
                             <span class="">
                                 About
                             </span>
@@ -96,7 +96,7 @@ const toggle = () => {
                     </li>
                     <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
                         <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
-                            <i class="mr-2 text-gray-300 fa-solid fa-cat"></i>
+                            <i class="mr-2 text-gray-400 fa-solid fa-cat"></i>
                             <span class="">
                                 Adopt
                             </span>
@@ -104,7 +104,7 @@ const toggle = () => {
                     </li>
                     <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
                         <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
-                            <i class="mr-2 text-gray-300 ri-customer-service-line"></i>
+                            <i class="mr-2 text-gray-400 ri-customer-service-line"></i>
                             <span class="">
                                 Support
                             </span>
@@ -112,7 +112,7 @@ const toggle = () => {
                     </li>
                     <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
                         <a href="https://github.com/heisdanielade" target="_blank" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
-                            <i class="mr-2 text-gray-300 ri-code-s-slash-line"></i>
+                            <i class="mr-2 text-gray-400 ri-code-s-slash-line"></i>
                             <span class="">
                                 Creator
                             </span>
