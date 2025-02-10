@@ -8,7 +8,7 @@ const user = {
     isLoggedIn: true,
     initials: "H",
     hasProfileImage: true,
-    profileImage: "/src/assets/images/others/user.webp",
+    profileImage: "",
 }
 
 const isVisible = ref(false);
@@ -34,7 +34,7 @@ const toggle = () => {
                     <router-link v-if="user.isLoggedIn" to="/u/profile" class="relative">
                         <div class="inline-flex items-center justify-center w-11 h-11 overflow-hidden bg-gray-100 border-[0.15rem] border-gray-200 rounded-full">
                             <span v-if="user.hasProfileImage" class="flex items-center justify-center">
-                                <img :src="user.profileImage" alt="User Profile Image" class="object-fill w-11 h-11">
+                                <img src="@/assets/images/others/user.webp" alt="User Profile Image" class="object-fill w-11 h-11">
                             </span>
                             <span v-else class="font-semibold text-lg md:text-xl text-gray-600">
                                 {{ user.initials }}
