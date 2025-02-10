@@ -5,7 +5,7 @@ import Logo from "@/components/others/Logo.vue";
 
 
 <template>
-  <div class="xmt-10 xmd:mt-0 max-w-4xl md:max-w-2xl lg:max-w-2xl flex flex-col items-center justify-center mx-auto md:h-screen p-1">
+  <div class="bg-purple-50 max-w-4xl md:max-w-2xl lg:max-w-2xl flex flex-col items-center justify-center mx-auto md:h-screen p-1">
     <div class="custom-cursor md:grid md:grid-cols-3 w-full mx-auto items-center  shadow-sm md:shadow-slate-300 rounded-3xl overflow-hidden">
 
       <!-- Left Section -->
@@ -22,7 +22,7 @@ import Logo from "@/components/others/Logo.vue";
 
       <!-- Form Section -->
       <form @submit.prevent class="bg-white md:col-span-2 w-full py-6 px-6 sm:px-16 max-md:max-w-xl mx-auto">
-        <div class="mb-6">
+        <div class="mb-6 w-full flex items-center justify-center">
           <h3 class="text-gray-800 text-xl font-semibold">Access your account</h3>
         </div>
 

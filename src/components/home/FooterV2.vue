@@ -11,7 +11,7 @@ const currentYear = ref(new Date().getFullYear());
 
 <template>
     <footer v-scroll-reveal
-        class="not-shown md:bg-purple-100 flex flex-col justify-end md:justify-between overflow-hidden rounded-[2.25rem] px-5 py-7 md:p-3 mt-32 mb-0 md:mb-10 xh-[10rem] md:h-auto md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
+        class="not-shown md:bg-purple-50 flex flex-col justify-end md:justify-between overflow-hidden rounded-[2.25rem] px-5 py-7 md:p-3 mt-32 mb-0 md:mb-10 xh-[10rem] md:h-auto md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
 
         <div class="info hidden md:flex flex-col md:flex-row items-center justify-between px-9 mb-10 md:mb-2">
             <div class="left">
@@ -25,10 +25,9 @@ const currentYear = ref(new Date().getFullYear());
             </div>
 
             <div class="right flex items-center justify-center bg-purple-300 -translate-y-10 mt-12 h-48 w-48">
-                <router-link to="/x"
-                    class="box bg-white flex items-center justify-center w-28 h-28 rounded-3xl">
+                <router-link to="/x" class="box bg-white flex items-center justify-center w-28 h-28 rounded-3xl">
                     <span class="font-medium text-base">
-                        Contact us
+                        Adopt a pet
                     </span>
                 </router-link>
             </div>
@@ -37,7 +36,7 @@ const currentYear = ref(new Date().getFullYear());
 
         <!-- Actual footer content -->
         <div v-scroll-reveal
-            class="not-shown content flex flex-col md:flex-row items-center justify-between shadow-sm bg-dark text-white p-4 rounded-3xl md:rounded-full">
+            class="not-shown content bg-dark flex flex-col md:flex-row items-center justify-between shadow-sm text-white p-4 rounded-3xl md:rounded-full">
 
             <!-- Logo -->
             <div class="logo hidden md:flex items-center">
@@ -45,11 +44,13 @@ const currentYear = ref(new Date().getFullYear());
             </div>
 
             <!-- Useful links -->
-            <div class="links hidden md:flex items-center justify-evenly md:justify-center w-full text-[0.815rem] my-6 md:my-0">
+            <div
+                class="links hidden md:flex items-center justify-evenly md:justify-center w-full text-[0.815rem] my-6 md:my-0">
                 <router-link to="/x" class="md:mr-4 transition hover:text-purple-300">
                     About
                 </router-link>
-                <a href="https://github.com/heisdanielade" target="_blank" class="md:mr-4 transition hover:text-purple-300">
+                <a href="https://github.com/heisdanielade" target="_blank"
+                    class="md:mr-4 transition hover:text-purple-300">
                     Creator
                 </a>
                 <router-link to="/x" class="md:mr-4 transition hover:text-purple-300">

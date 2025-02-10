@@ -1,11 +1,11 @@
 <script setup>
 import AuthBackground from "@/components/others/PawBackground.vue";
-// import SignUpForm from "@/components/auth/forms/SignUpForm.vue";
+import RegisterForm from "@/components/auth/forms/RegisterForm.vue";
 </script>
 
 <template>
-  <AuthBackground>
-    <!-- <SignUpForm></SignUpForm> -->
-  </AuthBackground>
+      <div class="bg-purple-50">
+        <RegisterForm></RegisterForm>
+    </div>
 </template>
 

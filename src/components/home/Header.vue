@@ -2,10 +2,13 @@
 import { ref } from "vue";
 import Logo from "@/components/others/Logo.vue";
 
+
 const user = {
-    isLoggedIn: false,
-    // isLoggedIn: true,
+    // isLoggedIn: false,
+    isLoggedIn: true,
     initials: "H",
+    hasProfileImage: true,
+    profileImage: "/src/assets/images/others/user.png",
 }
 
 const isVisible = ref(false);
@@ -21,7 +24,7 @@ const toggle = () => {
     <header>
         <nav class="fixed z-50 top-0 w-full overflow-hidden md:px-6 py-2.5">
             <div
-                class="blur-bg-2 xrounded-b-2xl rounded-2xl px-2 py-4 md:p-4 mx-3 md:mx-auto flex flex-wrap justify-between items-center max-w-screen-lg">
+                class="blur-bg-2 xrounded-b-2xl rounded-3xl px-2 py-4 md:p-4 mx-3 md:mx-auto flex flex-wrap justify-between items-center max-w-screen-lg">
                 <!-- Logo -->
                 <router-link to="/" class="flex items-center">
                     <Logo/>
@@ -29,13 +32,14 @@ const toggle = () => {
                 <div class="flex items-center md:order-2">
                     <!-- User avatar if user is logged in -->
                     <router-link v-if="user.isLoggedIn" to="/u/profile" class="relative">
-                        <div
-                            class="inline-flex items-center justify-center w-11 h-11 overflow-hidden bg-gray-100 border-[0.15rem] border-gray-200 rounded-full">
-                            <span class="font-semibold text-lg md:text-xl text-gray-600">
+                        <div class="inline-flex items-center justify-center w-11 h-11 overflow-hidden bg-gray-100 border-[0.15rem] border-gray-200 rounded-full">
+                            <span v-if="user.hasProfileImage" class="flex items-center justify-center">
+                                <img :src="user.profileImage" alt="User Profile Image" class="object-fill w-11 h-11">
+                            </span>
+                            <span v-else class="font-semibold text-lg md:text-xl text-gray-600">
                                 {{ user.initials }}
                             </span>
-                            <span
-                                class="signal absolute top-[0.125rem] right-[0.125rem] z-20 w-3 h-3 border-[0.125rem] border-green-500 bg-green-400 rounded-full"></span>
+                            <span class="signal absolute top-[0.125rem] right-[0.125rem] z-20 w-3 h-3 border-[0.125rem] border-green-500 bg-green-400 rounded-full"></span>
                         </div>
                     </router-link>
                     <!-- Login button if use is not logged in -->
@@ -47,7 +51,7 @@ const toggle = () => {
 
                     <!-- Button to activate mobile menu -->
                     <button @click="toggle" type="button"
-                        class="inline-flex items-center justify-center p-1 w-[2.125rem] h-[2.125rem]  ml-5 text-2xl text-gray-600 rounded-lg md:hidden xhover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                        class="inline-flex items-center justify-center p-1 w-[2.125rem] h-[2.125rem]  ml-5 text-2xl text-gray-700 rounded-lg md:hidden focus:outline-none xfocus:ring-2 xfocus:ring-gray-200">
                         <i class="ri-menu-4-line"></i>
                         <span class="sr-only">Open main menu</span>
                     </button>
