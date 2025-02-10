@@ -1,7 +1,7 @@
 
 <template>
     <section
-        class="preview xbg-blue-300 relative flex items-center flex-col md:flex-row overflow-hidden mx-5 mt-10 mb-20 md:my-12 h-[45rem] md:h-[45rem] rounded-b-3xl md:rounded-none md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg"
+        class="preview relative flex items-center flex-col md:flex-row overflow-hidden mx-5 mt-10 mb-20 md:my-12 h-[45rem] md:h-[45rem] rounded-b-3xl md:rounded-none md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg"
         id="preview">
 
         <!-- Main text -->

@@ -97,7 +97,7 @@ import Logo from "@/components/others/Logo.vue";
 
         <p class="text-gray-600 text-sm mt-6 text-center">
           Don't have an account?
-          <router-link to="/u/signup" class="text-purple-500 font-medium transition hover:underline ml-1">
+          <router-link to="/u/signup" class="text-purple-500 font-medium ml-1 transition hover:underline hover:text-purple-700">
             Sign up
           </router-link>
         </p>

@@ -1,10 +1,18 @@
 
+
+/* Body font */
 @import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+/* Logo font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 
 /* ========= VARIABLES ========== */
@@ -13,6 +21,7 @@
   --fourth-color: #212124;
 
   --body-font: 'Bai Jamjuree', sans-serif;
+  --logo-font: 'Montserrat', sans-serif;
 }
 
 body {
@@ -44,6 +53,9 @@ img {
 }
 
 
+.logo-font{
+  font-family: var(--logo-font);
+}
 
 
 .blur-bg{
@@ -52,7 +64,7 @@ img {
   backdrop-filter: blur(5px);
 }
 .blur-bg-2{
-  background-color: rgba(246, 245, 255, 0.363);
+  background-color: rgba(244, 202, 255, 0.308);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }

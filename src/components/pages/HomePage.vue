@@ -3,8 +3,7 @@
   import Home from "@/components/home/Home.vue";
   import Explore from "@/components/home/Explore.vue";
   import Preview from "@/components/home/Preview.vue";
-  import Special from "@/components/home/Special.vue";
-  import Footer from "@/components/home/Footer.vue";
+  import FooterV2 from "@/components/home/FooterV2.vue";
 </script>
 
 
@@ -24,10 +23,8 @@
 
       <!-- Blank Section -->
       <!-- <Explore></Explore> -->
-
-      <!-- Special Section -->
-      <!-- <Special></Special> -->
-
+      
       <!-- Footer Section -->
-      <Footer></Footer>
+      <FooterV2></FooterV2>
+
 </template>
