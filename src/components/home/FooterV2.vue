@@ -65,7 +65,7 @@ const currentYear = ref(new Date().getFullYear());
             </div>
 
             <!-- Social media links -->
-            <div class="icons flex items-center text-sm">
+            <div class="icons flex items-center text-[0.83rem]">
                 <a href=""
                     class="relative flex items-center justify-center mr-3 md:mr-2 w-7 h-7 rounded-full border-[1px] border-gray-400 transition hover:text-purple-300">
                     <span class="sr-only">Instagram profile</span>

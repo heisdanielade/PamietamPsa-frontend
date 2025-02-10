@@ -8,7 +8,7 @@ const user = {
     isLoggedIn: true,
     initials: "H",
     hasProfileImage: true,
-    profileImage: "/src/assets/images/others/user.png",
+    profileImage: "/src/assets/images/others/user.webp",
 }
 
 const isVisible = ref(false);
