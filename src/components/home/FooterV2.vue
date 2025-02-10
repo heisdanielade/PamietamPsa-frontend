@@ -25,7 +25,7 @@ const currentYear = ref(new Date().getFullYear());
             </div>
 
             <div class="right flex items-center justify-center bg-purple-300 -translate-y-10 mt-12 h-48 w-48">
-                <router-link href="/x"
+                <router-link to="/x"
                     class="box bg-white flex items-center justify-center w-28 h-28 rounded-3xl">
                     <span class="font-medium text-base">
                         Contact us
