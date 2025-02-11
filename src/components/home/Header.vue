@@ -6,9 +6,10 @@ import Logo from "@/components/others/Logo.vue";
 const user = {
     // isLoggedIn: false,
     isLoggedIn: true,
-    initials: "H",
-    hasProfileImage: true,
+    initials: "A",
+    hasProfileImage: false,
     profileImage: "",
+    hasNotifications: true,
 }
 
 const isVisible = ref(false);
@@ -27,21 +28,39 @@ const toggle = () => {
                 class="blur-bg-2 xrounded-b-2xl rounded-3xl px-2 py-4 md:p-4 mx-3 md:mx-auto flex flex-wrap justify-between items-center max-w-screen-lg">
                 <!-- Logo -->
                 <router-link to="/" class="flex items-center">
-                    <Logo/>
+                    <Logo />
                 </router-link>
+
+                <!-- User info/login -->
                 <div class="flex items-center md:order-2">
+
                     <!-- User avatar if user is logged in -->
-                    <router-link v-if="user.isLoggedIn" to="/u/profile" class="relative">
-                        <div class="inline-flex items-center justify-center w-11 h-11 shadow overflow-hidden bg-gray-100 border-[0.15rem] border-gray-200 rounded-full">
-                            <span v-if="user.hasProfileImage" class="flex items-center justify-center">
-                                <img src="@/assets/images/others/user.webp" alt="User Profile Image" class="object-fill w-11 h-11">
-                            </span>
-                            <span v-else class="font-semibold text-lg md:text-xl text-gray-600">
-                                {{ user.initials }}
-                            </span>
-                            <span class="signal absolute top-[0.125rem] right-[0.125rem] z-20 w-3 h-3 border-[0.125rem] border-green-500 bg-green-400 rounded-full"></span>
-                        </div>
-                    </router-link>
+                    <div v-if="user.isLoggedIn" class="flex items-center">
+
+                        <router-link to="/u/notifications" class="notifications flex items-center justify-center w-11 h-11 xbg-blue-300 text-gray-500 text-xl mr-2">
+                            <i class="relative xbg-blue-500 ri-notification-badge-fill transition hover:text-gray-600">
+                                <span v-if="user.hasNotifications" class="absolute w-[0.45rem] h-[0.45rem] bg-red-500 top-[0.34rem] right-[1.4px] rounded-full"></span>
+                            </i>
+
+                        </router-link>
+
+                        <router-link  to="/u/profile" class="relative">
+                            <div
+                                class="inline-flex items-center justify-center w-11 h-11 shadow-sm overflow-hidden bg-purple-300 border-[0.15rem] border-gray-100 rounded-full">
+                                <span v-if="user.hasProfileImage" class="flex items-center justify-center">
+                                    <img src="@/assets/images/others/user.webp" alt="User Profile Image"
+                                        class="object-fill w-10 h-10">
+                                </span>
+                                <span v-else class="font-semibold text-lg md:text-xl text-white">
+                                    {{ user.initials }}
+                                </span>
+                                <!-- Green signal on user image -->
+                                <span
+                                    class="signal hidden shadow-sm absolute top-[0.125rem] right-[0.125rem] z-20 w-3 h-3 border-[0.125rem] border-gray-200 bg-green-400 rounded-full"></span>
+                            </div>
+                        </router-link>
+                    </div>
+
                     <!-- Login button if use is not logged in -->
                     <router-link v-else to="/u/login"
                         class="bg-dark login-btn shadow-sm text-center w-[5rem] p-2 text-sm transition text-white font-medium rounded-xl focus:outline-none">
@@ -51,21 +70,20 @@ const toggle = () => {
 
                     <!-- Button to activate mobile menu -->
                     <button @click="toggle" type="button"
-                        class="inline-flex items-center justify-center p-1 w-[2.125rem] h-[2.125rem]  ml-5 text-2xl text-gray-700 rounded-lg md:hidden focus:outline-none xfocus:ring-2 xfocus:ring-gray-200">
+                        class="inline-flex items-center justify-center p-1 w-[2.125rem] h-[2.125rem]  ml-5 text-2xl text-gray-500 rounded-lg md:hidden focus:outline-none  hover:text-gray-600 focus:text-gray-600">
                         <i class="ri-menu-4-line"></i>
                         <span class="sr-only">Open main menu</span>
                     </button>
 
                 </div>
 
-                
+
                 <!-- Desktop menu -->
                 <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
                     <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
                         <li>
                             <router-link to="/x"
-                                class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
-                                >About</router-link>
+                                class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">About</router-link>
                         </li>
                         <li>
                             <router-link to="/x"
@@ -91,7 +109,8 @@ const toggle = () => {
                 class="mobile-menu blur-bg-2 pt-20 px-5 block md:hidden fixed top-0 left-0 z-40 w-full h-[16rem] rounded-b-3xl">
                 <ul class="flex flex-col mt-6 font-semibold text-sm">
                     <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
-                        <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
+                        <router-link to="/x"
+                            class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
                             <i class="mr-2 text-gray-400 fa-solid fa-house"></i>
                             <span class="">
                                 About
@@ -99,7 +118,8 @@ const toggle = () => {
                         </router-link>
                     </li>
                     <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
-                        <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
+                        <router-link to="/x"
+                            class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
                             <i class="mr-2 text-gray-400 fa-solid fa-cat"></i>
                             <span class="">
                                 Adopt
@@ -107,7 +127,8 @@ const toggle = () => {
                         </router-link>
                     </li>
                     <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
-                        <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
+                        <router-link to="/x"
+                            class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
                             <i class="mr-2 text-gray-400 ri-customer-service-line"></i>
                             <span class="">
                                 Support
@@ -115,7 +136,8 @@ const toggle = () => {
                         </router-link>
                     </li>
                     <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
-                        <a href="https://github.com/heisdanielade" target="_blank" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
+                        <a href="https://github.com/heisdanielade" target="_blank"
+                            class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
                             <i class="mr-2 text-gray-400 ri-code-s-slash-line"></i>
                             <span class="">
                                 Creator
@@ -139,7 +161,7 @@ const toggle = () => {
 
 
 /* -- Moblie menu -- */
-.moblie-menu-link{
+.moblie-menu-link {
     transition: all 0.3s ease;
 }
 

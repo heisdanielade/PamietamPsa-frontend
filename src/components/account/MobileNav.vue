@@ -1,11 +1,6 @@
 <script setup>
 import { ref } from "vue";
 
-const user = {
-    initials: "H",
-    hasProfileImage: true,
-    profileImage: "",
-}
 
 const isVisible = ref(false);
 const toggle = () => {
