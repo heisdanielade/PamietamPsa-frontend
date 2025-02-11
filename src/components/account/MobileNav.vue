@@ -59,11 +59,11 @@ const toggle = () => {
                     </span>
 
                     <!-- curved corners -->
-                    <span class="left-corner absolute top-[1.2rem] -left-[1.41rem] shadow-[0_-4px_0_0_white] bg-dark w-5 h-5 rounded-tr-3xl">
+                    <span class="left-corner absolute top-[1.21rem] -left-[1.41rem] shadow-[0_-5px_0_0_white] bg-dark w-5 h-5 rounded-tr-3xl">
                         <span class="absolute -top-[0.1rem] left-3 z-20 w-1 h-1 bg-pink-200 rounded-full"></span>
                     </span>
 
-                    <span class="right-corner absolute top-[1.2rem] -right-[1.41rem] shadow-[0_-4px_0_0_white] bg-dark w-5 h-5 rounded-tl-3xl">
+                    <span class="right-corner absolute top-[1.21rem] -right-[1.41rem] shadow-[0_-5px_0_0_white] bg-dark w-5 h-5 rounded-tl-3xl">
                         <span class="absolute -top-[0.1rem] right-3 z-20 w-1 h-1 bg-yellow-200 rounded-full"></span>
                     </span>
 
@@ -122,7 +122,7 @@ const toggle = () => {
 .add-btn .right-corner::before{
     content: "";
     position: absolute;
-    top: 0.1px;
+    top: 0.2px;
     width: 0.2rem;
     height: 1rem;
     background-color: var(--main-color);
@@ -139,7 +139,7 @@ const toggle = () => {
 .add-btn .right-corner::after{
     content: "";
     position: absolute;
-    top: -0.4px;
+    top: -0.6px;
     width: 0.6rem;
     height: 0.65rem;
     background-color: white;
