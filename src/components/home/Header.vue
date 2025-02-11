@@ -32,7 +32,7 @@ const toggle = () => {
                 <div class="flex items-center md:order-2">
                     <!-- User avatar if user is logged in -->
                     <router-link v-if="user.isLoggedIn" to="/u/profile" class="relative">
-                        <div class="inline-flex items-center justify-center w-11 h-11 overflow-hidden bg-gray-100 border-[0.15rem] border-gray-200 rounded-full">
+                        <div class="inline-flex items-center justify-center w-11 h-11 shadow overflow-hidden bg-gray-100 border-[0.15rem] border-gray-200 rounded-full">
                             <span v-if="user.hasProfileImage" class="flex items-center justify-center">
                                 <img src="@/assets/images/others/user.webp" alt="User Profile Image" class="object-fill w-11 h-11">
                             </span>
@@ -88,7 +88,7 @@ const toggle = () => {
         <!-- Mobile Navbar -->
         <Transition name="slide">
             <div v-if="isVisible"
-                class="mobile-menu blur-bg-2 pt-16 px-5 block md:hidden fixed top-0 left-0 z-40 w-full h-[15rem] rounded-b-3xl">
+                class="mobile-menu blur-bg-2 pt-20 px-5 block md:hidden fixed top-0 left-0 z-40 w-full h-[16rem] rounded-b-3xl">
                 <ul class="flex flex-col mt-6 font-semibold text-sm">
                     <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
                         <router-link to="/x" class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">

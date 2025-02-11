@@ -5,15 +5,15 @@
         id="preview">
 
         <!-- Main text -->
-        <div v-scroll-reveal
-            class="not-shown xbg-red-300 text h-full relative md:absolute top-0 md:left-1/2 md:-translate-x-1/2 flex flex-col items-center">
-            <h1 class="text-[9.25rem] opacity-100 font-semibold">
+        <div
+            class="text h-full relative md:absolute top-0 md:left-1/2 md:-translate-x-1/2 flex flex-col items-center">
+            <h1 v-scroll-reveal class="not-shown text-[9.25rem] opacity-100 font-semibold">
                 340
             </h1>
-            <h2 class="text-7xl font-semibold opacity-100">
+            <h2 v-scroll-reveal class="not-shown text-7xl font-semibold opacity-100">
                 thousand
             </h2>
-            <p class="text-2xl font-medium opacity-100">
+            <p v-scroll-reveal class="not-shown text-2xl font-medium opacity-100">
                 monthly active users
             </p>
         </div>
