@@ -4,13 +4,20 @@ import Logo from "@/components/others/Logo.vue";
 
 
 const user = {
-    // isLoggedIn: false,
-    isLoggedIn: true,
-    initials: "A",
+    email: "hida@pamietampsa.com",
+    isLoggedIn: false,
+    // isLoggedIn: true,
+    initials: "",
     hasProfileImage: false,
     profileImage: "",
     hasNotifications: true,
 }
+
+
+// Get user initials
+user.initials = user.email.charAt(0).toUpperCase();
+
+
 
 const isVisible = ref(false);
 const toggle = () => {
@@ -39,19 +46,19 @@ const toggle = () => {
 
                         <router-link to="/u/notifications" class="notifications flex items-center justify-center w-11 h-11 xbg-blue-300 text-gray-500 text-xl mr-2">
                             <i class="relative xbg-blue-500 ri-notification-badge-fill transition hover:text-gray-600">
-                                <span v-if="user.hasNotifications" class="absolute w-[0.45rem] h-[0.45rem] bg-red-500 top-[0.34rem] right-[1.4px] rounded-full"></span>
+                                <span v-if="user.hasNotifications" class="absolute w-[0.45rem] h-[0.45rem] bg-red-600 top-[0.34rem] right-[1.4px] rounded-full"></span>
                             </i>
 
                         </router-link>
 
                         <router-link  to="/u/profile" class="relative">
                             <div
-                                class="inline-flex items-center justify-center w-11 h-11 shadow-sm overflow-hidden bg-purple-300 border-[0.15rem] border-gray-100 rounded-full">
+                                class="inline-flex items-center justify-center w-11 h-11 shadow-sm overflow-hidden bg-[#FEE2E2] border-[0.15rem] border-gray-100 rounded-full">
                                 <span v-if="user.hasProfileImage" class="flex items-center justify-center">
                                     <img src="@/assets/images/others/user.webp" alt="User Profile Image"
                                         class="object-fill w-10 h-10">
                                 </span>
-                                <span v-else class="font-semibold text-lg md:text-xl text-white">
+                                <span v-else class="font-semibold text-lg md:text-xl text-[#991B1B]">
                                     {{ user.initials }}
                                 </span>
                                 <!-- Green signal on user image -->

@@ -3,6 +3,7 @@
 import Header from "@/components/home/Header.vue";
 import FooterV2 from "@/components/home/FooterV2.vue";
 import Greeting from "@/components/account/Greeting.vue";
+import MyPets from "@/components/account/MyPets.vue";
 import Sidebar from "@/components/account/Sidebar.vue";
 import MobileNav from "@/components/account/MobileNav.vue";
 
@@ -20,9 +21,12 @@ import MobileNav from "@/components/account/MobileNav.vue";
         <!-- Sidebar Section -->
         <Sidebar class="hidden md:flex"></Sidebar>
 
-        <div class="content w-full flex items-start">
+        <div class="content w-full flex items-start flex-col">
             <!-- Greeting Section -->
             <Greeting></Greeting>
+            <!-- MyPets Section -->
+            <MyPets></MyPets>
+
         </div>
     </div>
 
