@@ -1,5 +1,4 @@
 <script setup>
-import AuthBackground from "@/components/others/PawBackground.vue";
 import RegisterForm from "@/components/auth/forms/RegisterForm.vue";
 </script>
 

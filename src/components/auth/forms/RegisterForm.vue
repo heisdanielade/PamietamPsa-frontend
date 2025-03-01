@@ -5,12 +5,12 @@ import Logo from "@/components/others/Logo.vue";
 
 
 <template>
-  <div class="bg-purple-50 max-w-4xl md:max-w-2xl lg:max-w-2xl flex flex-col items-center justify-center mx-auto md:h-screen p-1">
-    <div class="custom-cursor md:grid md:grid-cols-3 w-full mx-auto items-center  shadow-sm md:shadow-slate-300 rounded-3xl overflow-hidden">
+  <div class="bg-transparent max-w-4xl md:max-w-2xl lg:max-w-2xl flex flex-col items-center justify-center mx-auto md:h-screen p-1">
+    <div class="custom-cursor md:grid md:grid-cols-3 w-full mx-auto items-center shadow-sm md:shadow-slate-300 rounded-3xl overflow-hidden">
 
       <!-- Left Section -->
       <div
-        class="left-side max-md:order-1 flex flex-col items-center md:items-start space-y-8 max-md:mt-16 min-h-full rounded-t-3xl md:rounded-none lg:px-8 p-5">
+        class="left-side max-md:order-1 flex flex-col items-center md:items-start space-y-8 max-md:mt-16 min-h-full xrounded-t-3xl md:rounded-none lg:px-8 p-5">
         <div class="w-full">
           <router-link to="/" class="flex items-center text-gray-200">
             <Logo/>
@@ -32,7 +32,7 @@ import Logo from "@/components/others/Logo.vue";
             <label for="email" class="text-gray-600 font-medium text-sm mb-2 block">Email Address</label>
             <div class="relative flex items-center">
               <input id="email" name="email" type="email" required
-                class="text-gray-800 bg-white border border-gray-300 w-full text-sm pl-4 pr-8 py-2.5 rounded-md outline-purple-400"
+                class="text-gray-800 bg-white border border-gray-300 w-full text-sm font-medium placeholder:font-normal pl-4 pr-8 py-2.5 rounded-md outline-purple-400"
                 placeholder="Enter your email" />
               <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
                 class="custom-cursor w-4 h-4 absolute right-4" viewBox="0 0 682.667 682.667">
@@ -58,7 +58,7 @@ import Logo from "@/components/others/Logo.vue";
             <label for="password" class="text-gray-600 font-medium text-sm mb-2 block">Password</label>
             <div class="relative flex items-center">
               <input id="password" name="password" type="password" required
-                class="text-gray-800 bg-white border border-gray-300 w-full text-sm pl-4 pr-8 py-2.5 rounded-md outline-purple-400"
+                class="text-gray-800 bg-white border border-gray-300 w-full text-sm font-medium placeholder:font-normal pl-4 pr-8 py-2.5 rounded-md outline-purple-400"
                 placeholder="Enter your password" />
               <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
                 class="custom-cursor w-4 h-4 absolute right-4 cursor-pointer" viewBox="0 0 128 128">
@@ -75,7 +75,7 @@ import Logo from "@/components/others/Logo.vue";
             <label for="password" class="text-gray-600 font-medium text-sm mb-2 block">Re-enter Password</label>
             <div class="relative flex items-center">
               <input id="reEnterPassword" name="reEnterPassword" type="password" required
-                class="text-gray-800 bg-white border border-gray-300 w-full text-sm pl-4 pr-8 py-2.5 rounded-md outline-purple-400"
+                class="text-gray-800 bg-white border border-gray-300 w-full text-sm font-medium placeholder:font-normal pl-4 pr-8 py-2.5 rounded-md outline-purple-400"
                 placeholder="Re-enter your password" />
               <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
                 class="custom-cursor w-4 h-4 absolute right-4 cursor-pointer" viewBox="0 0 128 128">
