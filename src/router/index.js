@@ -4,6 +4,8 @@ import LoginPage from '@/components/pages/auth/LoginPage.vue';
 import SignUpPage from '@/components/pages/auth/SignUpPage.vue';
 import MyProfile from '@/components/pages/account/MyProfile.vue';
 
+import UnderConstructionPage from '@/components/pages/UnderConstructionPage.vue';
+
 
 
 const routes = [
@@ -16,7 +18,14 @@ const routes = [
     meta: { title: "Home" }
   },
   
-  
+  // Page under construction
+  { 
+    path: '/x', 
+    name: 'UnderConstruction', 
+    component: UnderConstructionPage, 
+    meta: { title: "Under Construction" }
+  },
+
   // Authentication Routes
   { path: '/u/login', 
     name: 'Login', 
@@ -41,6 +50,9 @@ const routes = [
     component: MyProfile, // to change
     meta: { title: "My Settings" } 
   },
+
+
+
 ];
 
 
