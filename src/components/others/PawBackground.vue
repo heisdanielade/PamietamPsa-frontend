@@ -5,29 +5,29 @@
       v-for="(position, index) in positions"
       :key="index"
       src="/src/assets/images/icons/paws.png"
-      class="absolute w-6 h-6"
+      class="absolute w-6 h-6 opacity-50"
       :style="{ top: position.top, left: position.left }"
       alt="Dog's paw icon"
       @contextmenu.prevent
     />
 
-    <!-- Slot for content -->
     <div class="relative inset-0">
       <slot></slot>
     </div>
   </div>
 </template>
 
+
 <script setup>
 import { reactive, onMounted } from "vue";
 
 // Number of dog paw icons to display
-const numIcons = 5;
+const numIcons = 4;
 
-// Reactive array to store positions
+
 const positions = reactive([]);
 
-// Generate non-colliding positions
+
 const generateNonCollidingPositions = () => {
   const existingPositions = [];
   const size = 48; // Size of the dog paw icon in pixels
@@ -50,7 +50,7 @@ const generateNonCollidingPositions = () => {
             Math.pow(existing.top - position.top, 2)
         );
 
-        // Check if distance is less than the size threshold (to avoid overlap)
+        
         if (distance < (size / window.innerWidth) * 100) {
           collision = true;
           break;
@@ -66,12 +66,8 @@ const generateNonCollidingPositions = () => {
   }
 };
 
-// Generate positions on mount
 onMounted(() => {
   generateNonCollidingPositions();
 });
 </script>
 
-<style scoped>
-/* Add any additional styles for the icons or container */
-</style>
