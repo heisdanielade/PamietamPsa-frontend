@@ -46,10 +46,10 @@ onUnmounted(() => {
     <section class="under-construction relative flex flex-col items-center md:justify-center pt-24 md:pt-0 overflow-hidden mx-5 mt-10 mb-20 md:my-12 h-[45rem] md:h-[45rem] rounded-b-3xl md:rounded-none md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
         
         <!-- Title -->
-        <h1 class="title mb-9 md:mb-12 uppercase text-4xl md:text-5xl">Coming Soon</h1>
+        <h1 class="title mb-6 uppercase text-4xl md:text-5xl">Coming Soon</h1>
 
         <!-- Info -->
-        <p class="info mb-11 md:mb-16 text-gray-500 tracking-tight flex flex-col items-center justify-center">
+        <p class="info mb-14 md:mb-24 text-gray-500 tracking-tight flex flex-col items-center justify-center">
             <span class="">
                 This page is currently under construction. 
             </span>
@@ -59,7 +59,7 @@ onUnmounted(() => {
         </p>
 
         <!-- Timer -->
-        <div class="timer mb-[3.25rem] md:mb-14 w-full flex items-center justify-evenly">
+        <div class="timer mb-14 md:mb-16 w-full flex items-center justify-evenly">
             <div class="flex flex-col items-center">
                 <h2 class="text-[2.5rem] md:text-[3.5rem] leading-tight font-light">
                     {{ days }}
@@ -71,7 +71,7 @@ onUnmounted(() => {
 
             <div class="flex flex-col items-center">
                 <h2 class="text-[2.5rem] md:text-[3.5rem] leading-tight font-light">
-                    {{ hours }}
+                    {{ String(hours).padStart(2, '0') }}
                 </h2>
                 <p class="uppercase text-[0.825rem] md:text-[0.9rem] text-gray-500 tracking-tighter">
                     hours
@@ -80,7 +80,7 @@ onUnmounted(() => {
 
             <div class="flex flex-col items-center">
                 <h2 class="text-[2.5rem] md:text-[3.5rem] leading-tight font-light">
-                    {{ minutes }}
+                    {{ String(minutes).padStart(2, '0') }}
                 </h2>
                 <p class="uppercase text-[0.825rem] md:text-[0.9rem] text-gray-500 tracking-tighter">
                     mins
@@ -89,7 +89,7 @@ onUnmounted(() => {
 
             <div class="flex flex-col items-center w-16">
                 <h2 class="text-[2.5rem] md:text-[3.5rem] leading-tight font-light">
-                    {{ seconds }}
+                    {{ String(seconds).padStart(2, '0') }}
                 </h2>
                 <p class="uppercase text-[0.825rem] md:text-[0.9rem] text-gray-500 tracking-tighter">
                     secs
