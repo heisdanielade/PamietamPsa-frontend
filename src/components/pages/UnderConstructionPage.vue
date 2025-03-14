@@ -1,5 +1,7 @@
 
 <script setup>
+import AuthBackground from "@/components/others/PawBackground.vue";
+
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const days = ref(0);
@@ -40,6 +42,7 @@ onUnmounted(() => {
 
 
 <template>
+    <AuthBackground>
     <section class="under-construction relative flex flex-col items-center md:justify-center pt-24 md:pt-0 overflow-hidden mx-5 mt-10 mb-20 md:my-12 h-[45rem] md:h-[45rem] rounded-b-3xl md:rounded-none md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
         
         <!-- Title -->
@@ -102,4 +105,5 @@ onUnmounted(() => {
          </div>
 
     </section>
+</AuthBackground>
 </template>
