@@ -29,12 +29,14 @@ const routes = [
   // Authentication Routes
   { path: '/u/login', 
     name: 'Login', 
-    component: LoginPage, 
+    // component: LoginPage, 
+    component: UnderConstructionPage, 
     meta: { title: "Login" } 
   },
   { path: '/u/signup', 
     name: 'Signup', 
-    component: SignUpPage, 
+    // component: SignUpPage, 
+    component: UnderConstructionPage, 
     meta: { title: "SignUp" } 
   },
 
@@ -42,7 +44,8 @@ const routes = [
   // Profile Routes
   { path: '/u/profile', 
     name: 'MyProfile', 
-    component: MyProfile, 
+    // component: MyProfile, 
+    component: UnderConstructionPage, 
     meta: { title: "My Profile" } 
   },
   { path: '/u/settings', 
