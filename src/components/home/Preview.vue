@@ -8,13 +8,13 @@
         <div
             class="text h-full relative md:absolute top-0 md:left-1/2 md:-translate-x-1/2 flex flex-col items-center">
             <h1 v-scroll-reveal class="not-shown text-[9.25rem] opacity-100 font-semibold">
-                340
+                365
             </h1>
             <h2 v-scroll-reveal class="not-shown text-7xl font-semibold opacity-100">
-                thousand
+                days
             </h2>
             <p v-scroll-reveal class="not-shown text-2xl font-medium opacity-100">
-                monthly active users
+                of happy pets
             </p>
         </div>
 
@@ -30,8 +30,6 @@
             <img v-scroll-reveal src="/src/assets/images/backgrounds/webp/dog-orange.webp" alt="Dog with colored background"
                 class="hidden md:flex not-shown w-[14rem] h-full md:w-[16rem] rounded-[1.25rem] opacity-60">
         </div>
-
-
 
     </section>
 
@@ -78,8 +76,6 @@ img:nth-child(4) {
 }
 
 .text h2 {
-    /* color: #e0caeb; */
-
     color: #ead6f3;
     transform: translateY(-5.15rem);
 }

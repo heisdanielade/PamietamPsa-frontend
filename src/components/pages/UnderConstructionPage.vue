@@ -62,7 +62,7 @@ onUnmounted(() => {
         <div class="timer mb-14 md:mb-16 w-full flex items-center justify-evenly">
             <div class="flex flex-col items-center">
                 <h2 class="text-[2.5rem] md:text-[3.5rem] leading-tight font-light">
-                    {{ days }}
+                    {{ String(days).padStart(2, '0') }}
                 </h2>
                 <p class="uppercase text-[0.825rem] md:text-[0.9rem] text-gray-500 tracking-tighter">
                     days
