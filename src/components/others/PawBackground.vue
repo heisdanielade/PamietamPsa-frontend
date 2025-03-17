@@ -4,7 +4,7 @@
     <img
       v-for="(position, index) in positions"
       :key="index"
-      src="/src/assets/images/icons/paws.png"
+      src="/src/assets/images/icons/webp/paws.webp"
       class="absolute w-6 h-6 opacity-50"
       :style="{ top: position.top, left: position.left }"
       alt="Dog's paw icon"
