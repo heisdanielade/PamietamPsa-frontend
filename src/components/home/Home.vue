@@ -12,7 +12,7 @@ import AuthBackground from "@/components/others/PawBackground.vue";
             <div class="text-center flex flex-col items-center justify-center w-full">
                 <h1 translate="no" v-scroll-reveal class="not-shwn relative md:mt-8 text-[2rem] leading-[2.1rem] md:leading-[4rem] lg:leading-[4.75rem] tracking-wide gradient-text-1 font-extrabold lg:font-bold w-full lg:text-7xl md:text-6xl">
                     <span class="desktop-main-text hidden md:flex">
-                        Simplify pet with an easy and stress free experience.
+                        Simplify pet care with an easy and stress free experience.
                     </span>
                     <span class="mobile-main-text md:hidden w-full text-[4rem]">
                         Simplified pet care.
