@@ -3,7 +3,7 @@ import RegisterForm from "@/components/auth/forms/RegisterForm.vue";
 </script>
 
 <template>
-      <div class="bg-purple-50">
+      <div class="">
         <RegisterForm></RegisterForm>
     </div>
 </template>

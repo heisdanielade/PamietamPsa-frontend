@@ -72,7 +72,7 @@ const toggle = () => {
                     <!-- Login button if use is not logged in -->
                     <router-link v-else to="/u/login"
                         class="bg-dark login-btn shadow-sm text-center w-[5rem] p-2 text-sm transition text-white font-medium rounded-xl focus:outline-none">
-                        Login
+                        Log in
                     </router-link>
 
 

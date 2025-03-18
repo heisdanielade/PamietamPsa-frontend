@@ -5,7 +5,7 @@ import LoginForm from "@/components/auth/forms/LoginForm.vue";
 
 
 <template>
-    <div class="bg-purple-50">
+    <div class="">
         <LoginForm></LoginForm>
     </div>
 </template>
