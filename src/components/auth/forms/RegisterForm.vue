@@ -174,8 +174,8 @@ const handleLogin = () => {
   validatePassword();
 
   // Temporary
-  if (isFormValid.value) {
-    alert("Sign up successful! 🎉");
-  }
+  // if (isFormValid.value) {
+  //   alert("Sign up successful! 🎉");
+  // }
 };
 </script>
