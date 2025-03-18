@@ -114,42 +114,42 @@ const toggle = () => {
         <!-- Mobile Navbar -->
         <Transition name="slide">
             <div v-if="isVisible"
-                class="mobile-menu blur-bg-2 pt-20 px-5 block md:hidden fixed top-0 left-0 z-40 w-full h-[16rem] rounded-b-3xl">
+                class="mobile-menu blur-bg-2 pt-[4.75rem] px-7 block md:hidden fixed top-0 left-0 z-40 w-full h-[16.5rem] rounded-b-3xl">
                 <ul class="flex flex-col mt-6 font-semibold text-sm">
-                    <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
+                    <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
                         <router-link to="/x"
-                            class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
-                            <i class="mr-2 text-gray-400 fa-solid fa-house"></i>
+                            class="moblie-menu-link relative flex items-center justify-end pb-1">
                             <span class="">
                                 About
                             </span>
+                            <i class="ml-2 fa-solid fa-house"></i>
                         </router-link>
                     </li>
-                    <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
+                    <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
                         <router-link to="/x"
-                            class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
-                            <i class="mr-2 text-gray-400 fa-solid fa-cat"></i>
+                            class="moblie-menu-link relative flex items-center justify-end pb-1">
                             <span class="">
                                 Adopt
                             </span>
+                            <i class="ml-2 fa-solid fa-cat"></i>
                         </router-link>
                     </li>
-                    <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
+                    <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
                         <router-link to="/x"
-                            class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
-                            <i class="mr-2 text-gray-400 ri-customer-service-line"></i>
+                            class="moblie-menu-link relative flex items-center justify-end pb-1">
                             <span class="">
                                 Support
                             </span>
+                            <i class="ml-2 ri-customer-service-line"></i>
                         </router-link>
                     </li>
-                    <li v-scroll-reveal class="not-shown mb-[0.8rem] w-full">
+                    <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
                         <a href="https://github.com/heisdanielade" target="_blank"
-                            class="moblie-menu-link relative flex items-center justify-start pb-1 text-gray-600 hover:text-purple-500">
-                            <i class="mr-2 text-gray-400 ri-code-s-slash-line"></i>
+                            class="moblie-menu-link relative flex items-center justify-end pb-1">
                             <span class="">
                                 Creator
                             </span>
+                            <i class="ml-2 ri-code-s-slash-line"></i>
                         </a>
                     </li>
                 </ul>

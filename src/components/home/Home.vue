@@ -10,13 +10,14 @@ import AuthBackground from "@/components/others/PawBackground.vue";
         <section class="home overflow-hidden mt-32 md:mt-20 lg:mt-24" id="home">
         <div class="flex flex-col items-center justify-center select-none w-full max-w-screen-lg mx-auto p-4 md:py-8">
             <div class="text-center flex flex-col items-center justify-center w-full">
-                <h1 translate="no" v-scroll-reveal class="not-shown md:mt-8 text-[2rem] leading-[2.1rem] md:leading-[4rem] lg:leading-[4.75rem] tracking-wide gradient-text-1 font-extrabold lg:font-bold w-full lg:text-7xl md:text-6xl">
+                <h1 translate="no" v-scroll-reveal class="not-shwn relative md:mt-8 text-[2rem] leading-[2.1rem] md:leading-[4rem] lg:leading-[4.75rem] tracking-wide gradient-text-1 font-extrabold lg:font-bold w-full lg:text-7xl md:text-6xl">
                     <span class="desktop-main-text hidden md:flex">
-                        Simplify pet care with an easy and stress free experience.
+                        Simplify pet with an easy and stress free experience.
                     </span>
-                     <span class="mobile-main-text md:hidden w-full text-[4rem]">
+                    <span class="mobile-main-text md:hidden w-full text-[4rem]">
                         Simplified pet care.
-                     </span>
+                    </span>
+                    <img src="/src/assets/images/icons/star.png" alt="Purple star icon" class="absolute -top-1 left-1/3 h-4 w-4 opacity-25">
                 </h1>
             </div>
 

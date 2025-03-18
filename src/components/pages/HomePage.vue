@@ -22,9 +22,6 @@
       <!-- Preview Section -->
       <Preview></Preview>
 
-      <!-- Blank Section -->
-      <!-- <Explore></Explore> -->
-      
       <!-- Footer Section -->
       <FooterV2></FooterV2>
 
