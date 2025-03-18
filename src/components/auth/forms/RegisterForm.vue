@@ -41,29 +41,40 @@
 
           <!-- Form Inputs -->
           <form @submit.prevent="handleLogin">
-            <!-- Email -->
             <div class="relative mb-4">
-              <input v-model="email" type="email" id="email"
-                class="w-full px-1 pt-6 border-b-2 border-0 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
-                :class="{ 'border-red-500': emailError }" @input="validateEmail" required />
-              <label for="email"
-                class="absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-purple-700">
+              <input v-model="email" type="email" id="email" ref="emailInput" placeholder=" "
+                class="peer w-full px-1 pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
+                :class="{ 'border-red-500': emailError }" @input="validateEmail" @focus="isEmailFocused = true"
+                @blur="isFocused = false" required />
+
+              <label for="email" class="absolute left-0 transition-all text-gray-500 text-sm" :class="{
+                'top-2 text-sm text-purple-700': email || isEmailFocused,
+                'top-6 text-base text-gray-400': !email && !isEmailFocused
+              }">
                 Email Address
               </label>
+
               <p v-if="emailError" class="text-red-500 text-sm mt-1">{{ emailError }}</p>
             </div>
 
+
             <!-- Password -->
             <div class="relative">
-              <input v-model="password" :type="showPassword ? 'text' : 'password'" id="password"
-                class="w-full px-1 pt-6 border-b-2 border-0 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
-                :class="{ 'border-red-500': passwordError }" @input="validatePassword" required />
-              <label for="password"
-                class="absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-purple-700">
+              <input v-model="password" :type="showPassword ? 'text' : 'password'" id="password" ref="passwordInput"
+                placeholder=" "
+                class="peer w-full px-1 pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
+                :class="{ 'border-red-500': passwordError }" @input="validatePassword" @focus="isPasswordFocused = true"
+                @blur="isPasswordFocused = false" required />
+
+              <label for="password" class="absolute left-0 transition-all text-gray-500 text-sm" :class="{
+                'top-2 text-sm text-purple-700': password || isPasswordFocused,
+                'top-6 text-base text-gray-400': !password && !isPasswordFocused
+              }">
                 Password
               </label>
+
               <button type="button" @click="togglePasswordVisibility"
-                class="absolute top-4 right-3 text-gray-500 hover:text-gray-700">
+                class="absolute top-5 right-3 text-gray-500 hover:text-gray-700">
                 <i v-if="showPassword"
                   class="fa-solid fa-eye-slash text-sm text-gray-600 opacity-30 hover:text-purple-700 transition-all"></i>
                 <i v-else
@@ -72,9 +83,8 @@
 
               <p v-if="passwordError" class="text-red-500 text-sm mt-1">{{ passwordError }}</p>
             </div>
-
             <div class="flex justify-end mt-3">
-              <router-link to="/x" class="text-purple-500 text-[0.825rem] font-medium hover:underline">
+              <router-link to="/x" class="text-purple-500 text-[0.825rem] font-medium">
                 Need help?
               </router-link>
             </div>
@@ -133,6 +143,9 @@ const password = ref("");
 const emailError = ref("");
 const passwordError = ref("");
 const showPassword = ref(false);
+const isEmailFocused = ref(false);
+const isPasswordFocused = ref(false);
+
 
 // Toggle password visibility
 const togglePasswordVisibility = () => {
