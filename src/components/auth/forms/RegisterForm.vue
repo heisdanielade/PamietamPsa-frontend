@@ -1,149 +1,181 @@
-<script setup>
-import Logo from "@/components/others/Logo.vue";
-</script>
-
-
-
 <template>
-  <div class="bg-transparent max-w-4xl md:max-w-2xl lg:max-w-2xl flex flex-col items-center justify-center mx-auto md:h-screen p-1">
-    <div class="custom-cursor md:grid md:grid-cols-3 w-full mx-auto items-center shadow-sm md:shadow-slate-300 rounded-3xl overflow-hidden">
-
-      <!-- Left Section -->
+  <div class="max-w-4xl md:max-w-2xl lg:max-w-2xl flex flex-col items-center justify-center mx-auto md:h-screen p-1">
+    <div class="flex flex-col items-center justify-center min-h-screen w-full">
       <div
-        class="left-side max-md:order-1 flex flex-col items-center md:items-start space-y-8 max-md:mt-16 min-h-full xrounded-t-3xl md:rounded-none lg:px-8 p-5">
-        <div class="w-full">
-          <router-link to="/" class="flex items-center text-gray-200">
-            <Logo/>
-          </router-link>
+        class="w-full max-w-4xl bg-white md:shadow-sm shadow-slate-300 md:rounded-xl overflow-hidden flex flex-col md:flex-row">
+
+        <!-- Left Side: Image -->
+        <div class="md:w-1/2 hidden md:block p-1">
+          <img src="@/assets/images/backgrounds/webp/dog-purple.webp" alt="Pet Image"
+            class="w-full h-full object-cover opacity-70 rounded-lg">
         </div>
-        <div class="h-6 w-full"></div>
+
+        <!-- Right Side: Login Form -->
+        <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
+          <router-link to="/" class="flex items-center justify-center">
+            <Logo></Logo>
+          </router-link>
+          <p class="text-gray-500 text-center opacity-90 mt-3">Create an account</p>
+
+          <div class="oauth flex w-full ">
+            <!-- Google Signin -->
+            <button
+              class="w-full mr-4 flex items-center justify-center gap-2 bg-white border border-gray-300 py-2 rounded-lg hover:bg-gray-200 transition text-gray-500 text-sm font-semibold mt-6">
+              <img src="@/assets/images/logos/google.svg" alt="Google Icon" class="w-5 h-5">
+              Google
+            </button>
+            <!-- Facebook Signin -->
+            <button
+              class="w-full flex items-center justify-center gap-2 bg-white border border-gray-300 py-2 rounded-lg hover:bg-gray-200 transition text-gray-500 text-sm font-semibold mt-6">
+              <img src="@/assets/images/logos/facebook.svg" alt="Google Icon" class="w-5 h-5">
+              Facebook
+            </button>
+          </div>
+
+          <!-- OR Separator -->
+          <div class="flex items-center mt-7 mb-6">
+            <div class="flex-1 h-px bg-gray-300"></div>
+            <span class="px-3 text-gray-500 text-sm">or</span>
+            <div class="flex-1 h-px bg-gray-300"></div>
+          </div>
+
+          <!-- Form Inputs -->
+          <form @submit.prevent="handleLogin">
+            <!-- Email -->
+            <div class="relative mb-4">
+              <input v-model="email" type="email" id="email"
+                class="w-full px-1 pt-6 border-b-2 border-0 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
+                :class="{ 'border-red-500': emailError }" @input="validateEmail" required />
+              <label for="email"
+                class="absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-purple-700">
+                Email Address
+              </label>
+              <p v-if="emailError" class="text-red-500 text-sm mt-1">{{ emailError }}</p>
+            </div>
+
+            <!-- Password -->
+            <div class="relative">
+              <input v-model="password" :type="showPassword ? 'text' : 'password'" id="password"
+                class="w-full px-1 pt-6 border-b-2 border-0 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
+                :class="{ 'border-red-500': passwordError }" @input="validatePassword" required />
+              <label for="password"
+                class="absolute left-0 top-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-purple-700">
+                Password
+              </label>
+              <button type="button" @click="togglePasswordVisibility"
+                class="absolute top-4 right-3 text-gray-500 hover:text-gray-700">
+                <i v-if="showPassword"
+                  class="fa-solid fa-eye-slash text-sm text-gray-600 opacity-30 hover:text-purple-700 transition-all"></i>
+                <i v-else
+                  class="fa-solid fa-eye text-sm text-gray-600 opacity-30 hover:text-purple-700 transition-all"></i>
+              </button>
+
+              <p v-if="passwordError" class="text-red-500 text-sm mt-1">{{ passwordError }}</p>
+            </div>
+
+            <div class="flex justify-end mt-3">
+              <router-link to="/x" class="text-purple-500 text-[0.825rem] font-medium hover:underline">
+                Need help?
+              </router-link>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit"
+              class="action-btn flex items-center justify-center relative left-1/2 -translate-x-1/2 w-44 mt-6 py-2.5 px-4 bg-dark tracking-wide text-sm text-white hover:shadow-sm transition rounded-xl hover:opacity-90 focus:outline-none"
+              :disabled="!isFormValid" :class="{ 'opacity-50 cursor-not-allowed hover:opacity-50': !isFormValid }">
+              <span class="font-medium text-sm">
+                Sign up
+              </span>
+              <span
+                class="bg-white color-dark text-xs ml-3 font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                <i class="transition ri-arrow-right-line"></i>
+              </span>
+            </button>
+          </form>
+
+
+          <p class="mt-5 text-gray-600 text-center text-[0.825rem]">
+            Have an account? <router-link to="/u/login" class="text-purple-500 font-medium hover:underline">
+              Log in</router-link>
+          </p>
+        </div>
+
       </div>
 
-
-      <!-- Form Section -->
-      <form @submit.prevent class="bg-white md:col-span-2 w-full py-6 px-6 sm:px-16 max-md:max-w-xl mx-auto">
-        <div class="mb-6 w-full flex items-center justify-center">
-          <h3 class="text-gray-800 text-xl font-semibold">Create an account</h3>
-        </div>
-
-        <div class="space-y-6">
-          <!-- Email Input -->
-          <div>
-            <label for="email" class="text-gray-600 font-medium text-sm mb-2 block">Email Address</label>
-            <div class="relative flex items-center">
-              <input id="email" name="email" type="email" required
-                class="text-gray-800 bg-white border border-gray-300 w-full text-sm font-medium placeholder:font-normal pl-4 pr-8 py-2.5 rounded-md outline-purple-400"
-                placeholder="Enter your email" />
-              <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
-                class="custom-cursor w-4 h-4 absolute right-4" viewBox="0 0 682.667 682.667">
-                <defs>
-                  <clipPath id="a" clipPathUnits="userSpaceOnUse">
-                    <path d="M0 512h512V0H0Z" data-original="#000000"></path>
-                  </clipPath>
-                </defs>
-                <g clip-path="url(#a)" transform="matrix(1.33 0 0 -1.33 0 682.667)">
-                  <path fill="none" stroke-miterlimit="10" stroke-width="40"
-                    d="M452 444H60c-22.091 0-40-17.909-40-40v-39.446l212.127-157.782c14.17-10.54 33.576-10.54 47.746 0L492 364.554V404c0 22.091-17.909 40-40 40Z"
-                    data-original="#000000"></path>
-                  <path
-                    d="M472 274.9V107.999c0-11.027-8.972-20-20-20H60c-11.028 0-20 8.973-20 20V274.9L0 304.652V107.999c0-33.084 26.916-60 60-60h392c33.084 0 60 26.916 60 60v196.653Z"
-                    data-original="#000000"></path>
-                </g>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Password Input -->
-          <div>
-            <label for="password" class="text-gray-600 font-medium text-sm mb-2 block">Password</label>
-            <div class="relative flex items-center">
-              <input id="password" name="password" type="password" required
-                class="text-gray-800 bg-white border border-gray-300 w-full text-sm font-medium placeholder:font-normal pl-4 pr-8 py-2.5 rounded-md outline-purple-400"
-                placeholder="Enter your password" />
-              <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
-                class="custom-cursor w-4 h-4 absolute right-4 cursor-pointer" viewBox="0 0 128 128">
-                <path
-                  d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z"
-                  data-original="#000000"></path>
-              </svg>
-            </div>
-          </div>
-
-
-          <!-- Re-enter Password Input -->
-          <div>
-            <label for="password" class="text-gray-600 font-medium text-sm mb-2 block">Re-enter Password</label>
-            <div class="relative flex items-center">
-              <input id="reEnterPassword" name="reEnterPassword" type="password" required
-                class="text-gray-800 bg-white border border-gray-300 w-full text-sm font-medium placeholder:font-normal pl-4 pr-8 py-2.5 rounded-md outline-purple-400"
-                placeholder="Re-enter your password" />
-              <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
-                class="custom-cursor w-4 h-4 absolute right-4 cursor-pointer" viewBox="0 0 128 128">
-                <path
-                  d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z"
-                  data-original="#000000"></path>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Remember Me Checkbox -->
-          <div class="flex items-center">
-            <input id="remember-me" name="remember-me" type="checkbox"
-              class="custom-cursor h-4 w-4 shrink-0 rounded-2xl" />
-
-            <label for="remember-me" class="ml-2 custom-cursor block text-sm text-gray-600">
-              <span class="font-medium">Remember me</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Submit Button -->
-        <div class="mt-8 w-full xbg-blue-300 flex items-center justify-center">
-          <button type="submit"
-            class="action-btn flex items-center justify-center w-44 py-2.5 px-4 bg-dark tracking-wide text-sm text-white hover:shadow-sm transition rounded-xl  hover:bg-purple-500 focus:outline-none">
-            <span class="font-medium text-sm xuppercase">
-              Sign up
-            </span>
-            <span
-              class="bg-white color-dark text-xs ml-3 font-bold rounded-full w-5 h-5 flex items-center justify-center">
-              <i class="transition ri-arrow-right-line"></i>
-            </span>
-          </button>
-        </div>
-
-
-        <p class="text-gray-600 text-sm mt-6 text-center">
-          Already have an account?
-          <router-link to="/u/login" class="text-purple-500 font-medium ml-1 transition hover:underline hover:text-purple-700">
-            Login
+      <!-- Info -->
+      <div class="xmt-6 mb-10 p-5 xflex items-center justify-center text-[0.825rem] font-normal text-gray-600">
+        <div class="text-center">
+          By proceeding, you accept our
+          <router-link to="/x" class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
+            Terms
           </router-link>
-        </p>
-
-      </form>
-
-    </div>
-
-    <!-- Info -->
-    <div class="mt-6 mb-10 p-5 flex items-center justify-center text-sm font-normal text-gray-600">
-      <div class="text-center">
-        By proceeding, you agree to our 
-      <router-link to="/x" class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
-        Terms of Use
-      </router-link>
-       and 
-       <router-link to="/x" class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
-        Privacy Policy
-      </router-link>.
+          and
+          <router-link to="/x" class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
+            Privacy Policy
+          </router-link>.
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </template>
 
 
-<style scoped>
-.left-side{
-  opacity: 0.775;
-  background: url('@/assets/images/backgrounds/webp/dog-yellow.webp') no-repeat center / cover;
-}
-</style>
+
+
+<script setup>
+import { ref, computed } from "vue";
+import Logo from "@/components/others/Logo.vue";
+
+// Reactive state
+const email = ref("");
+const password = ref("");
+const emailError = ref("");
+const passwordError = ref("");
+const showPassword = ref(false);
+
+// Toggle password visibility
+const togglePasswordVisibility = () => {
+  showPassword.value = !showPassword.value;
+};
+
+// Validation functions
+const validateEmail = () => {
+  if (!email.value) {
+    emailError.value = "Email is required.";
+  } else if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+    emailError.value = "Invalid email address.";
+  } else {
+    emailError.value = "";
+  }
+};
+
+const validatePassword = () => {
+  if (!password.value) {
+    passwordError.value = "Password is required.";
+  } else if (password.value.length < 6) {
+    passwordError.value = "Password needs 6+ characters.";
+  } else if (password.value.includes(" ")) {
+    passwordError.value = "Password cannot contain spaces.";
+  } else {
+    passwordError.value = "";
+  }
+};
+
+
+// Check if form is valid
+const isFormValid = computed(() => {
+  return email.value && password.value.length >= 6 && !emailError.value && !passwordError.value;
+});
+
+// Handle user signup
+const handleLogin = () => {
+  validateEmail();
+  validatePassword();
+
+  // Temporary
+  if (isFormValid.value) {
+    alert("Sign up successful! 🎉");
+  }
+};
+</script>

@@ -16,14 +16,15 @@
             <Logo></Logo>
           </router-link>
           <p class="text-gray-500 text-center opacity-90 mt-3">Access your account</p>
-
-          <!-- Google Login -->
+          
           <div class="oauth flex w-full ">
+            <!-- Google Signin -->
             <button
               class="w-full mr-4 flex items-center justify-center gap-2 bg-white border border-gray-300 py-2 rounded-lg hover:bg-gray-200 transition text-gray-500 text-sm font-semibold mt-6">
               <img src="@/assets/images/logos/google.svg" alt="Google Icon" class="w-5 h-5">
               Google
             </button>
+            <!-- Facebook Signin -->
             <button
               class="w-full flex items-center justify-center gap-2 bg-white border border-gray-300 py-2 rounded-lg hover:bg-gray-200 transition text-gray-500 text-sm font-semibold mt-6">
               <img src="@/assets/images/logos/facebook.svg" alt="Google Icon" class="w-5 h-5">
