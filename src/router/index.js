@@ -31,13 +31,13 @@ const routes = [
     name: 'Login', 
     component: LoginPage, 
     // component: UnderConstructionPage, 
-    meta: { title: "Login" } 
+    meta: { title: "Log in" } 
   },
   { path: '/u/signup', 
     name: 'Signup', 
     component: SignUpPage, 
     // component: UnderConstructionPage, 
-    meta: { title: "SignUp" } 
+    meta: { title: "Sign up" } 
   },
 
 
