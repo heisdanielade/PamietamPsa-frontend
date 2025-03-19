@@ -1,8 +1,10 @@
+
+
 <template>
   <div class="max-w-4xl md:max-w-2xl lg:max-w-2xl flex flex-col items-center justify-center mx-auto md:h-screen p-1">
     <div class="flex flex-col items-center justify-center min-h-screen w-full">
       <div
-        class="w-full max-w-4xl bg-white md:shadow-sm shadow-slate-300 md:rounded-xl overflow-hidden flex flex-col md:flex-row">
+        class="w-full max-w-4xl bg-white md:h-[32.8rem] md:shadow-sm shadow-slate-300 md:rounded-xl overflow-hidden flex flex-col md:flex-row">
 
         <!-- Left Side: Image -->
         <div class="md:w-1/2 hidden md:block p-1">
@@ -41,20 +43,20 @@
 
           <!-- Form Inputs -->
           <form @submit.prevent="handleLogin">
-            <div class="relative mb-4">
+            <div class="relative mb-2">
               <input v-model="email" type="email" id="email" ref="emailInput" placeholder=" "
-                class="peer w-full px-1 pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
+                class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
                 :class="{ 'border-red-500': emailError }" @input="validateEmail" @focus="isEmailFocused = true"
-                @blur="isFocused = false" required />
+                @blur="isEmailFocused = false" required />
 
               <label for="email" class="absolute left-0 transition-all text-gray-500 text-sm" :class="{
-                'top-2 text-sm text-purple-700': email || isEmailFocused,
+                'top-1 text-sm text-purple-700': email || isEmailFocused,
                 'top-6 text-base text-gray-400': !email && !isEmailFocused
               }">
                 Email Address
               </label>
 
-              <p v-if="emailError" class="text-red-500 text-sm mt-1">{{ emailError }}</p>
+              <p v-if="emailError" class="text-red-500 text-[0.825rem] mt-1">{{ emailError }}</p>
             </div>
 
 
@@ -62,12 +64,12 @@
             <div class="relative">
               <input v-model="password" :type="showPassword ? 'text' : 'password'" id="password" ref="passwordInput"
                 placeholder=" "
-                class="peer w-full px-1 pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
+                class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
                 :class="{ 'border-red-500': passwordError }" @input="validatePassword" @focus="isPasswordFocused = true"
                 @blur="isPasswordFocused = false" required />
 
               <label for="password" class="absolute left-0 transition-all text-gray-500 text-sm" :class="{
-                'top-2 text-sm text-purple-700': password || isPasswordFocused,
+                'top-1 text-sm text-purple-700': password || isPasswordFocused,
                 'top-6 text-base text-gray-400': !password && !isPasswordFocused
               }">
                 Password
@@ -81,7 +83,7 @@
                   class="fa-solid fa-eye text-sm text-gray-600 opacity-30 hover:text-purple-700 transition-all"></i>
               </button>
 
-              <p v-if="passwordError" class="text-red-500 text-sm mt-1">{{ passwordError }}</p>
+              <p v-if="passwordError" class="text-red-500 text-[0.825rem] mt-1">{{ passwordError }}</p>
             </div>
             <div class="flex justify-end mt-3">
               <router-link to="/x" class="text-purple-500 text-[0.825rem] font-medium">
