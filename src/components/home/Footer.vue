@@ -1,73 +1,133 @@
 <script setup>
-import { ref } from 'vue';
-import Logo from "@/components/others/Logo.vue";
-const currentYear = ref(new Date().getFullYear());
+import { useProjectStore } from '@/stores/projectStore';
+
+const projectName = useProjectStore().projectName;
+const currentYear = new Date().getFullYear();
 
 </script>
 
 
 <template>
-    <footer class="xbg-white overflow-hidden rounded-lg mt-28 bg-inherit">
-        <div class="w-full max-w-screen-lg mx-auto p-4 md:py-8">
-            <div v-scroll-reveal class="not-shown sm:flex sm:items-center sm:justify-between">
-                <router-link to="/" class="flex items-center mb-4 sm:mb-0 space-x-2 rtl:space-x-reverse">
-                    <Logo/>
-                </router-link>
-                <ul class="flex flex-wrap items-center justify-evenly mb-4 text-sm font-medium text-gray-500">
-                    <li class="">
-                        <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">About Us</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">Terms</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">Privacy</a>
-                    </li>
+    <footer v-scroll-reveal
+        class="not-shown md:bg-purple-50 flex flex-col justify-end md:justify-between overflow-hidden rounded-[2.25rem] px-5 py-7 md:p-3 mt-32 mb-0 md:mb-10 md:h-auto md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
 
-                    <li class="">
-                        <a href="#" class="hover:text-purple-500 transition me-4 md:me-6">Support</a>
-                    </li>
-                    <li class="mt-0 md:mt-0">
-                        <a href="https://github.com/heisdanielade" target="_blank" class="hover:text-purple-500 transition">Creator</a>
-                    </li>
-                </ul>
+        <div class="info hidden md:flex flex-col md:flex-row items-center justify-between px-9 mb-10 md:mb-2">
+            <div class="left">
+                <h2 class="text-4xl font-extrabold">
+                    Find your new<br>furry friend!
+                </h2>
+                <p class="hidden md:flex mt-4 text-sm text-gray-500 font-medium">
+                    Are you ready to welcome a bundle of joy into your life? <br>
+                    Our shelter is home to a variety of lovable companions <br> eagerly waiting for their forever homes.
+                </p>
             </div>
 
+            <div class="right flex items-center justify-center bg-purple-300 -translate-y-10 mt-12 h-48 w-48">
+                <router-link to="/x" class="box bg-white flex items-center justify-center w-28 h-28 rounded-3xl">
+                    <span class="font-medium text-base">
+                        Adopt a pet
+                    </span>
+                </router-link>
+            </div>
+        </div>
 
-            <hr class="my-6 border-gray-200 border-1 sm:mx-auto lg:my-8" />
 
+        <!-- Actual footer content -->
+        <div v-scroll-reveal
+            class="not-shown content bg-dark flex flex-col md:flex-row items-center justify-between shadow-sm text-white p-4 rounded-3xl md:rounded-full">
 
-            <div v-scroll-reveal class="not-shown sm:flex sm:items-center sm:justify-between">
-                <div class="text-sm text-gray-500 sm:text-center flex items-center justify-between">
-                    <span>© {{ currentYear }} 
-                        <router-link to="/" class="hover:text-purple-500 transition font-medium ml-[0.1rem]">{{ projectName }}</router-link>
-                        ™
-                    </span> 
-                    <span class=" md:ml-5 lg:ml-0">All Rights Reserved.</span>
+            <!-- Logo -->
+            <router-link to="/" class="logo hidden md:flex items-center">
+                <img src="/src/assets/images/logos/logo-black-inline.svg" class="mr-1 w-6 h-6" alt="Logo" />
+                <span class="logo-text text-xl font-medium whitespace-nowrap">{{ projectName }}</span>
+            </router-link>
+
+            <!-- Useful links -->
+            <div
+                class="links hidden md:flex items-center justify-evenly md:justify-center w-full text-[0.815rem] my-6 md:my-0">
+                <router-link to="/x" class="md:mr-4 transition hover:text-purple-300">
+                    About
+                </router-link>
+                <a href="https://github.com/heisdanielade" target="_blank"
+                    class="md:mr-4 transition hover:text-purple-300">
+                    Creator
+                </a>
+                <router-link to="/x" class="md:mr-4 transition hover:text-purple-300">
+                    Terms
+                </router-link>
+                <router-link to="/x" class="md:mr-4 transition hover:text-purple-300">
+                    Privacy
+                </router-link>
+                <router-link to="/x" class="transition hover:text-purple-300">
+                    Contact us
+                </router-link>
+            </div>
+
+            <!-- Social media links -->
+            <div class="icons flex items-center text-[0.83rem]">
+                <a href=""
+                    class="relative flex items-center justify-center mr-3 md:mr-2 w-7 h-7 rounded-full border-[1px] border-gray-400 transition hover:text-purple-300">
+                    <span class="sr-only">Instagram profile</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href=""
+                    class="relative flex items-center justify-center mr-3 md:mr-2 w-7 h-7 rounded-full border-[1px] border-gray-400 transition hover:text-purple-300">
+                    <span class="sr-only">Facebook page</span>
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href=""
+                    class="relative flex items-center justify-center mr-3 md:mr-2 w-7 h-7 rounded-full border-[1px] border-gray-400 transition hover:text-purple-300">
+                    <span class="sr-only">Discord community</span>
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+                <a href=""
+                    class="relative flex items-center justify-center w-7 h-7 rounded-full border-[1px] border-gray-400 transition hover:text-purple-300">
+                    <span class="sr-only">LinkedIn profile</span>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+
+            <!-- Arr & Date -->
+            <div class="flex md:hidden items-center justify-evenly mt-5 text-[0.81rem] font-medium">
+                <div class="">
+                    <span class="">&copy {{ currentYear }}</span>
+                    <router-link to="/" class="ml-1 transition text-purple-300 hover:underline">
+                        {{ projectName }}.
+                    </router-link>
                 </div>
-                <div class="flex justify-center mt-7 md:mt-0">
-                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition">
-                        <i class="fa-brands fa-facebook-f"></i>
-                        <span class="sr-only">Facebook page</span>
-                    </a>
-                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                        <span class="sr-only">LinkedIn profile</span>
-                    </a>
-                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
-                        <i class="fa-brands fa-instagram"></i>
-                        <span class="sr-only">Instagram profile</span>
-                    </a>
-                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
-                        <i class="fa-brands fa-medium"></i>
-                        <span class="sr-only">Medium page</span>
-                    </a>
-                    <a href="#" class="text-base text-gray-500 hover:text-purple-500 transition ms-6">
-                        <i class="fa-brands fa-discord"></i>
-                        <span class="sr-only">Discord community</span>
-                    </a>
+
+                <div class="ml-2">
+                    <span class="">
+                        All Rights Reserved.
+                    </span>
                 </div>
             </div>
         </div>
+
     </footer>
 </template>
+
+
+
+<style scoped>
+.info .right {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation: morph 4s linear infinite;
+}
+
+@keyframes morph {
+
+    0%,
+    100% {
+        border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+    }
+
+    34% {
+        border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+    }
+
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+    }
+}
+</style>
