@@ -2,7 +2,6 @@
 import { ref } from "vue";
 import Logo from "@/components/others/Logo.vue";
 
-
 const user = {
     email: "hida@pamietampsa.com",
     isLoggedIn: false,
@@ -35,8 +34,8 @@ const toggle = () => {
             <div
                 class="blur-bg-2 xrounded-b-2xl rounded-3xl px-2 py-4 md:p-4 mx-3 md:mx-auto flex flex-wrap justify-between items-center max-w-screen-lg">
                 <!-- Logo -->
-                <router-link to="/" class="flex items-center">
-                    <Logo />
+                <router-link to="/">
+                    <logo />
                 </router-link>
 
                 <!-- User info/login -->

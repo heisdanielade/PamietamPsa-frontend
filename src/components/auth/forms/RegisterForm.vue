@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="max-w-4xl md:max-w-2xl lg:max-w-2xl flex flex-col items-center justify-center mx-auto md:h-screen p-1">
     <div class="flex flex-col items-center justify-center min-h-screen w-full">
@@ -14,9 +12,11 @@
 
         <!-- Right Side: Login Form -->
         <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
-          <router-link to="/" class="flex items-center justify-center">
-            <Logo></Logo>
-          </router-link>
+          <div class="w-full flex items-center justify-center">
+            <router-link to="/">
+              <logo />
+            </router-link>
+          </div>
           <p class="text-gray-500 text-center opacity-90 mt-3">Create an account</p>
 
           <div class="oauth flex w-full ">
@@ -66,7 +66,8 @@
                 placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
                 :class="{ 'border-red-500': passwordError }" @input="validatePassword" @focus="isPasswordFocused = true"
-                @blur="isPasswordFocused = false" required />
+                @blur="isPasswordFocused = false" required 
+                @keydown.space.prevent />
 
               <label for="password" class="absolute left-0 transition-all text-gray-500 text-sm" :class="{
                 'top-1 text-sm text-purple-700': password || isPasswordFocused,
@@ -134,6 +135,13 @@
 
 
 
+<style scoped>
+input {
+  caret-color: #a855f7;
+}
+</style>
+
+
 
 <script setup>
 import { ref, computed } from "vue";
@@ -170,8 +178,6 @@ const validatePassword = () => {
     passwordError.value = "Password is required.";
   } else if (password.value.length < 6) {
     passwordError.value = "Password needs 6+ characters.";
-  } else if (password.value.includes(" ")) {
-    passwordError.value = "Password cannot contain spaces.";
   } else {
     passwordError.value = "";
   }

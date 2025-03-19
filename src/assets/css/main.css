@@ -24,6 +24,10 @@
   --logo-font: 'Montserrat', sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--body-font);
   cursor: url("@/assets/images/cursors/white-arrow.png"), auto;
@@ -53,6 +57,11 @@ img {
 }
 
 
+.logo-text {
+  background: linear-gradient(180deg, #1b0525 0%, #591ed8 50%, #e09df3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .logo-font{
   font-family: var(--logo-font);
 }

@@ -1,7 +1,7 @@
 <script setup>
 
 import Header from "@/components/home/Header.vue";
-import FooterV2 from "@/components/home/FooterV2.vue";
+import FooterV2 from "@/components/home/Footer.vue";
 import Greeting from "@/components/account/Greeting.vue";
 import MyPets from "@/components/account/MyPets.vue";
 import Sidebar from "@/components/account/Sidebar.vue";

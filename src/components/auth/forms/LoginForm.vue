@@ -8,22 +8,15 @@
         <div class="md:w-1/2 hidden md:block p-1">
           <img src="@/assets/images/backgrounds/cats.svg" alt="Pet Image"
             class="w-full h-full object-cover opacity-70 rounded-lg">
-
-            <div class="hidden info absolute w-full z-30 text-white">
-              <div class="h2">
-                Maecenas mattis egastas.
-              </div>
-              <p class="">
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
-            </div>
         </div>
 
         <!-- Right Side: Login Form -->
         <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
-          <router-link to="/" class="flex items-center justify-center">
-            <Logo></Logo>
-          </router-link>
+          <div class="w-full flex items-center justify-center">
+            <router-link to="/">
+              <logo />
+            </router-link>
+          </div>
           <p class="text-gray-500 text-center opacity-90 mt-3">Access your account</p>
 
           <div class="oauth flex w-full ">
@@ -75,7 +68,8 @@
                 placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
                 :class="{ 'border-red-500': passwordError }" @input="validatePassword" @focus="isPasswordFocused = true"
-                @blur="isPasswordFocused = false" required />
+                @blur="isPasswordFocused = false" required
+                @keydown.space.prevent  />
 
               <label for="password" class="absolute left-0 transition-all text-gray-500 text-sm" :class="{
                 'top-1 text-sm text-purple-700': password || isPasswordFocused,
@@ -143,6 +137,13 @@
 
 
 
+<style scoped>
+input {
+  caret-color: #a855f7;
+}
+</style>
+
+
 
 <script setup>
 import { ref, computed } from "vue";
@@ -178,8 +179,6 @@ const validatePassword = () => {
     passwordError.value = "Password is required.";
   } else if (password.value.length < 6) {
     passwordError.value = "Password needs 6+ characters.";
-  } else if (password.value.includes(" ")) {
-    passwordError.value = "Password cannot contain spaces.";
   } else {
     passwordError.value = "";
   }

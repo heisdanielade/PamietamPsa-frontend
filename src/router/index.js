@@ -44,8 +44,8 @@ const routes = [
   // Profile Routes
   { path: '/u/profile', 
     name: 'MyProfile', 
-    // component: MyProfile, 
-    component: UnderConstructionPage, 
+    component: MyProfile, 
+    // component: UnderConstructionPage, 
     meta: { title: "My Profile" } 
   },
   { path: '/u/settings', 

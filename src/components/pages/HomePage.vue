@@ -3,7 +3,7 @@
   import Home from "@/components/home/Home.vue";
   import Explore from "@/components/home/Explore.vue";
   import Preview from "@/components/home/Preview.vue";
-  import FooterV2 from "@/components/home/FooterV2.vue";
+  import Footer from "@/components/home/Footer.vue";
 </script>
 
 
@@ -23,6 +23,6 @@
       <Preview></Preview>
 
       <!-- Footer Section -->
-      <FooterV2></FooterV2>
+      <Footer></Footer>
 
 </template>
