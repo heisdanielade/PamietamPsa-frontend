@@ -6,7 +6,7 @@
 
         <!-- Left Side: Image -->
         <div class="md:w-1/2 hidden md:block p-1">
-          <img src="@/assets/images/backgrounds/webp/dog-purple.webp" alt="Pet Image"
+          <img src="@/assets/images/backgrounds/cats.svg" alt="Pet Image"
             class="w-full h-full object-cover opacity-70 rounded-lg">
 
             <div class="hidden info absolute w-full z-30 text-white">
@@ -96,7 +96,7 @@
             </div>
 
             <div class="flex justify-end mt-3">
-              <router-link to="/x" class="text-purple-500 text-[0.825rem] font-medium">Forgot
+              <router-link to="/x" class="text-purple-500 text-[0.825rem] font-medium hover:underline">Forgot
                 Password?</router-link>
             </div>
 

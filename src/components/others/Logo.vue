@@ -6,7 +6,8 @@ const projectName = useProjectStore().projectName;
 </script>
 
 <template>
-    <img src="/src/assets/images/logos/webp/logo-2.webp" class="mr-1 w-6 h-6" alt="Logo" />
+    <img src="/src/assets/images/logos/dog-origami.svg" class="mr-1 w-6 h-6" alt="Logo" />
+    <!-- <img src="/src/assets/images/logos/webp/logo-2.webp" class="mr-1 w-6 h-6" alt="Logo" /> -->
     <span class="logo-text text-xl font-medium whitespace-nowrap">{{ projectName }}</span>
 </template>
 
