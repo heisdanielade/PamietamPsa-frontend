@@ -66,8 +66,7 @@
                 placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
                 :class="{ 'border-red-500': passwordError }" @input="validatePassword" @focus="isPasswordFocused = true"
-                @blur="isPasswordFocused = false" required 
-                @keydown.space.prevent />
+                @blur="isPasswordFocused = false" required @keydown.space.prevent />
 
               <label for="password" class="absolute left-0 transition-all text-gray-500 text-sm" :class="{
                 'top-1 text-sm text-purple-700': password || isPasswordFocused,
@@ -178,6 +177,8 @@ const validatePassword = () => {
     passwordError.value = "Password is required.";
   } else if (password.value.length < 6) {
     passwordError.value = "Password needs 6+ characters.";
+  } else if (password.value.includes(" ")) {
+    passwordError.value = "Password cannot contain spaces.";
   } else {
     passwordError.value = "";
   }
