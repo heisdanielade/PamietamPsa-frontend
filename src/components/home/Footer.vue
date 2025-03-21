@@ -52,10 +52,10 @@ const currentYear = new Date().getFullYear();
                     class="md:mr-4 transition hover:text-purple-300">
                     Creator
                 </a>
-                <router-link to="/x" class="md:mr-4 transition hover:text-purple-300">
+                <router-link to="/legal/terms" class="md:mr-4 transition hover:text-purple-300">
                     Terms
                 </router-link>
-                <router-link to="/x" class="md:mr-4 transition hover:text-purple-300">
+                <router-link to="/legal/policy" class="md:mr-4 transition hover:text-purple-300">
                     Privacy
                 </router-link>
                 <router-link to="/x" class="transition hover:text-purple-300">
