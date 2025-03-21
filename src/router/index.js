@@ -1,10 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/components/pages/HomePage.vue';
+
 import LoginPage from '@/components/pages/auth/LoginPage.vue';
 import SignUpPage from '@/components/pages/auth/SignUpPage.vue';
+import VerifyEmailPage from '@/components/pages/auth/VerifyEmailPage.vue';
+
 import MyProfile from '@/components/pages/account/MyProfile.vue';
 
 import UnderConstructionPage from '@/components/pages/UnderConstructionPage.vue';
+
+import TermsPage from '@/components/pages/legal/TermsPage.vue';
+import PolicyPage from '@/components/pages/legal/PolicyPage.vue';
 
 
 
@@ -17,6 +23,7 @@ const routes = [
     component: HomePage, 
     meta: { title: "Home" }
   },
+
   
   // Page under construction
   { 
@@ -25,6 +32,7 @@ const routes = [
     component: UnderConstructionPage, 
     meta: { title: "Under Construction" }
   },
+
 
   // Authentication Routes
   { path: '/u/login', 
@@ -38,6 +46,24 @@ const routes = [
     component: SignUpPage, 
     // component: UnderConstructionPage, 
     meta: { title: "Sign up" } 
+  },
+  { path: '/u/verify-email', 
+    name: 'VerifyEmail', 
+    component: VerifyEmailPage, 
+    meta: { title: "Verify Email" } 
+  },
+
+
+  // Legal Info Routes
+  { path: '/legal/terms', 
+    name: 'Terms', 
+    component: TermsPage,
+    meta: { title: "Terms & Conditions" } 
+  },
+  { path: '/legal/policy', 
+    name: 'Policy', 
+    component: PolicyPage,
+    meta: { title: "Privacy Policy" } 
   },
 
 
