@@ -120,11 +120,11 @@
       <div class="xmt-6 mb-10 p-5 xflex items-center justify-center text-[0.825rem] font-normal text-gray-600">
         <div class="text-center">
           By continuing, you accept our
-          <router-link to="/x" class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
+          <router-link to="/legal/terms" class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
             Terms
           </router-link>
           and
-          <router-link to="/x" class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
+          <router-link to="/legal/policy" class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
             Privacy Policy
           </router-link>.
         </div>
