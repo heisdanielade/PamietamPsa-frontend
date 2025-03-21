@@ -55,7 +55,9 @@ img {
   user-select: none;
   pointer-events: none;
 }
-
+input {
+  caret-color: #a855f7;
+}
 
 .logo-text {
   background: linear-gradient(180deg, #1b0525 0%, #591ed8 50%, #e09df3 100%);

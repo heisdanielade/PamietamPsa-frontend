@@ -136,13 +136,6 @@
 
 
 
-<style scoped>
-input {
-  caret-color: #a855f7;
-}
-</style>
-
-
 
 <script setup>
 import { ref, computed } from "vue";
