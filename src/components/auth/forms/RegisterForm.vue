@@ -4,6 +4,7 @@
       <div
         class="w-full max-w-4xl bg-white md:h-[32.8rem] md:shadow-sm shadow-slate-300 md:rounded-xl overflow-hidden flex flex-col md:flex-row">
 
+
         <!-- Left Side: Image -->
         <div class="md:w-1/2 hidden md:block p-1">
           <img src="@/assets/images/backgrounds/cats.svg" alt="Pet Image"
@@ -42,16 +43,16 @@
           </div>
 
           <!-- Form Inputs -->
-          <form @submit.prevent="handleLogin">
+          <form @submit.prevent="handleSignup">
             <div class="relative mb-2">
-              <input v-model="email" type="email" id="email" ref="emailInput" placeholder=" "
+              <input v-model="user.email" type="email" id="email" ref="emailInput" placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
                 :class="{ 'border-red-500': emailError }" @input="validateEmail" @focus="isEmailFocused = true"
                 @blur="isEmailFocused = false" required />
 
               <label for="email" class="absolute left-0 transition-all text-gray-500 text-sm" :class="{
-                'top-1 text-sm text-purple-700': email || isEmailFocused,
-                'top-6 text-base text-gray-400': !email && !isEmailFocused
+                'top-1 text-sm text-purple-700': user.email || isEmailFocused,
+                'top-6 text-base text-gray-400': !user.email && !isEmailFocused
               }">
                 Email Address
               </label>
@@ -62,15 +63,15 @@
 
             <!-- Password -->
             <div class="relative">
-              <input v-model="password" :type="showPassword ? 'text' : 'password'" id="password" ref="passwordInput"
-                placeholder=" "
+              <input v-model="user.password" :type="showPassword ? 'text' : 'password'" id="password"
+                ref="passwordInput" placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
                 :class="{ 'border-red-500': passwordError }" @input="validatePassword" @focus="isPasswordFocused = true"
                 @blur="isPasswordFocused = false" required @keydown.space.prevent />
 
               <label for="password" class="absolute left-0 transition-all text-gray-500 text-sm" :class="{
-                'top-1 text-sm text-purple-700': password || isPasswordFocused,
-                'top-6 text-base text-gray-400': !password && !isPasswordFocused
+                'top-1 text-sm text-purple-700': user.password || isPasswordFocused,
+                'top-6 text-base text-gray-400': !user.password && !isPasswordFocused
               }">
                 Password
               </label>
@@ -93,16 +94,27 @@
 
             <!-- Submit button -->
             <button type="submit"
-              class="action-btn flex items-center justify-center relative left-1/2 -translate-x-1/2 w-44 mt-6 py-2.5 px-4 bg-dark tracking-wide text-sm text-white hover:shadow-sm transition rounded-xl hover:opacity-90 focus:outline-none"
-              :disabled="!isFormValid" :class="{ 'opacity-50 cursor-not-allowed hover:opacity-50': !isFormValid }">
-              <span class="font-medium text-sm">
-                Sign up
+              class="action-btn flex items-center justify-center relative left-1/2 -translate-x-1/2 w-44 mt-6 h-10 bg-dark tracking-wide text-sm text-white hover:shadow-sm transition rounded-xl hover:opacity-90 focus:outline-none"
+              :disabled="!isFormValid || loading.value"
+              :class="{ 'opacity-50 cursor-not-allowed hover:opacity-50': !isFormValid || loading.value }">
+
+              <template v-if="!loading.value">
+                <span class="font-medium text-sm">Sign up</span>
+                <span
+                  class="bg-white color-dark text-xs ml-3 font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  <i class="transition ri-arrow-right-line"></i>
+                </span>
+              </template>
+
+              <span v-else class="animate-spin text-white text-xl">
+                @@
+                <!-- <i class="ri-loader-4-line ri-spin"></i> -->
               </span>
-              <span
-                class="bg-white color-dark text-xs ml-3 font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                <i class="transition ri-arrow-right-line"></i>
-              </span>
+
+
+
             </button>
+
           </form>
 
 
@@ -118,11 +130,13 @@
       <div class="xmt-6 mb-10 p-5 xflex items-center justify-center text-[0.825rem] font-normal text-gray-600">
         <div class="text-center">
           By proceeding, you accept our
-          <router-link to="/legal/terms" class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
+          <router-link to="/legal/terms"
+            class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
             Terms
           </router-link>
           and
-          <router-link to="/legal/policy" class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
+          <router-link to="/legal/policy"
+            class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
             Privacy Policy
           </router-link>.
         </div>
@@ -136,17 +150,23 @@
 
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, inject, nextTick } from "vue";
+import { useRouter } from "vue-router";
+import authService from "@/services/auth";
 import Logo from "@/components/others/Logo.vue";
 
+const router = useRouter();
+
 // Reactive state
-const email = ref("");
-const password = ref("");
+const user = ref({ email: "", password: "" });
 const emailError = ref("");
 const passwordError = ref("");
 const showPassword = ref(false);
 const isEmailFocused = ref(false);
 const isPasswordFocused = ref(false);
+
+const loading = ref(false);
+const toast = inject("toast"); // Inject global toast
 
 
 // Toggle password visibility
@@ -156,9 +176,9 @@ const togglePasswordVisibility = () => {
 
 // Validation functions
 const validateEmail = () => {
-  if (!email.value) {
+  if (!user.value.email) {
     emailError.value = "Email is required.";
-  } else if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+  } else if (!/^\S+@\S+\.\S+$/.test(user.value.email)) {
     emailError.value = "Invalid email address.";
   } else {
     emailError.value = "";
@@ -166,11 +186,11 @@ const validateEmail = () => {
 };
 
 const validatePassword = () => {
-  if (!password.value) {
+  if (!user.value.password) {
     passwordError.value = "Password is required.";
-  } else if (password.value.length < 6) {
+  } else if (user.value.password.length < 6) {
     passwordError.value = "Password needs 6+ characters.";
-  } else if (password.value.includes(" ")) {
+  } else if (user.value.password.includes(" ")) {
     passwordError.value = "Password cannot contain spaces.";
   } else {
     passwordError.value = "";
@@ -178,19 +198,56 @@ const validatePassword = () => {
 };
 
 
+
 // Check if form is valid
 const isFormValid = computed(() => {
-  return email.value && password.value.length >= 6 && !emailError.value && !passwordError.value;
+  return user.value.email && user.value.password.length >= 6 && !emailError.value && !passwordError.value;
 });
 
+
+
+
 // Handle user signup
-const handleLogin = () => {
+const handleSignup = async () => {
   validateEmail();
   validatePassword();
 
-  // Temporary
-  // if (isFormValid.value) {
-  //   alert("Sign up successful! 🎉");
-  // }
+
+  if (!isFormValid.value) return; // Prevent API call if invalid
+
+  console.log("Loading before signup:", loading.value); // Debugging log
+
+  loading.value = true;
+  await nextTick();
+  
+  try {
+    console.log("Loading during signup:", loading.value); // Debugging log
+
+    await authService.register(user.value);
+
+    if (toast) {
+      toast.value.showToast("Signup successful.", "success");
+    } else {
+      console.error("Toast reference is not available.");
+    }
+
+
+    setTimeout(() => {
+      // Store email temporarily and redirect
+      localStorage.setItem("pendingVerificationEmail", user.value.email);
+      router.push('/u/verify-email');
+    }, 1000);
+  } catch (error) {
+    // Handle error and show failure toast
+    console.error("(e) Error during signup:", error);
+    if (toast) {
+      toast.value.showToast(error.response?.data?.message || "Signup failed.", "error");
+    }
+  } finally {
+    loading.value = false;
+
+    console.log("Loading after signup:", loading.value); // Debugging log
+  }
+
 };
 </script>

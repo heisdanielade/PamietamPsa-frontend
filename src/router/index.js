@@ -17,9 +17,7 @@ const routes = [
   
   // Base Routes
   { path: '/', name: 'Home', component: HomePage, 
-    meta: { 
-      title: "Home", requiresAuth: true 
-    }
+    meta: { title: "Home" }
   },
   { path: '/x', name: 'UnderConstruction', component: UnderConstructionPage, 
     meta: { title: "Under Construction" }
@@ -33,7 +31,15 @@ const routes = [
   { path: '/u/signup', name: 'Signup', component: SignUpPage, 
     meta: { title: "Sign up" } 
   },
-  { path: '/u/verify-email', name: 'VerifyEmail', component: VerifyEmailPage, 
+  { path: '/u/verify-email', name: 'VerifyEmail', component: VerifyEmailPage,
+    beforeEnter: (to, from, next) => {
+      const email = localStorage.getItem("pendingVerificationEmail");
+      if (!email) {
+        next("/u/signup"); // Redirect to signup if no email is stored
+      } else {
+        next();
+      }
+    },
     meta: { title: "Verify Email" } 
   },
 

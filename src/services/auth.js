@@ -1,24 +1,26 @@
-import axios from 'axios';
-
-const API_URL = 'http://localhost:8080/api/v1/auth'; // Backend URL
+import api from "./api";
 
 export default {
   async register(user) {
-    return axios.post(`${API_URL}/signup`, user);
+    const response = await api.post("/auth/signup", user);
+    
+    console.log(response.data); // Test
+
+    return response.data;
   },
 
-  async verifyEmail(credentials) {
-    return axios.post(`${API_URL}/verify`, credentials);
+  async login(user) {
+    const response = await api.post("/auth/login", user);
+    const token = response.data.token;
+    
+    if (token) {
+      localStorage.setItem("token", token); // Save token for future requests
+    }
+
+    return response.data;
   },
 
-  async login(credentials) {
-    return axios.post(`${API_URL}/login`, credentials);
+  logout() {
+    localStorage.removeItem("token"); // Remove token on logout
   },
-
-
-  async getUserProfile(token) {
-    return axios.get(`${API_URL}/me`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-  }
 };

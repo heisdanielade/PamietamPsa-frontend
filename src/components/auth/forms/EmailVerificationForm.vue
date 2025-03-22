@@ -112,10 +112,15 @@ input[type=number]{
 
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import Logo from "@/components/others/Logo.vue";
 
 // Reactive state
+const email = ref("");
+onMounted(() => {
+  email.value = localStorage.getItem("pendingVerificationEmail") || "";
+});
+
 const otpArray = ref(["", "", "", ""]);
 const otp = computed(() => otpArray.value.join(""));
 
