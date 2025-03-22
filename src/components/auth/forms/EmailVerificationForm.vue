@@ -30,10 +30,10 @@
                     <form @submit.prevent="handleCodeVerification">
                         <div class="relative mb-2">
                             <div class="flex items-center justify-evenly w-full gap-x-6 pt-12 md:pt-10">
-                                <input v-for="(digit, index) in otpArray" :key="index" v-model="otpArray[index]" type="text"
+                                <input v-for="(digit, index) in otpArray" :key="index" v-model="otpArray[index]" type="number"
                                     class="block w-10 h-10 text-center font-medium text-2xl bg-transparent border-b-2 border-x-transparent border-b-gray-500 border-opacity-30 focus:outline-none focus:border-purple-700 disabled:opacity-50 disabled:pointer-events-none"
                                     :id="'otp-' + index" :name="'otp-' + index"
-                                    placeholder="⚬" maxlength="1" @input="handleInput(index, $event)"
+                                    placeholder="⚬" min="0" max="9" @input="handleInput(index, $event)"
                                     @keydown.delete="handleDelete(index, $event)" @paste="handlePaste" ref="otpRefs" />
                             </div>
 
@@ -98,6 +98,17 @@
 </template>
 
 
+<style scoped>
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+</style>
 
 
 <script setup>
