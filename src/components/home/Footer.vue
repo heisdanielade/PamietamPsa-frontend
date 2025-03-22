@@ -46,21 +46,18 @@ const currentYear = new Date().getFullYear();
             <div
                 class="links hidden md:flex items-center justify-evenly md:justify-center w-full text-[0.815rem] my-6 md:my-0">
                 <router-link to="/x" class="md:mr-4 transition hover:text-purple-300">
-                    About
+                    Contact us
                 </router-link>
-                <a href="https://github.com/heisdanielade" target="_blank"
-                    class="md:mr-4 transition hover:text-purple-300">
-                    Creator
-                </a>
                 <router-link to="/legal/terms" class="md:mr-4 transition hover:text-purple-300">
                     Terms
                 </router-link>
                 <router-link to="/legal/policy" class="md:mr-4 transition hover:text-purple-300">
                     Privacy
                 </router-link>
-                <router-link to="/x" class="transition hover:text-purple-300">
-                    Contact us
-                </router-link>
+                <a href="https://github.com/heisdanielade" target="_blank"
+                    class="transition hover:text-purple-300">
+                    Creator
+                </a>
             </div>
 
             <!-- Social media links -->
