@@ -46,7 +46,7 @@ const currentYear = new Date().getFullYear();
             <div
                 class="links hidden md:flex items-center justify-evenly md:justify-center w-full text-[0.815rem] my-6 md:my-0">
                 <router-link to="/x" class="md:mr-4 transition hover:text-purple-300">
-                    Contact us
+                    Contact
                 </router-link>
                 <router-link to="/legal/terms" class="md:mr-4 transition hover:text-purple-300">
                     Terms
@@ -54,9 +54,9 @@ const currentYear = new Date().getFullYear();
                 <router-link to="/legal/policy" class="md:mr-4 transition hover:text-purple-300">
                     Privacy
                 </router-link>
-                <a href="https://github.com/heisdanielade" target="_blank"
+                <a href="https://heisdanielade.xyz" target="_blank"
                     class="transition hover:text-purple-300">
-                    Creator
+                    Developer
                 </a>
             </div>
 

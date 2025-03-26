@@ -94,7 +94,7 @@ const toggle = () => {
                         </li>
                         <li>
                             <router-link to="/x"
-                                class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Support</router-link>
+                                class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Contact</router-link>
                         </li>
                         <li>
                             <router-link to="/legal/terms"
@@ -102,8 +102,8 @@ const toggle = () => {
                                 Legal</router-link>
                         </li>
                         <li>
-                            <a href="https://github.com/heisdanielade" target="_blank"
-                                class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Creator</a>
+                            <a href="https://heisdanielade.xyz" target="_blank"
+                                class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Developer</a>
                         </li>
                     </ul>
                 </div>
@@ -121,36 +121,36 @@ const toggle = () => {
                             <span class="">
                                 Adopt
                             </span>
-                            <i class="ml-2 fa-solid fa-house"></i>
+                            <i class="ml-2 fa-solid fa-cat"></i>
                         </router-link>
                     </li>
                     <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
                         <router-link to="/x"
                             class="moblie-menu-link relative flex items-center justify-end pb-1">
                             <span class="">
-                                Support
-                            </span>
-                            <i class="ml-2 fa-solid fa-cat"></i>
-                        </router-link>
-                    </li>
-                    <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
-                        <router-link to="/legal/terms"
-                            class="moblie-menu-link relative flex items-center justify-end pb-1">
-                            <span class="">
-                                Legal
+                                Contact
                             </span>
                             <i class="ml-2 ri-customer-service-line"></i>
                         </router-link>
                     </li>
                     <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
-                        <a href="https://github.com/heisdanielade" target="_blank"
-                            class="moblie-menu-link relative flex items-center justify-end pb-1">
-                            <span class="">
-                                Creator
-                            </span>
-                            <i class="ml-2 ri-code-s-slash-line"></i>
-                        </a>
-                    </li>
+                        <a href="https://heisdanielade.xyz" target="_blank"
+                        class="moblie-menu-link relative flex items-center justify-end pb-1">
+                        <span class="">
+                            Developer
+                        </span>
+                        <i class="ml-2 ri-code-s-slash-line"></i>
+                    </a>
+                </li>
+                <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
+                    <router-link to="/legal/terms"
+                        class="moblie-menu-link relative flex items-center justify-end pb-1">
+                        <span class="">
+                            Legal Docs
+                        </span>
+                        <i class="ml-2 ri-article-line"></i>
+                    </router-link>
+                </li>
                 </ul>
             </div>
         </Transition>
