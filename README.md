@@ -5,18 +5,15 @@
 
 
 ## Features:  
-1. **User Authentication**: Secure login and signup functionality. **[In-progress]**
-2. **Pet Profile Management**: Add, edit, and view pet details such as name, age, breed, and medical history.  **[In-progress]**
-3. **Care Reminders**: Schedule notifications for pet-related tasks like feeding, vet visits, and grooming.  **[In-progress]**
-4. **Responsive Design**: Optimized for both desktop and mobile use.  
+1. **Pet Profile Management**: Add, edit, and view pet details such as name, age, breed, and medical history.  **[In-progress]**
+2. **Care Reminders**: Schedule notifications for pet-related tasks like feeding, vet visits, and grooming.  **[In-progress]**  
 
-## Technologies Used:  
-- **Vue.js** (Frontend framework)  
-- **Tailwind CSS** (Styling)  
-- **Vue Router** (Navigation)  
-- **Axios** (API communication with backend)  
+## Technologies Used (Frontend):  
+- **Vue.js** 
+- **Tailwind CSS** 
+- **Vue Router** 
+- **Axios**
 
-![Snapshot](./snapshot.png)
 
 Feel free to contribute, report issues, or suggest enhancements on GitHub. Your feedback and contributions are welcome to improve the **PamiętamPsa** experience!  
 
