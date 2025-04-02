@@ -6,8 +6,12 @@ import { useUserStore } from '@/stores/tempUser';
 export default {
   // Register user 
   async register(user) {
-    const response = await api.post("/auth/signup", user);
-    return response.data;
+    try {
+      const response = await api.post("/auth/signup", user);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   },
 
 
