@@ -2,6 +2,7 @@ import "./assets/css/main.css";
 
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+import piniaPersistedState from 'pinia-plugin-persistedstate';
 import App from "./App.vue";
 import router from "./router";
 import { useProjectStore } from '@/stores/projectStore';
@@ -11,14 +12,11 @@ import VueLazyload from 'vue-lazyload';
 
 const app = createApp(App);
 
+const pinia = createPinia();
+pinia.use(piniaPersistedState);
+
+app.use(pinia);
 app.use(router);
-app.use(createPinia());
-app.use(VueLazyload, {
-  preLoad: 1.7,
-  attempt: 1
-  // loading: '/src/assets/loading-placeholder.jpg',
-  // error: '/src/assets/error-placeholder.jpg',
-});
 
 
 const projectName = useProjectStore().projectName;
