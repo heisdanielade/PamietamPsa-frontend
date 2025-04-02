@@ -4,6 +4,7 @@ import Logo from "@/components/others/Logo.vue";
 
 const user = {
     email: "hida@pamietampsa.com",
+    name: "Daniel",
     isLoggedIn: false,
     // isLoggedIn: true,
     initials: "",
@@ -15,6 +16,9 @@ const user = {
 
 // Get user initials
 user.initials = user.email.charAt(0).toUpperCase();
+if (localStorage.getItem("token")) {
+    user.isLoggedIn = true;
+}
 
 
 
