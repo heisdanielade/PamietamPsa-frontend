@@ -121,13 +121,17 @@ import Logo from "@/components/others/Logo.vue";
 
 const userStore = useUserStore();
 const router = useRouter();
-const { email } = userStore;
+const { email, password } = userStore;
 
 // Reactive state
 const otpArray = ref(["", "", "", "", "", ""]);
 const user = reactive({
-    email,
+    email: "",
     otp: computed(() => otpArray.value.join("")) 
+});
+
+onMounted(() => {
+    user.email = email;
 });
 
 const otpRefs = ref([]);
