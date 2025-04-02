@@ -26,16 +26,32 @@ const routes = [
 
   // Authentication Routes
   { path: '/u/login', name: 'Login', component: LoginPage,
+    beforeEnter: (to, from, next) => {
+      const isLoggedIn = localStorage.getItem("token");
+      if (isLoggedIn) {
+        next("/u/profile");
+      } else {
+        next();
+      }
+    },
     meta: { title: "Log in" } 
   },
-  { path: '/u/signup', name: 'Signup', component: SignUpPage, 
+  { path: '/u/signup', name: 'Signup', component: SignUpPage,
+    beforeEnter: (to, from, next) => {
+      const isLoggedIn = localStorage.getItem("token");
+      if (isLoggedIn) {
+        next("/u/profile");
+      } else {
+        next();
+      }
+    }, 
     meta: { title: "Sign up" } 
   },
   { path: '/u/verify-email', name: 'VerifyEmail', component: VerifyEmailPage,
     beforeEnter: (to, from, next) => {
-      const email = localStorage.getItem("pendingVerificationEmail");
-      if (!email) {
-        next("/u/signup"); // Redirect to signup if no email is stored
+      const isVerified = localStorage.getItem("isVerified");
+      if (isVerified) {
+        next("/u/login"); // Redirect to login if user is already verified
       } else {
         next();
       }
