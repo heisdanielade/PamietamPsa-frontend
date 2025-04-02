@@ -36,6 +36,7 @@ const routes = [
     },
     meta: { title: "Log in" } 
   },
+
   { path: '/u/signup', name: 'Signup', component: SignUpPage,
     beforeEnter: (to, from, next) => {
       const isLoggedIn = localStorage.getItem("token");
@@ -45,13 +46,20 @@ const routes = [
         next();
       }
     }, 
-    meta: { title: "Sign up" } 
+    meta: { title: "Create Account" } 
   },
+
   { path: '/u/verify-email', name: 'VerifyEmail', component: VerifyEmailPage,
     beforeEnter: (to, from, next) => {
       const isVerified = localStorage.getItem("isVerified");
-      if (isVerified) {
-        next("/u/login"); // Redirect to login if user is already verified
+      const isPendingVerification = localStorage.getItem("pendingVerification");
+      console.log("isVerified: ", isVerified);
+
+      if (isVerified === "true") {
+        console.log("User is verified, redirecting to login.");
+        next("/u/login");
+      } else if (isPendingVerification === "true"){
+        next();
       } else {
         next();
       }
@@ -64,6 +72,7 @@ const routes = [
   { path: '/legal/terms', name: 'Terms', component: TermsPage,
     meta: { title: "Terms & Conditions" } 
   },
+
   { path: '/legal/policy', name: 'Policy', component: PolicyPage,
     meta: { title: "Privacy Policy" } 
   },
@@ -73,6 +82,7 @@ const routes = [
   { path: '/u/profile', name: 'MyProfile', component: MyProfile,
     meta: { title: "My Profile", requiresAuth: true } 
   },
+
   { path: '/u/settings', name: 'MySettings', component: MyProfile, // to change
     meta: { title: "My Settings", requiresAuth: true } 
   },
