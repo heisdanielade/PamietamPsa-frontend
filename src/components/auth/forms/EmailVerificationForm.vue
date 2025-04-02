@@ -40,7 +40,7 @@
 
 
                             <label for="otp-0" class="absolute top-1 left-0 transition-all text-gray-500 text-sm">
-                                Enter 4-digit code
+                                Enter 6-digit code
                             </label>
 
                         </div>
@@ -76,22 +76,6 @@
                     </p>
                 </div>
 
-            </div>
-
-            <!-- Info -->
-            <div class="xmt-6 mb-10 p-5 xflex items-center justify-center text-[0.825rem] font-normal text-gray-600">
-                <div class="text-center">
-                    By proceeding, you accept our
-                    <router-link to="/legal/terms"
-                        class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
-                        Terms
-                    </router-link>
-                    and
-                    <router-link to="/legal/policy"
-                        class="font-medium text-purple-500 transition hover:underline hover:text-purple-700">
-                        Privacy Policy
-                    </router-link>.
-                </div>
             </div>
 
         </div>
