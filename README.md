@@ -13,6 +13,7 @@
 - **Tailwind CSS** 
 - **Vue Router** 
 - **Axios**
+- **Pinia**
 
 
 Feel free to contribute, report issues, or suggest enhancements on GitHub. Your feedback and contributions are welcome to improve the **PamiętamPsa** experience!  
