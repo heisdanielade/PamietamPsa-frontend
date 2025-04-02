@@ -152,12 +152,16 @@
 <script setup>
 import { ref, computed, inject, nextTick } from "vue";
 import { useRouter } from "vue-router";
+import { useUserStore } from '@/stores/tempUser';
 import authService from "@/services/auth";
+
 import Logo from "@/components/others/Logo.vue";
 
 const router = useRouter();
 
 // Reactive state
+const userStore = useUserStore();
+
 const user = ref({ email: "", password: "" });
 const emailError = ref("");
 const passwordError = ref("");
@@ -167,6 +171,8 @@ const isPasswordFocused = ref(false);
 
 const loading = ref(false);
 const toast = inject("toast"); // Inject global toast
+
+
 
 
 // Toggle password visibility
@@ -206,7 +212,6 @@ const isFormValid = computed(() => {
 
 
 
-
 // Handle user signup
 const handleSignup = async () => {
   validateEmail();
@@ -225,6 +230,9 @@ const handleSignup = async () => {
 
     await authService.register(user.value);
 
+    // Temporarily store email and password in memory
+    userStore.setUser(user.value.email, user.value.password);
+
     if (toast) {
       toast.value.showToast("Signup successful.", "success");
     } else {
@@ -233,8 +241,6 @@ const handleSignup = async () => {
 
 
     setTimeout(() => {
-      // Store email temporarily and redirect
-      localStorage.setItem("pendingVerificationEmail", user.value.email);
       router.push('/u/verify-email');
     }, 1000);
   } catch (error) {
