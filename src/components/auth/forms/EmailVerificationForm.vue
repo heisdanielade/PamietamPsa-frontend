@@ -55,17 +55,22 @@
 
                         <!-- Submit button -->
                         <button type="submit"
-                            class="action-btn flex items-center justify-center relative left-1/2 -translate-x-1/2 w-44 mt-6 py-2.5 px-4 bg-dark tracking-wide text-sm text-white hover:shadow-sm transition rounded-xl hover:opacity-90 focus:outline-none"
+                            class="action-btn flex items-center justify-center relative left-1/2 -translate-x-1/2 w-44 mt-6 h-10 bg-dark tracking-wide text-sm text-white hover:shadow-sm transition rounded-xl hover:opacity-90 focus:outline-none"
                             :disabled="!isFormValid"
                             :class="{ 'opacity-50 cursor-not-allowed hover:opacity-50': !isFormValid }">
-                            <span class="font-medium text-sm">
-                                Verify
-                            </span>
-                            <span
-                                class="bg-white color-dark text-xs ml-3 font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                                <i class="transition ri-arrow-right-line"></i>
+                            <template v-if="!loading">
+                                <span class="font-medium text-sm">Verify</span>
+                                <span
+                                    class="bg-white color-dark text-xs ml-3 font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                                    <i class="transition ri-arrow-right-line"></i>
+                                </span>
+                            </template>
+
+                            <span v-else class="animate-spin text-white text-xl">
+                                <i class="ri-loader-4-line ri-spin"></i>
                             </span>
                         </button>
+
                     </form>
 
 
@@ -97,7 +102,7 @@ input[type=number] {
 
 
 <script setup>
-import { reactive, ref, computed, onMounted, inject, nextTick } from "vue";
+import { reactive, ref, computed, onMounted, inject } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from '@/stores/tempUser';
 import authService from "@/services/auth";
@@ -111,7 +116,7 @@ const { email, password } = userStore;
 const otpArray = ref(["", "", "", "", "", ""]);
 const user = reactive({
     email: "",
-    otp: computed(() => otpArray.value.join("")) 
+    otp: computed(() => otpArray.value.join(""))
 });
 
 onMounted(() => {
@@ -171,21 +176,20 @@ const isFormValid = computed(() => otpArray.value.every((digit) => digit !== "")
 const handleCodeVerification = async () => {
 
     if (!isFormValid.value) return;
+    loading.value = true;
 
-    // loading.value = true;
-
+    // Add a 2-second delay at the start for UX
+    await new Promise(resolve => setTimeout(resolve, 2000));
     try {
-
         await authService.verifyEmail(user);
-
         if (toast) {
             toast.value.showToast("Verified successfully.", "success");
         } else {
             console.error("Toast reference is not available.");
         }
-
         setTimeout(() => {
             localStorage.setItem("isVerified", true);
+            localStorage.removeItem("pendingVerification");
             authService.loginRedirect(router);
         }, 1000);
     } catch (error) {
@@ -195,7 +199,7 @@ const handleCodeVerification = async () => {
             toast.value.showToast(error.response.data || "Verification failed.", "error");
         }
     } finally {
-        // loading.value = false;
+        loading.value = false;
     }
 };
 </script>
