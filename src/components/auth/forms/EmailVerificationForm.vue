@@ -29,12 +29,13 @@
                     <!-- Form Inputs -->
                     <form @submit.prevent="handleCodeVerification">
                         <div class="relative mb-2">
-                            <div class="flex items-center justify-evenly w-full gap-x-6 pt-12 md:pt-10">
-                                <input v-for="(digit, index) in otpArray" :key="index" v-model="otpArray[index]" type="number"
+                            <div class="flex items-center justify-evenly w-full gap-x-1 pt-12 md:pt-10">
+                                <input v-for="(digit, index) in otpArray" :key="index" v-model="otpArray[index]"
+                                    type="number"
                                     class="block w-10 h-10 text-center font-medium text-2xl bg-transparent border-b-2 border-x-transparent border-b-gray-500 border-opacity-30 focus:outline-none focus:border-purple-700 disabled:opacity-50 disabled:pointer-events-none"
-                                    :id="'otp-' + index" :name="'otp-' + index"
-                                    placeholder="⚬" min="0" max="9" @input="handleInput(index, $event)"
-                                    @keydown.delete="handleDelete(index, $event)" @paste="handlePaste" ref="otpRefs" />
+                                    :id="'otp-' + index" :name="'otp-' + index" placeholder="⚬" min="0" max="9"
+                                    @input="handleInput(index, $event)" @keydown.delete="handleDelete(index, $event)"
+                                    @paste="handlePaste" ref="otpRefs" />
                             </div>
 
 
@@ -100,66 +101,72 @@
 
 <style scoped>
 input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button{
+input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-input[type=number]{
+
+input[type=number] {
     -moz-appearance: textfield;
 }
-
 </style>
 
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { reactive, ref, computed, onMounted, inject, nextTick } from "vue";
+import { useRouter } from "vue-router";
+import { useUserStore } from '@/stores/tempUser';
+import authService from "@/services/auth";
 import Logo from "@/components/others/Logo.vue";
 
-// Reactive state
-const email = ref("");
-onMounted(() => {
-  email.value = localStorage.getItem("pendingVerificationEmail") || "";
-});
+const userStore = useUserStore();
+const router = useRouter();
+const { email } = userStore;
 
-const otpArray = ref(["", "", "", ""]);
-const otp = computed(() => otpArray.value.join(""));
+// Reactive state
+const otpArray = ref(["", "", "", "", "", ""]);
+const user = reactive({
+    email,
+    otp: computed(() => otpArray.value.join("")) 
+});
 
 const otpRefs = ref([]);
 const otpError = ref("Invalid otp");
-
+const loading = ref(false);
+const toast = inject("toast");
 
 const handleInput = (index, event) => {
-  let value = event.target.value;
-  if (!/^\d?$/.test(value)) {
-    otpArray.value[index] = ""; // Only allow numbers
-    return;
-  }
-  otpArray.value[index] = value;
+    let value = event.target.value;
+    if (!/^\d?$/.test(value)) {
+        otpArray.value[index] = ""; // Only allow numbers
+        return;
+    }
+    otpArray.value[index] = value;
 
-  // Move to the next input if a digit is entered
-  if (value && index < otpRefs.value.length - 1) {
-    otpRefs.value[index + 1].focus();
-  }
+    // Move to the next input if a digit is entered
+    if (value && index < otpRefs.value.length - 1) {
+        otpRefs.value[index + 1].focus();
+    }
 };
 
 const handleDelete = (index, event) => {
-  if (event.key === "Backspace" && !otpArray.value[index] && index > 0) {
-    otpRefs.value[index - 1].focus();
-  }
+    if (event.key === "Backspace" && !otpArray.value[index] && index > 0) {
+        otpRefs.value[index - 1].focus();
+    }
 };
 
 
 // Handle paste event
 const handlePaste = (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  let pasteData = (event.clipboardData || window.clipboardData).getData("text");
-  pasteData = pasteData.replace(/\D/g, "").slice(0, 4); // Extract only first 4 digits
+    let pasteData = (event.clipboardData || window.clipboardData).getData("text");
+    pasteData = pasteData.replace(/\D/g, "").slice(0, 4); // Extract only first 4 digits
 
-  if (pasteData.length === 4) {
-    otpArray.value = pasteData.split("");
-    otpRefs.value[3].focus(); // Move focus to the last input
-  }
+    if (pasteData.length === 4) {
+        otpArray.value = pasteData.split("");
+        otpRefs.value[3].focus(); // Move focus to the last input
+    }
 };
 
 // Computed OTP value 
@@ -173,7 +180,34 @@ defineExpose({ getOtpValue });
 const isFormValid = computed(() => otpArray.value.every((digit) => digit !== ""));
 
 
-const handleCodeVerification = () => {
-    console.log(otp.value);
+const handleCodeVerification = async () => {
+
+    if (!isFormValid.value) return;
+
+    // loading.value = true;
+
+    try {
+
+        await authService.verifyEmail(user);
+
+        if (toast) {
+            toast.value.showToast("Verified successfully.", "success");
+        } else {
+            console.error("Toast reference is not available.");
+        }
+
+        setTimeout(() => {
+            localStorage.setItem("isVerified", true);
+            authService.loginRedirect(router);
+        }, 1000);
+    } catch (error) {
+        // Handle error and show failure toast
+        console.error("(e) Error during verification:", error);
+        if (toast) {
+            toast.value.showToast(error.response.data || "Verification failed.", "error");
+        }
+    } finally {
+        // loading.value = false;
+    }
 };
 </script>
