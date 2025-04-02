@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="toastType" class="fixed top-4 right-4 z-30 max-w-xs text-sm text-white rounded-xl shadow-lg" role="alert" tabindex="-1">
+  <div v-if="visible" :class="toastType" class="fixed top-4 right-4 z-[60] max-w-xs text-sm text-white rounded-xl shadow-lg" role="alert" tabindex="-1">
     <div class="flex p-3">
       {{message}}
 
