@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/v1";
+// const DEV_API_URL = "http://localhost:8080/v1";
+const API_URL = "https://api-pamietampsa.up.railway.app/v1";
 
 
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: DEV_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
