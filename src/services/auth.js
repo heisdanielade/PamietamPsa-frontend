@@ -35,8 +35,12 @@ export default {
 
   // Verify email after registration
   async verifyEmail(user) {
-    const response = await api.post("/auth/verify-email", user);
-    return response.data;
+    try {
+      const response = await api.post("/auth/verify-email", user);
+      return response.data;
+    } catch (error) {
+      throw error
+    }
   },
 
 
@@ -51,7 +55,8 @@ export default {
   },
 
 
-  logout() {
-    localStorage.removeItem("token"); // Remove token on logout
+  logout(router) {
+    localStorage.removeItem("token");
+    router.push("/u/login");
   },
 };
