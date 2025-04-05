@@ -18,6 +18,19 @@ const user = {
     hasNotifications: true,
 }
 
+function redactEmail(email) {
+    const [local, domain] = email.split('@');
+    const [domainName, ...tldParts] = domain.split('.');
+    const tld = '.' + tldParts.join('.'); // handles things like ".co.uk"
+    const redactedLocal = local[0] + local[1] + '*'.repeat(local.length - 1);
+    const redactedDomain = '***' + tld;
+
+    return `${redactedLocal}@${redactedDomain}`;
+}
+
+
+// Redact user email
+user.redactedEmail = redactEmail(user.email);
 
 // Get user initials
 user.initials = user.email.charAt(0).toUpperCase();
