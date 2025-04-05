@@ -1,10 +1,15 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import authService from "@/services/auth";
 import Logo from "@/components/others/Logo.vue";
 
+const router = useRouter();
+
 const user = {
-    email: "hida@pamietampsa.com",
-    name: "Daniel",
+    email: "test@pamietampsa.pl",
+    redactedEmail: "",
+    name: "David",
     isLoggedIn: false,
     // isLoggedIn: true,
     initials: "",
@@ -18,15 +23,21 @@ const user = {
 user.initials = user.email.charAt(0).toUpperCase();
 if (localStorage.getItem("token")) {
     user.isLoggedIn = true;
+} else {
+    user.isLoggedIn = false;
 }
-
-
 
 const isVisible = ref(false);
 const toggle = () => {
     isVisible.value = !isVisible.value;
 };
 
+
+
+// handle log out
+const handleLogout = () => {
+    authService.logout(router);
+};
 </script>
 
 
@@ -36,7 +47,7 @@ const toggle = () => {
     <header>
         <nav class="fixed z-50 top-0 w-full overflow-hidden md:px-6 py-2.5">
             <div
-                class="blur-bg-2 xrounded-b-2xl rounded-3xl px-2 py-4 md:p-4 mx-3 md:mx-auto flex flex-wrap justify-between items-center max-w-screen-lg">
+                class="blur-bg-2 rounded-3xl px-2 py-4 md:p-4 mx-3 md:mx-auto flex flex-wrap justify-between items-center max-w-screen-lg">
                 <!-- Logo -->
                 <router-link to="/">
                     <logo />
@@ -48,16 +59,17 @@ const toggle = () => {
                     <!-- User avatar if user is logged in -->
                     <div v-if="user.isLoggedIn" class="flex items-center">
 
-                        <router-link to="/u/notifications" class="notifications flex items-center justify-center w-11 h-11 xbg-blue-300 text-gray-500 text-xl mr-2">
+                        <router-link to="/u/notifications"
+                            class="notifications flex items-center justify-center w-11 h-11 xbg-blue-300 text-gray-500 text-xl mr-2">
                             <i class="relative xbg-blue-500 ri-notification-badge-fill transition hover:text-gray-600">
-                                <span v-if="user.hasNotifications" class="absolute w-[0.45rem] h-[0.45rem] bg-red-600 top-[0.34rem] right-[1.4px] rounded-full"></span>
+                                <span v-if="user.hasNotifications"
+                                    class="absolute w-[0.45rem] h-[0.45rem] bg-red-600 top-[0.34rem] right-[1.4px] rounded-full"></span>
                             </i>
-
                         </router-link>
 
-                        <router-link  to="/u/profile" class="relative">
+                        <router-link to="/u/profile" class="relative">
                             <div
-                                class="inline-flex items-center justify-center w-11 h-11 shadow-sm overflow-hidden bg-[#FEE2E2] border-[0.15rem] border-gray-100 rounded-full">
+                                class="inline-flex items-center justify-center w-11 h-11 shadow-sm overflow-hidden bg-[#FEE2E2] border-[0.15rem] border-gray-100 transition-all hover:border-purple-200 rounded-full">
                                 <span v-if="user.hasProfileImage" class="flex items-center justify-center">
                                     <img src="@/assets/images/others/user.webp" alt="User Profile Image"
                                         class="object-fill w-10 h-10">
@@ -77,7 +89,6 @@ const toggle = () => {
                         class="bg-dark login-btn shadow-sm text-center w-[5rem] p-2 text-sm transition text-white font-medium rounded-xl focus:outline-none">
                         Log in
                     </router-link>
-
 
                     <!-- Button to activate mobile menu -->
                     <button @click="toggle" type="button"
@@ -118,10 +129,47 @@ const toggle = () => {
         <Transition name="slide">
             <div v-if="isVisible"
                 class="mobile-menu blur-bg-2 pt-[4.75rem] px-7 block md:hidden fixed top-0 left-0 z-40 w-full h-[16.5rem] rounded-b-3xl">
-                <ul class="flex flex-col mt-6 font-semibold text-sm">
+                <!-- if user is logged in -->
+                <ul v-if="user.isLoggedIn" class="flex flex-col mt-6 font-semibold text-sm">
+                    <li v-scroll-reveal class="not-shown mb-4 w-full color-dark">
+                        <div class="mobile-menu-link relative flex items-center justify-end pb-1">
+                            <span class="">
+                                Signed in with <span class="text-purple-500">{{ user.redactedEmail }}</span>
+                            </span>
+                        </div>
+                    </li>
+
                     <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
-                        <router-link to="/x"
-                            class="moblie-menu-link relative flex items-center justify-end pb-1">
+                        <router-link to="/x" class="mobile-menu-link relative flex items-center justify-end pb-1">
+                            <span class="">
+                                Profile
+                            </span>
+                            <i class="ml-2 fa-solid fa-user"></i>
+                        </router-link>
+                    </li>
+                    <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
+                        <router-link to="/x" class="mobile-menu-link relative flex items-center justify-end pb-1">
+                            <span class="">
+                                Support
+                            </span>
+                            <i class="ml-2 ri-customer-service-line"></i>
+                        </router-link>
+                    </li>
+                    <li v-scroll-reveal class="not-shown relative mb-4 w-full color-dark hover:text-purple-500">
+                        <div @click="handleLogout()"
+                            class="mobile-menu-link w-28 absolute right-0 flex items-center justify-end pb-1">
+                            <span class="">
+                                Sign out
+                            </span>
+                            <i class="ml-2 fa-solid fa-arrow-right-from-bracket"></i>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- else -->
+                <ul v-else class="flex flex-col mt-6 font-semibold text-sm">
+                    <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
+                        <router-link to="/x" class="mobile-menu-link relative flex items-center justify-end pb-1">
                             <span class="">
                                 Adopt
                             </span>
@@ -129,8 +177,7 @@ const toggle = () => {
                         </router-link>
                     </li>
                     <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
-                        <router-link to="/x"
-                            class="moblie-menu-link relative flex items-center justify-end pb-1">
+                        <router-link to="/x" class="mobile-menu-link relative flex items-center justify-end pb-1">
                             <span class="">
                                 Contact
                             </span>
@@ -139,22 +186,22 @@ const toggle = () => {
                     </li>
                     <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
                         <a href="https://heisdanielade.xyz" target="_blank"
-                        class="moblie-menu-link relative flex items-center justify-end pb-1">
-                        <span class="">
-                            Developer
-                        </span>
-                        <i class="ml-2 ri-code-s-slash-line"></i>
-                    </a>
-                </li>
-                <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
-                    <router-link to="/legal/terms"
-                        class="moblie-menu-link relative flex items-center justify-end pb-1">
-                        <span class="">
-                            Legal Docs
-                        </span>
-                        <i class="ml-2 ri-article-line"></i>
-                    </router-link>
-                </li>
+                            class="mobile-menu-link relative flex items-center justify-end pb-1">
+                            <span class="">
+                                Developer
+                            </span>
+                            <i class="ml-2 ri-code-s-slash-line"></i>
+                        </a>
+                    </li>
+                    <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
+                        <router-link to="/legal/terms"
+                            class="mobile-menu-link relative flex items-center justify-end pb-1">
+                            <span class="">
+                                Legal Docs
+                            </span>
+                            <i class="ml-2 ri-article-line"></i>
+                        </router-link>
+                    </li>
                 </ul>
             </div>
         </Transition>
@@ -171,8 +218,8 @@ const toggle = () => {
 }
 
 
-/* -- Moblie menu -- */
-.moblie-menu-link {
+/* -- mobile menu -- */
+.mobile-menu-link {
     transition: all 0.3s ease;
 }
 
