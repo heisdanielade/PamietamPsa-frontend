@@ -47,6 +47,7 @@ export default {
   // Login user
   async login(user) {
     const response = await api.post("/auth/login", user);
+    console.log(response.data); // Test
     const token = response.data.token;
     if (token) {
       localStorage.setItem("token", token); // Save token for future requests
@@ -55,7 +56,10 @@ export default {
   },
 
 
-  logout(router) {
+  async logout(router) {
+    // Add a 0.75ms delay for UX
+    await new Promise(resolve => setTimeout(resolve, 750));
+
     localStorage.removeItem("token");
     router.push("/u/login");
   },
