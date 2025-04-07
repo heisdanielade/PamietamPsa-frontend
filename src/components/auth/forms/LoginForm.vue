@@ -192,9 +192,6 @@ const handleLogin = async () => {
   if (!isFormValid.value) return;
   loading.value = true;
 
-  // Add a 2-second delay at the start for UX
-  await new Promise(resolve => setTimeout(resolve, 2000));
-
   try {
     await authService.login(user.value);
     if (toast) {

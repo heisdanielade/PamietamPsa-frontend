@@ -36,6 +36,9 @@ export default {
   // Verify email after registration
   async verifyEmail(user) {
     try {
+      // Add a delay for UX
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
       const response = await api.post("/auth/verify-email", user);
       return response.data;
     } catch (error) {
@@ -46,6 +49,9 @@ export default {
 
   // Login user
   async login(user) {
+    // Add a delay for UX
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
     const response = await api.post("/auth/login", user);
     const token = response.data.token;
     if (token) {
@@ -56,7 +62,7 @@ export default {
 
 
   async logout(router) {
-    // Add a 0.75ms delay for UX
+    // Add a delay for UX
     await new Promise(resolve => setTimeout(resolve, 750));
 
     localStorage.removeItem("token");

@@ -178,8 +178,6 @@ const handleCodeVerification = async () => {
     if (!isFormValid.value) return;
     loading.value = true;
 
-    // Add a 2-second delay at the start for UX
-    await new Promise(resolve => setTimeout(resolve, 2000));
     try {
         await authService.verifyEmail(user);
         if (toast) {
