@@ -11,7 +11,6 @@ const user = {
     redactedEmail: "",
     name: "David",
     isLoggedIn: false,
-    // isLoggedIn: true,
     initials: "",
     hasProfileImage: false,
     profileImage: "",
@@ -34,6 +33,7 @@ user.redactedEmail = redactEmail(user.email);
 
 // Get user initials
 user.initials = user.email.charAt(0).toUpperCase();
+
 if (localStorage.getItem("token")) {
     user.isLoggedIn = true;
 } else {
@@ -97,7 +97,7 @@ const handleLogout = () => {
                         </router-link>
                     </div>
 
-                    <!-- Login button if use is not logged in -->
+                    <!-- Login button if user is not logged in -->
                     <router-link v-else to="/u/login"
                         class="bg-dark login-btn shadow-sm text-center w-[5rem] p-2 text-sm transition text-white font-medium rounded-xl focus:outline-none">
                         Log in
@@ -115,7 +115,23 @@ const handleLogout = () => {
 
                 <!-- Desktop menu -->
                 <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
-                    <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
+                    <ul v-if="user.isLoggedIn" class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
+                        <li>
+                            <router-link to="/u/settings"
+                                class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Account settings</router-link>
+                        </li>
+                        <li>
+                            <router-link to="/legal/terms"
+                                class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">
+                                Support </router-link>
+                        </li>
+                        <li>
+                            <span @click="handleLogout()"
+                                class="custom-cursor block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Sign out<i class="ml-2 text-sm fa-solid fa-arrow-right-from-bracket"></i></span>
+                        </li>
+                    </ul>
+
+                    <ul v-else class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
                         <li>
                             <router-link to="/x"
                                 class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Adopt</router-link>
@@ -142,7 +158,6 @@ const handleLogout = () => {
         <Transition name="slide">
             <div v-if="isVisible"
                 class="mobile-menu blur-bg-2 pt-[4.75rem] px-7 block md:hidden fixed top-0 left-0 z-40 w-full h-[16.5rem] rounded-b-3xl">
-                <!-- if user is logged in -->
                 <ul v-if="user.isLoggedIn" class="flex flex-col mt-6 font-semibold text-sm">
                     <li v-scroll-reveal class="not-shown mb-4 w-full color-dark">
                         <div class="mobile-menu-link relative flex items-center justify-end pb-1">
@@ -153,11 +168,11 @@ const handleLogout = () => {
                     </li>
 
                     <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
-                        <router-link to="/x" class="mobile-menu-link relative flex items-center justify-end pb-1">
+                        <router-link to="/u/settings" class="mobile-menu-link relative flex items-center justify-end pb-1">
                             <span class="">
-                                Profile
+                                Settings
                             </span>
-                            <i class="ml-2 fa-solid fa-user"></i>
+                            <i class="ml-2 fa-solid fa-gear"></i>
                         </router-link>
                     </li>
                     <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
@@ -179,7 +194,6 @@ const handleLogout = () => {
                     </li>
                 </ul>
 
-                <!-- else -->
                 <ul v-else class="flex flex-col mt-6 font-semibold text-sm">
                     <li v-scroll-reveal class="not-shown mb-4 w-full color-dark hover:text-purple-500">
                         <router-link to="/x" class="mobile-menu-link relative flex items-center justify-end pb-1">
