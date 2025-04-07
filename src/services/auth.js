@@ -60,6 +60,6 @@ export default {
     await new Promise(resolve => setTimeout(resolve, 750));
 
     localStorage.removeItem("token");
-    router.push("/");
+    window.location.href = "/";
   },
 };
