@@ -114,15 +114,15 @@ const toggleAddPopUp = () => {
             </button>
 
 
-            <!-- Profile button -->
-            <router-link to="/u/settings" id="goToProfile"
+            <!-- Settings button -->
+            <router-link to="/u/settings" id="goToSettings"
                 class="inline-flex flex-col items-center justify-center p-1 w-[2.125rem] h-[2.125rem] focus:outline-none">
-                <i class="text-lg fa-solid fa-user"></i>
+                <i class="text-lg fa-solid fa-gear"></i>
                 <span class="function x-translate-y-1 text-[0.65rem] text-center">
-                    Profile
+                    Settings
                 </span>
                 <!-- Screen reader only -->
-                <span class="sr-only">Go to Profile</span>
+                <span class="sr-only">Go to Account Settings</span>
             </router-link>
 
         </div>
