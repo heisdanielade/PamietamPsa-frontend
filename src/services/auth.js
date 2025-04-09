@@ -28,7 +28,7 @@ export default {
       password
     }
     const response = await api.post("/auth/login", user);
-    const token = response.data.token;
+    const token = response.data.data.token;
     localStorage.setItem("token", token); // Save token for future requests
     router.push('/u/profile');
   },
@@ -37,7 +37,7 @@ export default {
   async verifyEmail(user) {
     try {
       // Add a delay for UX
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise(resolve => setTimeout(resolve, 1250));
 
       const response = await api.post("/auth/verify-email", user);
       return response.data;
@@ -50,10 +50,12 @@ export default {
   // Login user
   async login(user) {
     // Add a delay for UX
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise(resolve => setTimeout(resolve, 1250));
 
     const response = await api.post("/auth/login", user);
-    const token = response.data.token;
+    console.log(response);
+    const token = response.data.data.token;
+    console.log(token);
     if (token) {
       localStorage.setItem("token", token); // Save token for future requests
     }
