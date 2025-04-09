@@ -194,7 +194,7 @@ const handleCodeVerification = async () => {
         // Handle error and show failure toast
         console.error("(e) Error during verification:", error);
         if (toast) {
-            toast.value.showToast(error.response.data || "Verification failed.", "error");
+            toast.value.showToast(error.response.data.message || "Verification failed.", "error");
         }
     } finally {
         loading.value = false;

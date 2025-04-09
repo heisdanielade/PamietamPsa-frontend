@@ -205,7 +205,7 @@ const handleLogin = async () => {
   } catch (error) {
     console.error("(e) Error during login:", error);
     if (toast) {
-      toast.value.showToast(error?.response?.data || "Login failed.", "error");
+      toast.value.showToast(error.response.data.message || "Login failed.", "error");
     }
   } finally {
     loading.value = false;

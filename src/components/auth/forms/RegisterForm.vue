@@ -230,7 +230,7 @@ const handleSignup = async () => {
   } catch (error) {
     console.error("(e) Error during signup:", error);
     if (toast) {
-      toast.value.showToast(error?.response?.data || "Signup failed.", "error");
+      toast.value.showToast(error.response.data.message || "Signup failed.", "error");
     }
   } finally {
     loading.value = false;
