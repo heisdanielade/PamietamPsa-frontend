@@ -1,38 +1,58 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import authService from "@/services/auth";
+import userService from "@/services/user";
 import Logo from "@/components/others/Logo.vue";
 
 const router = useRouter();
 
-const user = {
-    email: "test@pamietampsa.pl",
-    redactedEmail: "",
-    name: "David",
+const user = reactive({
+    email: '',
+    redactedEmail: '',
+    name: '',
+    initial: '',
+
     isLoggedIn: false,
-    initials: "",
+
+    // To add on the backend
     hasProfileImage: false,
-    profileImage: "",
     hasNotifications: true,
-}
+});
+
+
+const getUserDetails = async () => {
+  try {
+    const userDetails = await userService.userDetails();
+    
+    user.email = userDetails.data.email
+    user.name = userDetails.data.name
+    user.initial = (userDetails.data.initial || '').toUpperCase()
+    user.hasNotifications = userDetails.hasNotifications ?? false
+
+   // Redact user email
+    user.redactedEmail = redactEmail(user.email);
+  } catch (error) {
+    console.error("(e) Error retrieving logged in user details", error);
+  }
+};
+
+
+onMounted(() => {
+  getUserDetails();
+})
+
 
 function redactEmail(email) {
-    const [local, domain] = email.split('@');
-    const [domainName, ...tldParts] = domain.split('.');
-    const tld = '.' + tldParts.join('.'); // handles things like ".co.uk"
-    const redactedLocal = local[0] + local[1] + '*'.repeat(local.length - 1);
-    const redactedDomain = '***' + tld;
+  const [local, domain] = email.split('@');
+  const [domainName, ...tldParts] = domain.split('.');
+  const tld = '.' + tldParts.join('.'); // handles things like ".co.uk"
+  const redactedLocal = local.slice(0, 2) + '****';
+  const redactedDomain = '***' + tld;
 
-    return `${redactedLocal}@${redactedDomain}`;
+  return `${redactedLocal}@${redactedDomain}`;
 }
 
-
-// Redact user email
-user.redactedEmail = redactEmail(user.email);
-
-// Get user initials
-user.initials = user.email.charAt(0).toUpperCase();
 
 if (localStorage.getItem("token")) {
     user.isLoggedIn = true;
@@ -88,7 +108,7 @@ const handleLogout = () => {
                                         class="object-fill w-10 h-10">
                                 </span>
                                 <span v-else class="font-semibold text-lg md:text-xl text-[#991B1B]">
-                                    {{ user.initials }}
+                                    {{ user.initial }}
                                 </span>
                                 <!-- Green signal on user image -->
                                 <span
@@ -111,7 +131,6 @@ const handleLogout = () => {
                     </button>
 
                 </div>
-
 
                 <!-- Desktop menu -->
                 <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
