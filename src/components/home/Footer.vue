@@ -97,26 +97,45 @@ const serviceStatus = {
 
             <!-- Application Status -->
             <div class="status m-4 flex items-center justify-center font-semibold transition-all bg-transparent hover:bg-zinc-700 p-1.5 rounded-lg">
+<<<<<<< HEAD
                 <span v-if="serviceStatus.status.toLocaleLowerCase() === 'online'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-green-900 rounded-full">
+=======
+                <span v-if="serviceStatus.status === 'online'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-green-900 rounded-full">
+>>>>>>> 66b7c94d2ebebc839d99620c1fd0513b9f528810
                     <span class="icon flex items-center justify-center bg-green-500 text-[0.625rem] w-3.5 h-3.5 rounded-full">
                         <i class="fa-solid fa-check"></i>
                     </span>
                 </span>
+<<<<<<< HEAD
                 <span v-if="serviceStatus.status.toLocaleLowerCase() === 'offline'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-red-900 rounded-full">
+=======
+                <span v-if="serviceStatus.status === 'offline'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-red-900 rounded-full">
+>>>>>>> 66b7c94d2ebebc839d99620c1fd0513b9f528810
                     <span class="icon flex items-center justify-center bg-red-500 text-[0.625rem] w-3.5 h-3.5 rounded-full">
                         <i class="fa-solid fa-xmark"></i>
                     </span>
                 </span>
+<<<<<<< HEAD
                 <span v-if="serviceStatus.status.toLocaleLowerCase() === 'maintenance'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-yellow-900 rounded-full">
+=======
+                <span v-if="serviceStatus.status === 'maintenance'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-yellow-900 rounded-full">
+>>>>>>> 66b7c94d2ebebc839d99620c1fd0513b9f528810
                     <span class="icon flex items-center justify-center bg-yellow-500 text-[0.55rem] w-3.5 h-3.5 rounded-full">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </span>
                 </span>
                 <span class="text-xs text-gray-300 hidden md:flex">
+<<<<<<< HEAD
                     {{ serviceStatus.status }}
                 </span>
                 <span class="text-xs text-gray-300 flex md:hidden">
                     {{ serviceStatus.message }}
+=======
+                    {{ serviceStatus.messageShort }}
+                </span>
+                <span class="text-xs text-gray-300 flex md:hidden">
+                    {{ serviceStatus.messageLong }}
+>>>>>>> 66b7c94d2ebebc839d99620c1fd0513b9f528810
                 </span>
             </div>
 
