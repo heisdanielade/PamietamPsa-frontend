@@ -6,9 +6,8 @@ const currentYear = new Date().getFullYear();
 
 
 const serviceStatus = {
-    status: 'offline', // online, offline, maintenance
-    messageShort: 'Offline',
-    messageLong: 'All services are offline.', // All services are online, Services under maintenance
+    status: 'Offline', // online, offline, maintenance
+    message: 'Services are offline', // Services are online, Services under maintenance
 };
 
 
@@ -98,26 +97,26 @@ const serviceStatus = {
 
             <!-- Application Status -->
             <div class="status m-4 flex items-center justify-center font-semibold transition-all bg-transparent hover:bg-zinc-700 p-1.5 rounded-lg">
-                <span v-if="serviceStatus.status === 'online'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-green-900 rounded-full">
+                <span v-if="serviceStatus.status.toLocaleLowerCase() === 'online'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-green-900 rounded-full">
                     <span class="icon flex items-center justify-center bg-green-500 text-[0.625rem] w-3.5 h-3.5 rounded-full">
                         <i class="fa-solid fa-check"></i>
                     </span>
                 </span>
-                <span v-if="serviceStatus.status === 'offline'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-red-900 rounded-full">
+                <span v-if="serviceStatus.status.toLocaleLowerCase() === 'offline'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-red-900 rounded-full">
                     <span class="icon flex items-center justify-center bg-red-500 text-[0.625rem] w-3.5 h-3.5 rounded-full">
                         <i class="fa-solid fa-xmark"></i>
                     </span>
                 </span>
-                <span v-if="serviceStatus.status === 'maintenance'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-yellow-900 rounded-full">
+                <span v-if="serviceStatus.status.toLocaleLowerCase() === 'maintenance'" class="icon-container flex items-center justify-center mr-1 h-5 w-5 bg-yellow-900 rounded-full">
                     <span class="icon flex items-center justify-center bg-yellow-500 text-[0.55rem] w-3.5 h-3.5 rounded-full">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </span>
                 </span>
                 <span class="text-xs text-gray-300 hidden md:flex">
-                    {{ serviceStatus.messageShort }}
+                    {{ serviceStatus.status }}
                 </span>
                 <span class="text-xs text-gray-300 flex md:hidden">
-                    {{ serviceStatus.messageLong }}
+                    {{ serviceStatus.message }}
                 </span>
             </div>
 
