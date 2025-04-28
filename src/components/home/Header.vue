@@ -11,7 +11,7 @@ const user = reactive({
     email: '',
     redactedEmail: '',
     name: '',
-    initial: '',
+    initial: 'D',
 
     isLoggedIn: false,
 

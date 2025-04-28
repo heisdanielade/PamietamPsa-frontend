@@ -21,8 +21,8 @@ import MobileNav from "@/components/account/MobileNav.vue";
         <!-- Sidebar Section -->
         <Sidebar class="hidden md:flex"></Sidebar>
 
-        <div class="content w-full flex items-start flex-col">
-            <!-- Greeting Section -->
+        <div class="md:ml-5 content w-full flex items-start flex-col">
+            <!-- Greeting & Promotion Section -->
             <Greeting></Greeting>
             <!-- MyPets Section -->
             <MyPets></MyPets>
