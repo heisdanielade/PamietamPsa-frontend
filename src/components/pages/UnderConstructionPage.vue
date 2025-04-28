@@ -11,7 +11,7 @@ const seconds = ref(0);
 let timer = null;
 
 
-const fixedStartDate = new Date('2025-03-31T12:00:00Z').getTime();
+const fixedStartDate = new Date('2025-05-05T12:00:00Z').getTime();
 const duration = 10 * 24 * 60 * 60 * 1000; // 10 days in milliseconds
 const targetDate = fixedStartDate + duration;
 
