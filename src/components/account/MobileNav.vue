@@ -14,7 +14,7 @@ const toggleAddPopUp = () => {
 
 <template>
     <nav translate="no"
-        class="fixed xbg-blue-400 z-50 bottom-0 w-full flex items-center xbg-red-400 overflow-hidden pt-24 pb-3">
+        class="fixed z-50 bottom-0 w-full flex items-center xbg-red-400 overflow-hidden pt-24 pb-3">
 
         <!-- Floating Add buttons for Pet & Reminder -->
         <Transition name="popup">
@@ -33,7 +33,7 @@ const toggleAddPopUp = () => {
                 </button>
 
                 <!-- Add Reminder button -->
-                <button @click="" type="button" id="addNewPet"
+                <button @click="" type="button" id="addNewAlert"
                     class="inline-flex flex-col items-center justify-center p-1 w-[2.125rem] h-[2.125rem] focus:outline-none hover:text-purple-300">
                     <i class="text-xl fa-solid fa-bell"></i>
                     <span class="hidden function x-translate-y-1 text-[0.65rem] text-center">
@@ -52,7 +52,7 @@ const toggleAddPopUp = () => {
 
         <!-- Other nav buttons -->
         <div
-            class="bg-dark shadow w-full h-[4.3rem] text-gray-100 rounded-3xl px-5 pt-4 pb-3 mx-3 flex items-center justify-between max-w-screen-lg">
+            class="relative z-20 bg-dark shadow w-full h-[4.3rem] text-gray-100 rounded-3xl px-5 pt-4 pb-3 mx-3 flex items-center justify-between max-w-screen-lg">
 
             <!-- Home button -->
             <button @click="" type="button" id="goToHome"
@@ -126,6 +126,10 @@ const toggleAddPopUp = () => {
             </router-link>
 
         </div>
+
+        <!-- White middle underlay  -->
+        <div class="absolute z-0 top-[5.55rem] left-1/2 -translate-x-1/2  bg-white rounded-full w-32 h-5"></div>
+
     </nav>
 
 </template>
