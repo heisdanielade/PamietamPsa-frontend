@@ -16,7 +16,7 @@ const serviceStatus = {
 
 <template>
     <footer v-scroll-reveal
-        class="not-shown md:bg-purple-50 flex flex-col justify-end md:justify-between overflow-hidden rounded-[2.25rem] px-5 py-7 md:p-3 mt-32 mb-0 md:mb-10 md:h-auto md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
+        class="not-shown md:bg-purple-50 flex flex-col justify-end md:justify-between overflow-hidden rounded-[2.25rem] px-5 py-7 md:p-3 mt-16 mb-0 md:mb-10 md:h-auto md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
 
         <div class="info hidden md:flex flex-col md:flex-row items-center justify-between px-9 mb-10 md:mb-2">
             <div class="left">

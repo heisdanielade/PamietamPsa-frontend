@@ -134,7 +134,9 @@ const handleLogout = () => {
 
                 <!-- Desktop menu -->
                 <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
-                    <ul v-if="user.isLoggedIn" class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
+                    
+                    <!-- Test logged in header links -->
+                    <ul class="hidden xflex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
                         <li>
                             <router-link to="/u/settings"
                                 class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Account settings</router-link>
@@ -150,7 +152,7 @@ const handleLogout = () => {
                         </li>
                     </ul>
 
-                    <ul v-else class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
+                    <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
                         <li>
                             <router-link to="/x"
                                 class="block py-2 pr-4 pl-3 text-gray-600 border-b border-gray-100 hover:text-purple-500 transition md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0">Adopt</router-link>
