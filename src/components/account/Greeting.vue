@@ -16,8 +16,9 @@ const user = {
         <p class="font-semibold color-dark opacity-60">
             Local pet care services for you.
         </p>
-        <router-link to="/x" 
-    class="promo-card mt-3 flex items-center justify-between gap-4 flex-shrink-0 w-full p-5 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-400 to-fuchsia-400 backdrop-blur-md border border-white/30 transition hover:backdrop-blur-lg hover:brightness-105">
+
+        <router-link to="/x" v-scroll-reveal
+    class="not-shown promo-card mt-3 flex items-center justify-between gap-4 flex-shrink-0 w-full p-5 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-400 to-fuchsia-400 backdrop-blur-md border border-white/30 transition hover:backdrop-blur-lg hover:brightness-105">
   
     <div class="flex flex-col">
         <h2 class="text-lg font-bold text-white mb-1">Pet Lover Zone!</h2>
