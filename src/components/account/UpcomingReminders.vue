@@ -15,7 +15,7 @@
   </div>
 
   <!-- Reminder Cards Grid -->
-  <div class="grid w-full gap-4 grid-cols-2 lg:grid-cols-3">
+  <div v-scroll-reveal class="not-shown grid w-full gap-4 grid-cols-2 lg:grid-cols-3">
     
     <!-- Reminder 1 - Vaccination -->
     <div class="reminder-card flex flex-col items-start p-4 rounded-2xl border border-white/30 bg-green-300/30 backdrop-blur-md transition-all hover:backdrop-blur-lg hover:bg-green-300/40 hover:scale-[1.01]">
