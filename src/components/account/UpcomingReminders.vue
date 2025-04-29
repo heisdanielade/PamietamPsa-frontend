@@ -24,7 +24,7 @@
         <h3 class="text-base font-semibold text-zinc-800">Vaccination</h3>
       </div>
       <p class="text-sm text-zinc-700 mb-1">Bella - Rabies shot</p>
-      <p class="text-xs text-zinc-600">May 3, 2025</p>
+      <p class="text-xs text-zinc-600">May 5, 2025</p>
       <span class="mt-2 text-[0.7rem] font-medium text-green-900 bg-white/40 px-2 py-[2px] rounded-full">Upcoming</span>
     </div>
 
@@ -34,7 +34,7 @@
         <i class="ri-scissors-cut-line text-lg text-red-900 mr-2"></i>
         <h3 class="text-base font-semibold text-zinc-800">Grooming</h3>
       </div>
-      <p class="text-sm text-zinc-700 mb-1">Max - Overdue 3 days</p>
+      <p class="text-sm text-zinc-700 mb-1">Koli - Haircut</p>
       <p class="text-xs text-zinc-600">Due: April 26</p>
       <span class="mt-2 text-[0.7rem] font-medium text-red-900 bg-white/40 px-2 py-[2px] rounded-full">Overdue</span>
     </div>
@@ -45,8 +45,8 @@
         <i class="ri-capsule-line text-lg text-yellow-800 mr-2"></i>
         <h3 class="text-base font-semibold text-zinc-800">Medication</h3>
       </div>
-      <p class="text-sm text-zinc-700 mb-1">Haides - Heartworm pill</p>
-      <p class="text-xs text-zinc-600">May 1, 2025</p>
+      <p class="text-sm text-zinc-700 mb-1">Koli - Heartworm pill</p>
+      <p class="text-xs text-zinc-600">May 3, 2025</p>
       <span class="mt-2 text-[0.7rem] font-medium text-yellow-900 bg-white/40 px-2 py-[2px] rounded-full">Today</span>
     </div>
 
