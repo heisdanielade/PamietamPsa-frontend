@@ -1,5 +1,5 @@
 <script setup>
-import EmailVerificationForm from "@/components/auth/forms/EmailVerificationForm.vue";
+import EmailVerificationForm from "@/components/forms/auth/EmailVerificationForm.vue";
 </script>
 
 
