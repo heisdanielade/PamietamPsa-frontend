@@ -8,7 +8,7 @@ const user = {
 
 <template>
     <div
-        class="w-full xh-20 xbg-green-400 overflow-hidden px-5 md:p-3 mb-0 xmd:mb-10 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
+        class="w-full overflow-hidden px-5 md:p-3 mb-0 xmd:mb-10 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
 
         <h1 class="font-medium text-2xl md:text-2xl color-dark gradient-text-2">
             Hi there, <span v-if="user.username" class="">{{ user.username }}</span>
@@ -18,7 +18,7 @@ const user = {
         </p>
 
         <router-link to="/x" v-scroll-reveal
-    class="not-shown promo-card mt-3 flex items-center justify-between gap-4 flex-shrink-0 w-full p-5 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-400 to-fuchsia-400 backdrop-blur-md border border-white/30 transition hover:backdrop-blur-lg hover:brightness-105">
+    class="xnot-shown promo-card mt-3 w-full lg:w-7/12 flex items-center justify-between gap-4 flex-shrink-0 p-5 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-400 to-fuchsia-400 backdrop-blur-md border border-white/30 transition hover:backdrop-blur-lg hover:brightness-105">
   
     <div class="flex flex-col">
         <h2 class="text-lg font-bold text-white mb-1">Pet Lover Zone!</h2>
