@@ -4,6 +4,7 @@ import Header from "@/components/home/Header.vue";
 import FooterV2 from "@/components/home/Footer.vue";
 import Greeting from "@/components/account/Greeting.vue";
 import MyPets from "@/components/account/MyPets.vue";
+import UpcomingReminders from "@/components/account/UpcomingReminders.vue";
 import Sidebar from "@/components/account/Sidebar.vue";
 import MobileNav from "@/components/account/MobileNav.vue";
 
@@ -26,6 +27,8 @@ import MobileNav from "@/components/account/MobileNav.vue";
             <Greeting></Greeting>
             <!-- MyPets Section -->
             <MyPets></MyPets>
+            <!-- Upcoming Reminders Section -->
+            <UpcomingReminders></UpcomingReminders>
 
         </div>
     </div>
