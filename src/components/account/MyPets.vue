@@ -23,7 +23,7 @@
     <router-link to="/x"
       class="pet-card flex flex-col items-center text-center p-4 rounded-2xl border border-white/30 bg-purple-400/30 backdrop-blur-md transition-all hover:backdrop-blur-lg hover:bg-purple-400/40 md:hover:scale-105">
       <img src="/src/assets/images/backgrounds/dog-yellow.png" alt="Bella"
-        class="w-20 h-20 rounded-full object-cover mb-4 shadow-md border-2 border-white">
+        class="w-20 h-20 rounded-full object-cover mb-4 shadow-sm border-2 border-white">
       <h3 class="text-base font-semibold text-zinc-800">Bella</h3>
       <p class="text-sm text-zinc-700">Golden Retriever</p>
       <p class="text-xs text-zinc-600 mt-1">2 years old</p>
@@ -33,7 +33,7 @@
     <!-- <router-link to="/x"
       class="pet-card flex flex-col items-center text-center p-4 rounded-2xl border border-white/30 bg-pink-300/30 backdrop-blur-md transition-all hover:backdrop-blur-lg hover:bg-pink-300/40 md:hover:scale-105">
       <img src="/src/assets/images/backgrounds/dog-purple.png" alt="Max"
-        class="w-20 h-20 rounded-full object-cover mb-4 shadow-md border-2 border-white">
+        class="w-20 h-20 rounded-full object-cover mb-4 shadow-sm border-2 border-white">
       <h3 class="text-base font-semibold text-zinc-800">Max</h3>
       <p class="text-sm text-zinc-700">Siberian Husky</p>
       <p class="text-xs text-zinc-600 mt-1">4 years old</p>
@@ -43,7 +43,7 @@
     <router-link to="/x"
       class="pet-card flex flex-col items-center text-center p-4 rounded-2xl border border-white/30 bg-yellow-300/30 backdrop-blur-md transition-all hover:backdrop-blur-lg hover:bg-yellow-300/40 md:hover:scale-105">
       <img src="/src/assets/images/backgrounds/dog-human.png" alt="Haides"
-        class="w-20 h-20 rounded-full object-cover mb-4 shadow-md border-2 border-white">
+        class="w-20 h-20 rounded-full object-cover mb-4 shadow-sm border-2 border-white">
       <h3 class="text-base font-semibold text-zinc-800">Haides</h3>
       <p class="text-sm text-zinc-700">Labrador</p>
       <p class="text-xs text-zinc-600 mt-1">7 years old</p>
