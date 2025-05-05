@@ -80,11 +80,11 @@ const routes = [
 
   // Profile Routes
   { path: '/u/profile', name: 'MyProfile', component: MyProfile,
-    meta: { title: "My Profile", requiresAuth: true } 
+    meta: { title: "Profile", requiresAuth: true } 
   },
 
   { path: '/u/settings', name: 'MySettings', component: MyProfile, // to change
-    meta: { title: "My Settings", requiresAuth: true } 
+    meta: { title: "Settings", requiresAuth: true } 
   },
 
 
