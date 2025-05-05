@@ -19,12 +19,12 @@ const handleLogout = () => {
     </router-link>
 
     <!-- Nav Links -->
-    <nav class="flex flex-col xh-48 space-y-7 text-zinc-300">
+    <nav class="flex flex-col space-y-7 text-zinc-300">
       <!-- Dashboard -->
       <router-link to="/x" class="group relative">
         <i class="ri-dashboard-line text-2xl hover:text-white"></i>
         <span
-          class="absolute z-40 left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+          class="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
           Dashboard
         </span>
       </router-link>
@@ -33,7 +33,7 @@ const handleLogout = () => {
       <router-link to="/x" class="group relative">
         <i class="fa-solid fa-cat text-xl hover:text-white"></i>
         <span
-          class="absolute z-40 left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+          class="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
           My Pets
         </span>
       </router-link>
@@ -42,7 +42,7 @@ const handleLogout = () => {
       <router-link to="/x" class="group relative">
         <i class="ri-notification-2-line text-2xl hover:text-white"></i>
         <span
-          class="absolute z-40 left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+          class="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
           Reminders
         </span>
       </router-link>
@@ -51,7 +51,7 @@ const handleLogout = () => {
       <router-link to="/x" class="group relative">
         <i class="ri-settings-3-line text-2xl hover:text-white"></i>
         <span
-          class="absolute z-40 left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+          class="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
           Settings
         </span>
       </router-link to="/x">
@@ -60,7 +60,7 @@ const handleLogout = () => {
       <span @click="handleLogout()" class="group relative mb-2 custom-cursor">
         <i class="ri-logout-box-r-line text-2xl hover:text-red-400"></i>
         <span
-          class="absolute z-40 left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+          class="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
           Sign Out
         </span>
       </span>

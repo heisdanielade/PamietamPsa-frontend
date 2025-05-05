@@ -20,9 +20,9 @@ import MobileNav from "@/components/account/MobileNav.vue";
     <div
         class="flex items-start mb-48 md:mb-0 mt-[7.5rem] md:mt-32 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
         <!-- Sidebar Section -->
-        <Sidebar class="hidden md:flex"></Sidebar>
+        <Sidebar class="hidden md:flex relative z-40"></Sidebar>
 
-        <div class="md:ml-5 content w-full flex items-start flex-col">
+        <div class="md:ml-5 content relative z-30 w-full flex items-start flex-col">
             <!-- Greeting & Promotion Section -->
             <Greeting></Greeting>
             <!-- MyPets Section -->
