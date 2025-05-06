@@ -3,7 +3,7 @@ import { onMounted, computed, ref } from "vue";
 import petService from "@/services/pet";
 
 const pets = ref([]);
-const previewPets = computed(() => pets.value.slice(0, 3));
+const previewPets = computed(() => pets.value.slice(0, 2));
 // const previewPets = [];
 
 const getAllPets = async () => {
@@ -38,7 +38,7 @@ const petColors = [
     <!-- Header -->
     <div class="w-full flex items-center justify-between mb-4">
       <h2 class="text-2xl font-medium text-zinc-800">My Pets</h2>
-      <router-link to="/x" class="text-sm font-semibold color-dark opacity-90 hover:opacity-65 transition-all">
+      <router-link v-if="pets.length > 2" to="/x" class="text-sm font-semibold color-dark opacity-90 hover:opacity-65 transition-all">
         <span>View all</span>
         <i class="ri-arrow-right-line ml-2 text-xs font-extrabold"></i>
       </router-link>
