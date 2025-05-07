@@ -13,7 +13,7 @@ import MobileNav from "@/components/account/MobileNav.vue";
 
 
 <template>
-
+    
     <!-- Header Section -->
     <Header></Header>
 

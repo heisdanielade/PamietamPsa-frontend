@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from "vue";
 
-
 const isVisible = ref(false);
 
 const toggleAddPopUp = () => {
@@ -22,7 +21,7 @@ const toggleAddPopUp = () => {
                 class="absolute shadow z-40 flex items-center justify-evenly p-1 top-1 left-1/2 -translate-x-1/2 w-28 h-14 bg-dark text-gray-100 rounded-full">
 
                 <!-- Add Pet button -->
-                <button @click="" type="button" id="addNewPet"
+                <router-link to="/u?form=addPet"
                     class="inline-flex flex-col items-center justify-center p-1 w-[2.125rem] h-[2.125rem] focus:outline-none hover:text-purple-300">
                     <i class="text-xl fa-solid fa-cat"></i>
                     <span class="hidden function x-translate-y-1 text-[0.65rem] text-center">
@@ -30,10 +29,10 @@ const toggleAddPopUp = () => {
                     </span>
                     <!-- Screen reader only -->
                     <span class="sr-only">Add new pet</span>
-                </button>
+                </router-link>
 
                 <!-- Add Reminder button -->
-                <button @click="" type="button" id="addNewAlert"
+                <router-link to="/u/profile"
                     class="inline-flex flex-col items-center justify-center p-1 w-[2.125rem] h-[2.125rem] focus:outline-none hover:text-purple-300">
                     <i class="text-xl fa-solid fa-bell"></i>
                     <span class="hidden function x-translate-y-1 text-[0.65rem] text-center">
@@ -41,7 +40,7 @@ const toggleAddPopUp = () => {
                     </span>
                     <!-- Screen reader only -->
                     <span class="sr-only">Add new alert</span>
-                </button>
+                </router-link>
 
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 bg-dark w-4 h-4 rounded-2xl">
 

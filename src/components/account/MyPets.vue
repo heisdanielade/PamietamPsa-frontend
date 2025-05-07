@@ -20,7 +20,7 @@ onMounted(() => {
 })
 
 
-const petColors = [
+const cardColors = [
   'bg-purple-300/30 hover:bg-purple-300/40',
   'bg-pink-300/30 hover:bg-pink-300/40',
   'bg-yellow-300/30 hover:bg-yellow-300/40',
@@ -49,9 +49,9 @@ const petColors = [
       class="not-shown grid gap-4 w-full grid-cols-2 sm:grid-cols-2 md:grid-cols-[repeat(auto-fit,_minmax(13rem,_1fr))] lg:gap-6">
       <!-- Card -->
       <router-link to="/x" v-for="(pet, index) in previewPets" :key="pet.id"
-        :class="['pet-card', petColors[index % petColors.length], 'flex flex-col items-center text-center p-4 rounded-2xl border border-white/30 backdrop-blur-md transition-all hover:backdrop-blur-lg md:hover:scale-105']">
+        :class="['pet-card', cardColors[index % cardColors.length], 'flex flex-col items-center text-center p-4 rounded-2xl border border-white/30 backdrop-blur-md transition-all hover:backdrop-blur-lg md:hover:scale-105']">
         <img src="/src/assets/images/others/cat.png" :alt="pet.name"
-          class="w-20 h-20 rounded-full object-cover mb-4 shadow-sm border-2 border-white" />
+        class="w-20 h-20 rounded-full object-cover mb-4 shadow-sm border-2 border-white" />
         <h3 class="text-base font-semibold text-zinc-800">{{ pet.name }}</h3>
         <p class="text-sm text-zinc-700">{{ pet.breed }}</p>
         <p class="text-xs text-zinc-600 mt-1">{{ pet.age }} years old</p>
