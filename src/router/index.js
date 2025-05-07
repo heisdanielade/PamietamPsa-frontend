@@ -5,12 +5,16 @@ import LoginPage from '@/components/pages/auth/LoginPage.vue';
 import SignUpPage from '@/components/pages/auth/SignUpPage.vue';
 import VerifyEmailPage from '@/components/pages/auth/VerifyEmailPage.vue';
 
-import MyProfile from '@/components/pages/account/MyProfile.vue';
+import MyProfilePage from '@/components/pages/account/MyProfile.vue';
+
+import PetFormsPage from '@/components/pages/account/PetFormsPage.vue';
 
 import UnderConstructionPage from '@/components/pages/UnderConstructionPage.vue';
 
 import TermsPage from '@/components/pages/legal/TermsPage.vue';
 import PolicyPage from '@/components/pages/legal/PolicyPage.vue';
+
+
 
 
 const routes = [
@@ -79,17 +83,24 @@ const routes = [
 
 
   // Profile Routes
-  { path: '/u/profile', name: 'MyProfile', component: MyProfile,
+  { path: '/u/profile', name: 'MyProfile', component: MyProfilePage,
     meta: { title: "Profile", requiresAuth: true } 
   },
 
-  { path: '/u/settings', name: 'MySettings', component: MyProfile, // to change
+  { path: '/u/settings', name: 'MySettings', component: MyProfilePage, // to change
     meta: { title: "Settings", requiresAuth: true } 
   },
 
 
+  // Pet Forms Routes
+  { path: '/u', name: 'PetForms', component: PetFormsPage,
+    meta: { title: "Pet", requiresAuth: true } 
+  },
 
 ];
+
+
+
 
 
 const router = createRouter({
