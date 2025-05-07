@@ -129,7 +129,10 @@
         </div>
       </div>
 
-
+      <!-- Info -->
+      <div class="mt-6 mb-10 p-5 text-center text-[0.825rem] font-normal text-gray-600">
+        {{ petFact }}
+      </div>
     </div>
   </div>
 </template>
@@ -137,11 +140,26 @@
 
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import Logo from "@/components/others/Logo.vue";
 
 
-
+// Random pet fact
+const petFact = ref("");
+const facts = [
+  "Cats can recognize their owner's voice, but they often choose to ignore it.",
+  "Dogs noses are as unique as human fingerprints.",
+  "Rabbits purr when they're content — not just cats!",
+  "Petting a dog can lower your blood pressure.",
+  "Parrots can live over 50 years with proper care.",
+  "Guinea pigs need vitamin C daily, just like humans.",
+  "Some turtles can breathe through their butts. Seriously.",
+  "Owning a pet can help reduce feelings of loneliness.",
+];
+onMounted(() => {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  petFact.value = facts[randomIndex];
+});
 
 
 const loading = ref(false);
