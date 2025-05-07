@@ -18,7 +18,7 @@
             </router-link>
           </div>
           <p class="text-gray-500 text-center opacity-90 mt-3">
-            Add a new pet
+            Let's meet your pet
           </p>
           <p class="hidden text-gray-400 text-center text-sm mt-1">
             Provide pet details to register them
@@ -30,7 +30,8 @@
 
             <!-- Profile Image Upload -->
             <div class="mb-2">
-              <label class="block text-xs text-gray-600 mb-1">Profile Image</label>
+              <label class="block text-xs text-gray-600 mb-1"
+                :class="{'text-purple-700': imageFile}">Profile Image</label>
               <div @dragover.prevent @drop.prevent="handleDrop" @click="triggerFileInput"
                 class="w-full flex items-center gap-3 border border-dashed border-gray-300 rounded px-3 py-2 cursor-pointer hover:border-purple-600 transition bg-gray-50">
                 <img v-if="imagePreview" :src="imagePreview" alt="Preview"
@@ -53,20 +54,22 @@
             <div class="relative mb-2">
               <input v-model="pet.name" type="text" id="name" placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
-                required />
+                @focus="isPetNameFocused = true"
+                @blur="isPetNameFocused = false" required/>
               <label for="name" class="absolute left-0 transition-all text-gray-500 text-sm"
-                :class="{ 'top-1 text-sm text-purple-700': pet.name || isNameFocused, 'top-6 text-base text-gray-400': !pet.name && !isNameFocused, }">
+                :class="{ 'top-1 text-sm text-purple-700': pet.name || isPetNameFocused, 'top-6 text-base text-gray-400': !pet.name && !isPetNameFocused, }">
                 Name
               </label>
             </div>
 
-            <!-- Pet specie -->
+            <!-- Pet species -->
             <div class="relative mb-2">
               <input v-model="pet.species" type="text" id="species" placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
-                required />
+                @focus="isSpeciesFocused = true"
+                @blur="isSpeciesFocused = false" required />
               <label for="species" class="absolute left-0 transition-all text-gray-500 text-sm"
-                :class="{ 'top-1 text-sm text-purple-700': pet.species, 'top-6 text-base text-gray-400': !pet.species }">
+                :class="{ 'top-1 text-sm text-purple-700': pet.species || isSpeciesFocused, 'top-6 text-base text-gray-400': !pet.species && !isSpeciesFocused}">
                 Species (e.g., Cat, Dog)
               </label>
             </div>
@@ -74,9 +77,11 @@
             <!-- Pet breed -->
             <div class="relative mb-2">
               <input v-model="pet.breed" type="text" id="breed" placeholder=" "
-                class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700" />
+                class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
+                @focus="isBreedFocused = true"
+                @blur="isBreedFocused = false" />
               <label for="breed" class="absolute left-0 transition-all text-gray-500 text-sm"
-                :class="{ 'top-1 text-sm text-purple-700': pet.breed, 'top-6 text-base text-gray-400': !pet.breed }">
+                :class="{ 'top-1 text-sm text-purple-700': pet.breed || isBreedFocused, 'top-6 text-base text-gray-400': !pet.breed && !isBreedFocused }">
                 Breed (optional)
               </label>
             </div>
@@ -84,9 +89,10 @@
             <!-- Pet DOB -->
             <div class="relative mb-2">
               <input v-model="pet.age" type="number" min="0" id="age" placeholder=" "
-                class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700" />
+                class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
+                />
               <label for="age" class="absolute left-0 transition-all text-gray-500 text-sm"
-                :class="{ 'top-1 text-sm text-purple-700': pet.age, 'top-6 text-base text-gray-400': !pet.age }">
+                :class="{ 'top-1 text-sm text-purple-700': pet.birthDate, 'top-6 text-base text-gray-400': !pet.birthDate }">
                 Year of Birth (optional)
               </label>
             </div>
@@ -103,7 +109,11 @@
 
             <!-- Submit button -->
             <button type="submit"
-              class="action-btn flex items-center justify-center relative left-1/2 -translate-x-1/2 w-44 mt-7 h-10 bg-dark tracking-wide text-sm text-white hover:shadow-sm transition rounded-xl hover:opacity-90 focus:outline-none">
+              class="action-btn flex items-center justify-center relative left-1/2 -translate-x-1/2 w-44 mt-7 h-10 bg-dark tracking-wide text-sm text-white hover:shadow-sm transition rounded-xl hover:opacity-90 focus:outline-none"
+              :disabled="!isFormValid || loading.value" :class="{
+                'opacity-50 cursor-not-allowed hover:opacity-50':
+                  !isFormValid || loading.value,
+              }">
               <template v-if="!loading">
                 <span class="font-medium text-sm">Add Pet</span>
                 <span
@@ -119,10 +129,7 @@
         </div>
       </div>
 
-      <!-- Info -->
-      <div class="mt-6 mb-10 p-5 text-center text-[0.825rem] font-normal text-gray-600">
-        By proceeding, you confirm the information provided is accurate and complete.
-      </div>
+
     </div>
   </div>
 </template>
@@ -133,17 +140,20 @@
 import { ref, computed } from "vue";
 import Logo from "@/components/others/Logo.vue";
 
+
+
+
+
 const loading = ref(false);
-const isNameFocused = ref(false);
+const isPetNameFocused = ref(false);
+const isSpeciesFocused = ref(false);
 const isBreedFocused = ref(false);
-const isNoteFocused = ref(false);
 
 const pet = ref({
   name: "",
-  specie: "",
-  birthDate: "",
+  species: "",
   breed: "",
-  weight: "",
+  birthDate: ""
 });
 
 
@@ -174,7 +184,7 @@ const handleDrop = (e) => {
 
 
 const isFormValid = computed(() => {
-  return pet.value.name && pet.value.specie && pet.value.breed;
+  return pet.value.name && pet.value.species;
 });
 
 
@@ -184,7 +194,7 @@ const handleAddPet = async () => {
 
   const formData = new FormData();
   formData.append("name", pet.value.name);
-  formData.append("specie", pet.value.specie);
+  formData.append("species", pet.value.species);
   formData.append("birthDate", pet.value.birthDate);
   formData.append("breed", pet.value.breed);
   formData.append("weight", pet.value.weight);
