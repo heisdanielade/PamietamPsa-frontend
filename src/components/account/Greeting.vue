@@ -1,7 +1,7 @@
 
 <script setup>
 const user = {
-    username: "Daniel",
+    name: "",
 }
 </script>
 
@@ -10,7 +10,7 @@ const user = {
 <template>
     <div class="w-full overflow-hidden px-5 md:p-3 mb-0 xmd:mb-10 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
         <h1 class="font-medium text-2xl md:text-2xl color-dark gradient-text-2">
-            Hi there, <span v-if="user.username" class="">{{ user.username }}</span>
+            Hi there, <span v-if="user.name" class="">{{ user.name }}</span>
         </h1>
         <p class="font-semibold color-dark opacity-60">
             Local pet care services for you.

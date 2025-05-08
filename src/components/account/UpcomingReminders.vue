@@ -5,7 +5,7 @@
 
 
 <template>
-    <section id="reminders" class="w-full flex flex-col items-start overflow-hidden px-5 mt-10 md:mt-5 md:p-3 mb-0 md:mb-10 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
+    <section id="reminders" class="w-full flex flex-col items-start overflow-hidden px-5 mt-5 md:p-3 mb-0 md:mb-10 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
   <div class="w-full flex items-center justify-between mb-4">
     <h2 class="text-2xl font-medium text-zinc-800">Reminders</h2>
     <router-link to="/reminders" class="text-sm font-semibold color-dark opacity-90 hover:opacity-65 transition-all">
