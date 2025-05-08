@@ -10,6 +10,7 @@ import MyProfilePage from '@/components/pages/account/MyProfile.vue';
 import PetFormsPage from '@/components/pages/account/PetFormsPage.vue';
 
 import UnderConstructionPage from '@/components/pages/UnderConstructionPage.vue';
+import NotFoundPage from '@/components/pages/404Page.vue';
 
 import TermsPage from '@/components/pages/legal/TermsPage.vue';
 import PolicyPage from '@/components/pages/legal/PolicyPage.vue';
@@ -25,6 +26,9 @@ const routes = [
   },
   { path: '/x', name: 'UnderConstruction', component: UnderConstructionPage, 
     meta: { title: "Under Construction" }
+  },
+  { path: '/:pathMatch(.*)*', name: '404', component: NotFoundPage, 
+    meta: { title: "Not Found (404)" }
   },
 
 
