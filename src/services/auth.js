@@ -53,9 +53,7 @@ export default {
     await new Promise(resolve => setTimeout(resolve, 1250));
 
     const response = await api.post("/auth/login", user);
-    console.log(response);
     const token = response.data.data.token;
-    console.log(token);
     if (token) {
       localStorage.setItem("token", token); // Save token for future requests
     }

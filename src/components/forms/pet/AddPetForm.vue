@@ -140,7 +140,9 @@
 
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, inject } from "vue";
+import { useRouter } from "vue-router";
+import petService from "@/services/pet"
 import Logo from "@/components/others/Logo.vue";
 
 
@@ -161,6 +163,9 @@ onMounted(() => {
   petFact.value = facts[randomIndex];
 });
 
+
+const router = useRouter();
+const toast = inject('toast');
 
 const loading = ref(false);
 const isPetNameFocused = ref(false);
@@ -200,7 +205,6 @@ const handleDrop = (e) => {
 };
 
 
-
 const isFormValid = computed(() => {
   return pet.value.name && pet.value.species;
 });
@@ -222,10 +226,20 @@ const handleAddPet = async () => {
 
 
   try {
-    console.log("Adding pet:", pet.value);
-
+    await petService.addPet(pet.value);
+    if (toast) {
+      toast.value.showToast("Pet added successfully.", "success");
+    } else {
+      console.error("Toast reference is not available.");
+    }
+    setTimeout(() => {
+      router.push("/u/profile");
+    }, 500);
   } catch (e) {
     console.error(e);
+    if (toast) {
+      toast.value.showToast(e.response.data.message || "Pet registration failed.", "error");
+    }
   } finally {
     loading.value = false;
   }
