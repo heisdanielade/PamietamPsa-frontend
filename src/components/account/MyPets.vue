@@ -3,7 +3,7 @@ import { onMounted, computed, ref } from "vue";
 import petService from "@/services/pet";
 
 const pets = ref([]);
-const previewPets = computed(() => pets.value.slice(0, 2));
+const previewPets = computed(() => pets.value.slice(0, 3));
 // const previewPets = [];
 
 const getAllPets = async () => {
@@ -44,18 +44,20 @@ const cardColors = [
       </router-link>
     </div>
 
-    <!-- Pet -->
+    <!-- Pets -->
     <div v-if="previewPets.length > 0" v-scroll-reveal
-      class="not-shown grid gap-4 w-full grid-cols-2 sm:grid-cols-2 md:grid-cols-[repeat(auto-fit,_minmax(13rem,_1fr))] lg:gap-6">
-      <!-- Card -->
+      class="not-shown pet-card-container w-full overflow-x-auto px-1 md:py-2 no-scrollbar h-52">
+      <div class="flex gap-5 md:gap-6 h-full">
+        <!-- Card -->
       <router-link to="/x" v-for="(pet, index) in previewPets" :key="pet.id"
-        :class="['pet-card', cardColors[index % cardColors.length], 'flex flex-col items-center text-center p-4 rounded-2xl border border-white/30 backdrop-blur-md transition-all hover:backdrop-blur-lg md:hover:scale-105']">
+        :class="['pet-card inline-block min-w-[12rem] max-w-[14rem] md:min-w-[14rem] md:max-w-[16rem] h-48', cardColors[index % cardColors.length], 'flex flex-shrink-0 flex-col items-center text-center p-4 rounded-2xl border border-white/30 backdrop-blur-md transition-all hover:backdrop-blur-lg md:hover:scale-105']">
         <img src="/src/assets/images/others/cat.png" :alt="pet.name"
         class="w-20 h-20 rounded-full object-cover mb-4 shadow-sm border-2 border-white" />
         <h3 class="text-base font-semibold text-zinc-800">{{ pet.name }}</h3>
         <p class="text-sm text-zinc-700">{{ pet.breed }}</p>
         <p class="text-xs text-zinc-600 mt-1">{{ pet.age }} years old</p>
       </router-link>
+      </div>
     </div>
 
     <div v-else v-scroll-reveal
@@ -67,3 +69,16 @@ const cardColors = [
   </section>
 
 </template>
+
+
+
+<style scoped>
+/* Hide scrollbar on all browsers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+</style>
