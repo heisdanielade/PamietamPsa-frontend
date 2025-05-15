@@ -1,6 +1,12 @@
 <script setup>
+import { computed } from "vue";
 import AuthBackground from "@/components/others/PawBackground.vue";
 
+
+const isLoggedIn = computed(() => {
+    const login = localStorage.getItem("token");
+    return login !== null;
+});
 </script>
 
 
@@ -26,7 +32,8 @@ import AuthBackground from "@/components/others/PawBackground.vue";
                     Vet visits and reminders for a <br>happy, healthy pet.
                 </p>
                 <router-link to="/u/signup" v-scroll-reveal class="not-shown get-started-btn hover:text-white hover:shadow-sm transition flex items-center justify-center bg-purple-200 w-[12rem] h-12 rounded-2xl">
-                    <span class="font-semibold text-base">Get Started Now</span>
+                    <span v-if="isLoggedIn" class="font-semibold text-base">Go to Profile</span>
+                    <span v-else class="font-semibold text-base">Get Started Now</span>
                     <span class="bg-white text-sm ml-2 font-bold rounded-full w-6 h-6 flex items-center justify-center">
                         <i class="transition ri-arrow-right-line"></i>
                     </span>
@@ -34,11 +41,11 @@ import AuthBackground from "@/components/others/PawBackground.vue";
             </div>
 
             <div class="relative mt-5 md:mt-20 lg:mt-20 flex flex-wrap justify-center items-center gap-4">
-                <div v-scroll-reveal class="not-shown box custom-cursor relative flex items-center justify-center w-[13rem] h-[12.4rem] bg-pink-200">
+                <div v-scroll-reveal class="not-shown box custom-cursor relative flex items-center justify-center w-[13rem] h-[12.4rem] bg-purple-200">
                     <img class="pet absolute w-[13.2rem] h-[15rem]" src="/src/assets/images/animals/webp/7.webp" alt="Pet">
                 </div>
 
-                <div v-scroll-reveal class="not-shown box custom-cursor mt-24 md:mt-0 lg:mt-0 relative flex items-center justify-center ml-4 mr-4 w-[13rem] h-[11rem] bg-purple-200">
+                <div v-scroll-reveal class="not-shown box custom-cursor mt-24 md:mt-0 lg:mt-0 relative flex items-center justify-center ml-4 mr-4 w-[13rem] h-[11rem] bg-pink-200">
                     <img class="pet absolute w-[32rem] h-[15rem]" src="/src/assets/images/animals/webp/4.webp" alt="Pet">
                 </div>
 
