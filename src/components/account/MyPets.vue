@@ -28,7 +28,7 @@ const cardColors = [
 ];
 </script>
 
-
+<!-- src="/src/assets/images/others/cat.png -->
 
 <template>
 
@@ -51,7 +51,7 @@ const cardColors = [
         <!-- Card -->
       <router-link to="/x" v-for="(pet, index) in previewPets" :key="pet.id"
         :class="['pet-card inline-block min-w-[12rem] max-w-[14rem] md:min-w-[14rem] md:max-w-[16rem] h-48', cardColors[index % cardColors.length], 'flex flex-shrink-0 flex-col items-center text-center p-4 rounded-2xl border border-white/30 backdrop-blur-md transition-all hover:backdrop-blur-lg md:hover:scale-105']">
-        <img src="/src/assets/images/others/cat.png" :alt="pet.name"
+        <img :src="pet.profileImageURL" :alt="pet.name"
         class="w-20 h-20 rounded-full object-cover mb-4 shadow-sm border-2 border-white" />
         <h3 class="text-base font-semibold text-zinc-800">{{ pet.name }}</h3>
         <p class="text-sm text-zinc-700">{{ pet.breed }}</p>
