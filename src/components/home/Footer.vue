@@ -1,5 +1,6 @@
 <script setup>
 import { useProjectStore } from '@/stores/projectStore';
+import Logo from "@/components/others/Logo.vue";
 
 const projectName = useProjectStore().projectName;
 const currentYear = new Date().getFullYear();
@@ -45,8 +46,9 @@ const serviceStatus = {
 
             <!-- Logo -->
             <router-link to="/" class="logo hidden md:flex items-center">
-                <img src="/src/assets/images/logos/logo-black-inline.svg" class="mr-1 w-6 h-6" alt="Logo" />
-                <span class="logo-text text-xl font-medium whitespace-nowrap">{{ projectName }}</span>
+                <!-- <img src="/src/assets/images/logos/logo-black-inline.svg" class="mr-1 w-6 h-6" alt="Logo" />
+                <span class="logo-text text-xl font-medium whitespace-nowrap">{{ projectName }}</span> -->
+                <Logo/>
             </router-link>
 
             <!-- Useful links -->
@@ -125,7 +127,7 @@ const serviceStatus = {
             <div class="flex md:hidden items-center justify-evenly text-[0.81rem] font-medium">
                 <div class="">
                     <span class="">&copy {{ currentYear }}</span>
-                    <router-link to="/" class="ml-1 transition text-purple-300 hover:underline">
+                    <router-link to="/" class="ml-1 transition gradient-text-3 hover:underline">
                         {{ projectName }}.
                     </router-link>
                 </div>

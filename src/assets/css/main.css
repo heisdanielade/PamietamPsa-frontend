@@ -60,9 +60,9 @@ input {
 }
 
 .logo-text {
-  background: linear-gradient(180deg, #1b0525 0%, #591ed8 50%, #e09df3 100%);
+  background: linear-gradient(45deg, #5400a8, #c500c5, #c59e00c4);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .logo-font{
   font-family: var(--logo-font);
@@ -89,22 +89,18 @@ input {
 
 
 .gradient-text-1{
-  background: linear-gradient(180deg, #1b0525 0%, #6f2b8f 50%, #e09df3 100%);
+  background: linear-gradient(45deg, #340068, #7a007a, #b99400c4);
+  /* background: linear-gradient(180deg, #1b0525 0%, #6f2b8f 50%, #e09df3 100%); */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .gradient-text-2 {
-  background: linear-gradient(to right, #4a175e 0%, #ac8cbb 50%, #bc98ca 85%);
+  background: linear-gradient(to right, #5400a8, #c500c5, #c59e00c4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.gradient-text-3{
-  background: linear-gradient(to right, #cb89e6 0%, #f8e9ff 50%, #f8f8f8 85%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.gradient-text-4{
-  background: linear-gradient(to left, #12031a 0%, #a660c7 50%, #f0c5fc 100%);
+.gradient-text-3 {
+  background: linear-gradient(to right, #6e0ad1, #e001e0, #dbb002c4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

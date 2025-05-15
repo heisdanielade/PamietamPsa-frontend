@@ -8,7 +8,7 @@ const projectName = useProjectStore().projectName;
 
 <template>
     <div class="flex items-center">
-        <img src="/src/assets/images/logos/logo.svg" class="mr-1 w-6 h-6" alt="Logo" />
+        <img src="/src/assets/images/logos/3d-logo.png" class="mr-1 w-8 h-8" alt="Logo" />
         <span class="logo-text text-xl font-medium whitespace-nowrap">{{ projectName }}</span>
     </div>
 </template>

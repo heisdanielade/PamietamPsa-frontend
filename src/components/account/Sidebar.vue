@@ -15,7 +15,7 @@ const handleLogout = () => {
     class="sidebar not-shown w-[4.5rem] hidden lg:flex flex-col items-center py-6 bg-zinc-900 text-white rounded-3xl shadow-xl">
     <!-- Logo / App Icon -->
     <router-link to="/" class="mb-10">
-      <img src="/src/assets/images/logos/favicon.png" alt="App Logo" class="w-8 h-8" />
+      <img src="/src/assets/images/logos/3d-logo.png" alt="App Logo" class="w-8 h-8" />
     </router-link>
 
     <!-- Nav Links -->
