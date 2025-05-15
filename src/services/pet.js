@@ -1,6 +1,5 @@
 import api from "./api";
 
-
 export default {
   // Get all pets
   async allPets() {
@@ -13,10 +12,14 @@ export default {
   },
 
   // Add new pet
-  async addPet(pet) {
-    await new Promise(resolve => setTimeout(resolve, 1000));
+  async addPet(formData) {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
-      const response = await api.post("/pets/add", pet);
+      const response = await api.post("/pets/add", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       return response.data;
     } catch (error) {
       throw error;
