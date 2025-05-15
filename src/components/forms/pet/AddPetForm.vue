@@ -41,7 +41,7 @@
                 </div>
                 <div class="flex flex-col text-[0.7rem] text-gray-500">
                   <span class="font-medium">Click or drag to upload</span>
-                  <span class="text-gray-400 text-[0.65rem]">JPG or PNG, max 2MB</span>
+                  <span class="text-gray-400 text-[0.65rem]">JPG or PNG, max 3MB</span>
                 </div>
               </div>
               <input ref="fileInput" type="file" accept="image/png, image/jpeg" class="hidden"
@@ -226,7 +226,7 @@ const handleAddPet = async () => {
 
 
   try {
-    await petService.addPet(pet.value);
+    await petService.addPet(formData);
     if (toast) {
       toast.value.showToast("Pet added successfully.", "success");
     } else {
