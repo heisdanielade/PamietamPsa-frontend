@@ -80,9 +80,21 @@
                         </router-link>
                     </p>
                 </div>
-
             </div>
-
+            
+            <!-- Footer Note -->
+            <div class="mt-6 mb-10 p-5 text-[0.825rem] font-normal text-gray-600 text-center">
+                By proceeding, you agree to our
+                <router-link to="/legal/terms"
+                    class="font-medium text-purple-500 hover:underline hover:text-purple-700">
+                    Terms
+                </router-link>
+                and
+                <router-link to="/legal/policy"
+                    class="font-medium text-purple-500 hover:underline hover:text-purple-700">
+                    Privacy Policy
+                </router-link>.
+            </div>
         </div>
     </div>
 </template>
@@ -110,7 +122,7 @@ import Logo from "@/components/others/Logo.vue";
 
 const userStore = useUserStore();
 const router = useRouter();
-const { email, password } = userStore;
+const email = userStore.email;
 
 // Reactive state
 const otpArray = ref(["", "", "", "", "", ""]);
@@ -124,7 +136,6 @@ onMounted(() => {
 });
 
 const otpRefs = ref([]);
-const otpError = ref("Invalid otp");
 const loading = ref(false);
 const toast = inject("toast");
 
@@ -135,27 +146,21 @@ const handleInput = (index, event) => {
         return;
     }
     otpArray.value[index] = value;
-
     // Move to the next input if a digit is entered
     if (value && index < otpRefs.value.length - 1) {
         otpRefs.value[index + 1].focus();
     }
 };
-
 const handleDelete = (index, event) => {
     if (event.key === "Backspace" && !otpArray.value[index] && index > 0) {
         otpRefs.value[index - 1].focus();
     }
 };
-
-
 // Handle paste event
 const handlePaste = (event) => {
     event.preventDefault();
-
     let pasteData = (event.clipboardData || window.clipboardData).getData("text");
-    pasteData = pasteData.replace(/\D/g, "").slice(0, 4); // Extract only first 4 digits
-
+    pasteData = pasteData.replace(/\D/g, "").slice(0, 6); // Extract only first 4 digits
     if (pasteData.length === 4) {
         otpArray.value = pasteData.split("");
         otpRefs.value[3].focus(); // Move focus to the last input
@@ -164,9 +169,7 @@ const handlePaste = (event) => {
 
 // Computed OTP value 
 const getOtpValue = () => otpArray.value.join("");
-
 defineExpose({ getOtpValue });
-
 
 
 // Check if form is valid
@@ -174,7 +177,6 @@ const isFormValid = computed(() => otpArray.value.every((digit) => digit !== "")
 
 
 const handleCodeVerification = async () => {
-
     if (!isFormValid.value) return;
     loading.value = true;
 
@@ -186,8 +188,7 @@ const handleCodeVerification = async () => {
             console.error("Toast reference is not available.");
         }
         setTimeout(() => {
-            localStorage.setItem("isVerified", true);
-            localStorage.removeItem("pendingVerification");
+            userStore.clearUser();
             authService.loginRedirect(router);
         }, 1000);
     } catch (error) {
