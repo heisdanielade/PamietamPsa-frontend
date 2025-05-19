@@ -17,8 +17,7 @@ const getAllPets = async () => {
 
 onMounted(() => {
   getAllPets();
-})
-
+});
 
 const cardColors = [
   'bg-purple-300/30 hover:bg-purple-300/40',
@@ -27,8 +26,6 @@ const cardColors = [
   'bg-green-300/30 hover:bg-green-300/40'
 ];
 </script>
-
-<!-- src="/src/assets/images/others/cat.png -->
 
 <template>
 
