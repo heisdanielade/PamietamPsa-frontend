@@ -53,13 +53,5 @@
   .error {
     background-color: #d84957;
   }
-  
-  /* button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  } */
   </style>
   
