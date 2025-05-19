@@ -224,12 +224,11 @@ const handleSignup = async () => {
       console.error("Toast reference is not available.");
     }
     setTimeout(() => {
-      localStorage.setItem("pendingVerification", true);
       router.push("/u/verify-email");
     }, 1000);
   } catch (error) {
     console.error("(e) Error during signup:", error);
-    if (toast) {
+    if (toast && error.response) {
       toast.value.showToast(error.response.data.message || "Signup failed.", "error");
     }
   } finally {
