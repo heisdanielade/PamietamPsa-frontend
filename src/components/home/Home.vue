@@ -31,13 +31,13 @@ const isLoggedIn = computed(() => {
                 <p v-scroll-reveal class="not-shown text-base md:text-lg font-normal tracking-wide text-gray-500 mb-8 lg:mb-9">
                     Vet visits and reminders for a <br>happy, healthy pet.
                 </p>
-                <router-link to="/u/signup" v-scroll-reveal class="not-shown get-started-btn hover:text-white hover:shadow-sm transition flex items-center justify-center bg-purple-200 w-[12rem] h-12 rounded-2xl">
+                <a href="/u/signup" v-scroll-reveal class="not-shown get-started-btn hover:text-white hover:shadow-sm transition flex items-center justify-center bg-purple-200 w-[12rem] h-12 rounded-2xl">
                     <span v-if="isLoggedIn" class="font-semibold text-base">Go to Profile</span>
                     <span v-else class="font-semibold text-base">Get Started Now</span>
                     <span class="bg-white text-sm ml-2 font-bold rounded-full w-6 h-6 flex items-center justify-center">
                         <i class="transition ri-arrow-right-line"></i>
                     </span>
-                </router-link>
+                </a>
             </div>
 
             <div class="relative mt-5 md:mt-20 lg:mt-20 flex flex-wrap justify-center items-center gap-4">

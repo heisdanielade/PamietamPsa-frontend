@@ -19,7 +19,7 @@ export const useUserStore = defineStore('tempUser', {
 
   persist: {
     // Persist only the `email` state
-    paths: ['email'],  // `password` will NOT be persisted
-    storage: sessionStorage, // Store in localStorage
+    paths: ['email'],
+    storage: sessionStorage,
   }
 });
