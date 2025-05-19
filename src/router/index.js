@@ -1,22 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { isTokenValid } from '@/utils/auth'
+import { pinia } from '@/stores/pinia'
+import { useMainUserStore } from '@/stores/mainUserDetails.js'
+import authService from "@/services/auth";
+// ---------------------------------------------------------------
 import HomePage from '@/components/pages/HomePage.vue';
-
+// ---------------------------------------------------------------
 import LoginPage from '@/components/pages/auth/LoginPage.vue';
 import SignUpPage from '@/components/pages/auth/SignUpPage.vue';
 import VerifyEmailPage from '@/components/pages/auth/VerifyEmailPage.vue';
-
+import NotVerifiedPage from '@/components/pages/auth/NotVerifiedPage.vue';
+// ---------------------------------------------------------------
 import MyProfilePage from '@/components/pages/account/MyProfile.vue';
-
+// ---------------------------------------------------------------
 import PetFormsPage from '@/components/pages/account/PetFormsPage.vue';
-
+// ---------------------------------------------------------------
 import UnderConstructionPage from '@/components/pages/UnderConstructionPage.vue';
 import NotFoundPage from '@/components/pages/404Page.vue';
-
+// ---------------------------------------------------------------
 import TermsPage from '@/components/pages/legal/TermsPage.vue';
 import PolicyPage from '@/components/pages/legal/PolicyPage.vue';
+// ---------------------------------------------------------------
 
 
-
+// Get userDetails if there is a logged in user
+const userStore = useMainUserStore(pinia);
 
 const routes = [
   
@@ -34,45 +42,19 @@ const routes = [
 
   // Authentication Routes
   { path: '/u/login', name: 'Login', component: LoginPage,
-    beforeEnter: (to, from, next) => {
-      const isLoggedIn = localStorage.getItem("token");
-      if (isLoggedIn) {
-        next("/u/profile");
-      } else {
-        next();
-      }
-    },
     meta: { title: "Log in" } 
   },
 
   { path: '/u/signup', name: 'Signup', component: SignUpPage,
-    beforeEnter: (to, from, next) => {
-      const isLoggedIn = localStorage.getItem("token");
-      if (isLoggedIn) {
-        next("/u/profile");
-      } else {
-        next();
-      }
-    }, 
     meta: { title: "Create Account" } 
   },
 
   { path: '/u/verify-email', name: 'VerifyEmail', component: VerifyEmailPage,
-    beforeEnter: (to, from, next) => {
-      const isVerified = localStorage.getItem("isVerified");
-      const isPendingVerification = localStorage.getItem("pendingVerification");
-      console.log("isVerified: ", isVerified);
-
-      if (isVerified === "true") {
-        console.log("User is verified, redirecting to login.");
-        next("/u/login");
-      } else if (isPendingVerification === "true"){
-        next();
-      } else {
-        next();
-      }
-    },
     meta: { title: "Verify Email" } 
+  },
+
+  { path: '/u/not-verified', name: 'NotVerified', component: NotVerifiedPage, 
+    meta: { title: "Email Not Verified" }
   },
 
 
@@ -106,20 +88,58 @@ const routes = [
 
 
 
-
 const router = createRouter({
   history: createWebHistory(),
   routes,
 });
 
 
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = !!localStorage.getItem("token");
-  if (to.meta.requiresAuth && !isAuthenticated) {
-    next("/u/login");
-  } else {
-    next();
+// Navigation Guard
+router.beforeEach(async (to, from, next) => {
+  const token = userStore.token || localStorage.getItem('token');
+  const isValid = token && isTokenValid(token);
+  const isLoggedIn = token && isTokenValid(token);
+
+  // console.log(`[NAV GUARD] Navigating to: ${to.fullPath}`);
+
+  // Fetch user details once
+  if (!userStore.isLoaded && isValid) {
+    try {
+      const userService = await import('@/services/user');
+      const userDetails = await userService.default.userDetails();
+      userStore.setUserDetails(userDetails.data);
+      userStore.isLoaded = true;
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+      console.log("Token is invalid or expired. Logging out...");
+      authService.logout();
+      return;
   }
+}
+
+  // Redirect if not authenticated
+  if (to.meta.requiresAuth && !isValid) {
+    return next("/u/login");
+  }
+
+  // Redirect if verified
+  if (to.name === "NotVerified" && userStore.enabled === true) {
+    return next("/u/profile");
+  }
+
+  // Redirect if already logged in
+  if ((to.name === 'Signup' || to.name === 'Login') && isLoggedIn) {
+    return next("/u/profile");
+  }
+
+  // Redirect if email is verified
+  if (to.name === 'VerifyEmail' && userStore.enabled === true) {
+    return next("/u/profile");
+  }
+
+  // Everything is fine, proceed
+  next();
 });
+
 
 export default router;
