@@ -1,4 +1,5 @@
 import api from "./api";
+import { useMainUserStore } from '@/stores/mainUserDetails';
 import { useUserStore } from '@/stores/tempUser';
 
 
@@ -46,26 +47,39 @@ export default {
     }
   },
 
+  // Resend verification email
+  async resendVerificationEmail(user) {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1250));
+
+      const response = await api.post("/auth/resend-verification-email", user);
+      console.log("Resend verification email response: ", response.data);
+      return response.data;
+    } catch (error) {
+      throw error
+    }
+  },
 
   // Login user
   async login(user) {
-    // Add a delay for UX
     await new Promise(resolve => setTimeout(resolve, 1250));
 
     const response = await api.post("/auth/login", user);
     const token = response.data.data.token;
     if (token) {
-      localStorage.setItem("token", token); // Save token for future requests
+      localStorage.setItem("token", token);
     }
     return response.data;
   },
 
 
-  async logout(router) {
+  async logout() {
+    const userStore = useMainUserStore();
     // Add a delay for UX
     await new Promise(resolve => setTimeout(resolve, 750));
 
-    localStorage.removeItem("token");
+    userStore.clearUserDetails();
+    localStorage.removeItem('token');
     window.location.href = "/";
   },
 };
