@@ -68,8 +68,7 @@
               <input v-model="user.password" :type="showPassword ? 'text' : 'password'" id="password"
                 ref="passwordInput" placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
-                @focus="isPasswordFocused = true"
-                @blur="isPasswordFocused = false" required @keydown.space.prevent />
+                @focus="isPasswordFocused = true" @blur="isPasswordFocused = false" required @keydown.space.prevent />
 
               <label for="password" class="absolute left-0 transition-all text-gray-500 text-sm" :class="{
                 'top-1 text-sm text-purple-700':
@@ -113,12 +112,14 @@
                 <i class="ri-loader-4-line ri-spin"></i>
               </span>
             </button>
+
           </form>
 
           <p class="mt-5 text-gray-600 text-center text-[0.825rem]">
             Don't have an account?
             <router-link to="/u/signup" class="text-purple-500 font-medium hover:underline">
-              Sign up</router-link>
+              Sign up
+            </router-link>
           </p>
         </div>
       </div>
@@ -146,9 +147,14 @@
 import { ref, computed, inject } from "vue";
 import { useRouter } from "vue-router";
 import authService from "@/services/auth";
+import userService from "@/services/user";
+import { useUserStore } from "@/stores/tempUser";
+import { useMainUserStore } from "@/stores/mainUserDetails";
 import Logo from "@/components/others/Logo.vue";
 
 const router = useRouter();
+const tempUserStore = useUserStore();
+const userStore = useMainUserStore();
 
 // Reactive state
 const user = ref({ email: "", password: "" });
@@ -194,17 +200,32 @@ const handleLogin = async () => {
 
   try {
     await authService.login(user.value);
+
+    userStore.token = localStorage.getItem("token");
+    const userDetails = await userService.userDetails();
+    userStore.setUserDetails(userDetails.data);
+    userStore.isLoaded = true;
+
     if (toast) {
       toast.value.showToast("Login successful.", "success");
     } else {
       console.error("Toast reference is not available.");
     }
+    console.log("Login complete, redirecting...")
     setTimeout(() => {
       router.push("/u/profile");
-    }, 1000);
+    }, 1250);
   } catch (error) {
-    console.error("(e) Error during login:", error);
-    if (toast) {
+    const msg = error.response?.data?.message;
+
+    if (msg?.includes("verify")) {
+      toast?.value.showToast(msg, "error");
+      tempUserStore.email = user.value.email;
+      console.log("email", user.value.email);
+      router.push("/u/not-verified");
+      console.error("(e) Error during login:", error);
+    }
+    if (toast && error.response) {
       toast.value.showToast(error.response.data.message || "Login failed.", "error");
     }
   } finally {
