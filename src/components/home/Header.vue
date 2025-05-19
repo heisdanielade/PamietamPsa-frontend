@@ -1,57 +1,42 @@
 <script setup>
-import { onMounted, reactive, ref } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import authService from "@/services/auth";
-import userService from "@/services/user";
+import { useMainUserStore } from '@/stores/mainUserDetails';
 import Logo from "@/components/others/Logo.vue";
 
 const router = useRouter();
+const userStore = useMainUserStore();
 
 const user = reactive({
-    email: '',
+    email:  userStore.email,
     redactedEmail: '',
-    name: '',
-    initial: '',
-
+    name: userStore.name,
+    initial: userStore.initial,
     isLoggedIn: false,
-
     // To add on the backend
     hasProfileImage: false,
     hasNotifications: true,
 });
 
-
-const getUserDetails = async () => {
-  try {
-    const userDetails = await userService.userDetails();
-    
-    user.email = userDetails.data.email
-    user.name = userDetails.data.name
-    user.initial = (userDetails.data.initial || '').toUpperCase()
-    user.hasNotifications = userDetails.hasNotifications ?? false
-
-   // Redact user email
-    user.redactedEmail = redactEmail(user.email);
-  } catch (error) {
-    console.error("(e) Error retrieving logged in user details", error);
-  }
-};
-
-
-onMounted(() => {
-  getUserDetails();
-})
-
+user.redactedEmail = redactEmail(user.email);
 
 function redactEmail(email) {
+  if (!email || !email.includes('@')) {
+    return '';
+  }
   const [local, domain] = email.split('@');
+  if (!domain || !domain.includes('.')) {
+    return local.slice(0, 2) + '****@***';
+  }
   const [domainName, ...tldParts] = domain.split('.');
-  const tld = '.' + tldParts.join('.'); // handles things like ".co.uk"
+  const tld = '.' + tldParts.join('.');
   const redactedLocal = local.slice(0, 2) + '****';
   const redactedDomain = '***' + tld;
 
   return `${redactedLocal}@${redactedDomain}`;
 }
+
 
 
 if (localStorage.getItem("token")) {
@@ -69,7 +54,7 @@ const toggle = () => {
 
 // handle log out
 const handleLogout = () => {
-    authService.logout(router);
+    authService.logout();
 };
 </script>
 
@@ -100,7 +85,7 @@ const handleLogout = () => {
                             </i>
                         </router-link>
 
-                        <router-link to="/u/profile" class="relative">
+                        <a href="/u/profile" class="relative">
                             <div
                                 class="inline-flex items-center justify-center w-11 h-11 shadow-sm overflow-hidden bg-[#FEE2E2] border-[0.15rem] border-gray-100 transition-all hover:border-purple-200 rounded-full">
                                 <span v-if="user.hasProfileImage" class="flex items-center justify-center">
@@ -114,7 +99,7 @@ const handleLogout = () => {
                                 <span
                                     class="signal hidden shadow-sm absolute top-[0.125rem] right-[0.125rem] z-20 w-3 h-3 border-[0.125rem] border-gray-200 bg-green-400 rounded-full"></span>
                             </div>
-                        </router-link>
+                        </a>
                     </div>
 
                     <!-- Login button if user is not logged in -->
@@ -183,7 +168,7 @@ const handleLogout = () => {
                     <li v-scroll-reveal class="not-shown mb-4 w-full color-dark">
                         <div class="mobile-menu-link relative flex items-center justify-end pb-1">
                             <span class="">
-                                Signed in with <span class="text-purple-500">{{ user.redactedEmail }}</span>
+                                Logged in as <span class="text-purple-500">{{ user.redactedEmail }}</span>
                             </span>
                         </div>
                     </li>
