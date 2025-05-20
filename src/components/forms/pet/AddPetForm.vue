@@ -30,8 +30,8 @@
 
             <!-- Profile Image Upload -->
             <div class="mb-2">
-              <label class="block text-xs text-gray-600 mb-1"
-                :class="{'text-purple-700': imageFile}">Profile Image</label>
+              <label class="block text-xs text-gray-600 mb-1" :class="{ 'text-purple-700': imageFile }">Profile
+                Image</label>
               <div @dragover.prevent @drop.prevent="handleDrop" @click="triggerFileInput"
                 class="w-full flex items-center gap-3 border border-dashed border-gray-300 rounded px-3 py-2 cursor-pointer hover:border-purple-600 transition bg-gray-50">
                 <img v-if="imagePreview" :src="imagePreview" alt="Preview"
@@ -54,8 +54,7 @@
             <div class="relative mb-2">
               <input v-model="pet.name" type="text" id="name" placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
-                @focus="isPetNameFocused = true"
-                @blur="isPetNameFocused = false" required/>
+                @focus="isPetNameFocused = true" @blur="isPetNameFocused = false" required />
               <label for="name" class="absolute left-0 transition-all text-gray-500 text-sm"
                 :class="{ 'top-1 text-sm text-purple-700': pet.name || isPetNameFocused, 'top-6 text-base text-gray-400': !pet.name && !isPetNameFocused, }">
                 Name
@@ -66,10 +65,9 @@
             <div class="relative mb-2">
               <input v-model="pet.species" type="text" id="species" placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
-                @focus="isSpeciesFocused = true"
-                @blur="isSpeciesFocused = false" required />
+                @focus="isSpeciesFocused = true" @blur="isSpeciesFocused = false" required />
               <label for="species" class="absolute left-0 transition-all text-gray-500 text-sm"
-                :class="{ 'top-1 text-sm text-purple-700': pet.species || isSpeciesFocused, 'top-6 text-base text-gray-400': !pet.species && !isSpeciesFocused}">
+                :class="{ 'top-1 text-sm text-purple-700': pet.species || isSpeciesFocused, 'top-6 text-base text-gray-400': !pet.species && !isSpeciesFocused }">
                 Species (e.g., Cat, Dog)
               </label>
             </div>
@@ -78,19 +76,40 @@
             <div class="relative mb-2">
               <input v-model="pet.breed" type="text" id="breed" placeholder=" "
                 class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
-                @focus="isBreedFocused = true"
-                @blur="isBreedFocused = false" />
+                @focus="isBreedFocused = true" @blur="isBreedFocused = false" />
               <label for="breed" class="absolute left-0 transition-all text-gray-500 text-sm"
                 :class="{ 'top-1 text-sm text-purple-700': pet.breed || isBreedFocused, 'top-6 text-base text-gray-400': !pet.breed && !isBreedFocused }">
                 Breed (optional)
               </label>
             </div>
 
-            <!-- Pet DOB -->
+            <!-- Pet sex -->
             <div class="relative mb-2">
-              <input v-model="pet.age" type="number" min="0" id="age" placeholder=" "
-                class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700"
-                />
+              <select v-model="pet.sex" @focus="isSexFocused = true" @blur="isSexFocused = false" required
+                class="peer w-full pt-6 xpb-2 text-sm font-medium bg-transparent border-b-2 border-gray-500 border-opacity-30 focus:outline-none focus:border-purple-700 appearance-none">
+                <option value="" disabled hidden class="text-gray-500">Select Sex</option>
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+              </select>
+
+              <label class="absolute left-0 text-sm text-gray-500 transition-all pointer-events-none" :class="{
+                'top-1 text-sm text-purple-700': pet.sex || isSexFocused,
+                'top-6 text-base text-gray-400': !pet.sex && !isSexFocused
+              }">
+                <!-- Sex (optional) -->
+              </label>
+              <!-- Custom dropdown arrow -->
+              <svg
+                class="absolute right-2 top-7 transform x-translate-y-1/2 pointer-events-none w-3.5 h-3.5 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+
+            <!-- Pet DOB -->
+            <div class="hidden mb-2">
+              <input v-model="pet.birthDate" type="number" min="0" id="age" placeholder=" "
+                class="peer w-full pt-6 border-b-2 border-gray-500 border-opacity-30 text-sm font-medium focus:outline-none focus:border-purple-700" />
               <label for="age" class="absolute left-0 transition-all text-gray-500 text-sm"
                 :class="{ 'top-1 text-sm text-purple-700': pet.birthDate, 'top-6 text-base text-gray-400': !pet.birthDate }">
                 Year of Birth (optional)
@@ -142,6 +161,7 @@
 <script setup>
 import { ref, computed, onMounted, inject } from "vue";
 import { useRouter } from "vue-router";
+import Multiselect from '@vueform/multiselect'
 import petService from "@/services/pet"
 import Logo from "@/components/others/Logo.vue";
 
@@ -158,11 +178,6 @@ const facts = [
   "Some turtles can breathe through their butts. Seriously.",
   "Owning a pet can help reduce feelings of loneliness.",
 ];
-onMounted(() => {
-  const randomIndex = Math.floor(Math.random() * facts.length);
-  petFact.value = facts[randomIndex];
-});
-
 
 const router = useRouter();
 const toast = inject('toast');
@@ -171,11 +186,21 @@ const loading = ref(false);
 const isPetNameFocused = ref(false);
 const isSpeciesFocused = ref(false);
 const isBreedFocused = ref(false);
+const isSexFocused = ref(false);
+const sexSelect = ref(null);
+
+
+onMounted(() => {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  petFact.value = facts[randomIndex];
+});
+
 
 const pet = ref({
   name: "",
   species: "",
   breed: "",
+  sex: "",
   birthDate: ""
 });
 
@@ -206,7 +231,7 @@ const handleDrop = (e) => {
 
 
 const isFormValid = computed(() => {
-  return pet.value.name && pet.value.species;
+  return pet.value.name && pet.value.species && pet.value.sex;
 });
 
 
@@ -219,7 +244,7 @@ const handleAddPet = async () => {
   formData.append("species", pet.value.species);
   formData.append("birthDate", pet.value.birthDate);
   formData.append("breed", pet.value.breed);
-  formData.append("weight", pet.value.weight);
+  formData.append("sex", pet.value.sex);
   if (imageFile.value) {
     formData.append("profileImage", imageFile.value);
   }
@@ -238,7 +263,7 @@ const handleAddPet = async () => {
   } catch (e) {
     console.error(e);
     if (toast) {
-      toast.value.showToast(e.response.data.message || "Pet registration failed.", "error");
+      toast.value.showToast(e.response.data.error || "Pet registration failed.", "error");
     }
   } finally {
     loading.value = false;

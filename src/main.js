@@ -4,6 +4,7 @@ import { createApp } from "vue";
 import { pinia } from "@/stores/pinia"
 import App from "./App.vue";
 import router from "./router";
+import '@vueform/multiselect/themes/default.css';
 import { useProjectStore } from '@/stores/projectStore';
 
 
@@ -37,6 +38,4 @@ const scrollRevealDirective = {
 };
 
 app.directive("scroll-reveal", scrollRevealDirective);
-
-
 app.mount("#app");

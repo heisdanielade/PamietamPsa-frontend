@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueform/multiselect": "^2.6.11",
     "axios": "^1.8.4",
     "jwt-decode": "^4.0.0",
     "pinia": "^2.3.0",
