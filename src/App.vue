@@ -2,6 +2,7 @@
 import { ref, onBeforeMount, provide } from 'vue';
 import userService from "@/services/user";
 import { useMainUserStore } from '@/stores/mainUserDetails';
+import { isTokenValid } from "@/utils/auth";
 import RequestToast from "@/components/others/RequestToast.vue";
 import Loader from "@/components/others/Loader.vue";
 
@@ -13,7 +14,8 @@ const userStore = useMainUserStore();
 
 const getUserDetails = async () => {
   const token = localStorage.getItem('token');
-  if (token) {
+  const isValid = token && isTokenValid(token)
+  if (isValid) {
     try {
       const userDetails = await userService.userDetails();
 
