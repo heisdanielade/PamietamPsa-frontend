@@ -4,7 +4,7 @@ import petService from "@/services/pet";
 
 const pets = ref([]);
 const previewPets = computed(() => pets.value.slice(0, 3));
-// const previewPets = [];
+
 
 const getAllPets = async () => {
   try {
@@ -18,6 +18,12 @@ const getAllPets = async () => {
 onMounted(() => {
   getAllPets();
 });
+
+const placeholderImage = '/src/assets/images/others/pet-placeholder.png';
+
+function onImageError(event) {
+  event.target.src = placeholderImage;
+}
 
 const cardColors = [
   'bg-purple-300/30 hover:bg-purple-300/40',
@@ -48,11 +54,12 @@ const cardColors = [
         <!-- Card -->
       <router-link to="/x" v-for="(pet, index) in previewPets" :key="pet.id"
         :class="['pet-card inline-block min-w-[12rem] max-w-[14rem] md:min-w-[14rem] md:max-w-[16rem] h-48', cardColors[index % cardColors.length], 'flex flex-shrink-0 flex-col items-center text-center p-4 rounded-2xl border border-white/30 backdrop-blur-md transition-all hover:backdrop-blur-lg md:hover:scale-105']">
-        <img :src="pet.profileImageURL" :alt="pet.name"
-        class="w-20 h-20 rounded-full object-cover mb-4 shadow-sm border-2 border-white" />
+        <img :src="pet.profileImageURL || placeholderImage" :alt="pet.name" @error="onImageError"
+        class="w-20 h-20 rounded-full object-cover mb-4 shadow-sm border-2 border-white" 
+        :class="{ 'opacity-50': !pet.profileImageURL }"/>
         <h3 class="text-base font-semibold text-zinc-800">{{ pet.name }}</h3>
-        <p class="text-sm text-zinc-700">{{ pet.breed }}</p>
-        <p class="text-xs text-zinc-600 mt-1">{{ pet.age }} years old</p>
+        <p class="text-[0.835rem] text-zinc-700">{{ pet.breed }} ({{ pet.species }})</p>
+        <p class="text-xs text-zinc-600 mt-0.5">{{ pet.sex.charAt(0) + pet.sex.slice(1).toLowerCase() }}</p>
       </router-link>
       </div>
     </div>
