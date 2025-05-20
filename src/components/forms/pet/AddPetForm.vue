@@ -87,18 +87,17 @@
             <div class="relative mb-2">
               <select v-model="pet.sex" @focus="isSexFocused = true" @blur="isSexFocused = false" required
                 class="peer w-full pt-6 xpb-2 text-sm font-medium bg-transparent border-b-2 border-gray-500 border-opacity-30 focus:outline-none focus:border-purple-700 appearance-none">
-                <option value="" disabled hidden class="text-gray-500">Select Sex</option>
+                <option value="" disabled hidden></option>
                 <option value="MALE">Male</option>
                 <option value="FEMALE">Female</option>
               </select>
 
               <label class="absolute left-0 text-sm text-gray-500 transition-all pointer-events-none" :class="{
                 'top-1 text-sm text-purple-700': pet.sex || isSexFocused,
-                'top-6 text-base text-gray-400': !pet.sex && !isSexFocused
-              }">
-                <!-- Sex (optional) -->
+                'top-6 text-base text-gray-400': !pet.sex && !isSexFocused}">
+                Sex (optional)
               </label>
-              <!-- Custom dropdown arrow -->
+
               <svg
                 class="absolute right-2 top-7 transform x-translate-y-1/2 pointer-events-none w-3.5 h-3.5 text-gray-400"
                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
