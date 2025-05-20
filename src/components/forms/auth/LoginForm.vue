@@ -211,7 +211,6 @@ const handleLogin = async () => {
     } else {
       console.error("Toast reference is not available.");
     }
-    console.log("Login complete, redirecting...")
     setTimeout(() => {
       router.push("/u/profile");
     }, 1250);

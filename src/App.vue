@@ -12,18 +12,22 @@ const isLoading = ref(true);
 const userStore = useMainUserStore();
 
 const getUserDetails = async () => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    try {
+      const userDetails = await userService.userDetails();
 
-  try {
-    const userDetails = await userService.userDetails();
-    // console.log("(i) User details:", userDetails.data);
-    
-    userStore.setUserDetails(userDetails.data);
-  } catch (error) {
-    console.error("(e) Error retrieving logged in user details", error);
-  } finally {
-    await new Promise(resolve => setTimeout(resolve, 1150));
-    isLoading.value = false;
-  }
+      userStore.setUserDetails(userDetails.data);
+    } catch (error) {
+      console.error("(e) Error retrieving logged in user details", error);
+    } finally {
+      await new Promise(resolve => setTimeout(resolve, 1150));
+      isLoading.value = false;
+    }
+  } else {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      isLoading.value = false;
+  };
 };
 
 onBeforeMount(() => {
@@ -35,7 +39,7 @@ onBeforeMount(() => {
 
 <template>
   <div v-if="isLoading">
-    <Loader/>
+    <Loader />
   </div>
   <div v-else>
     <router-view />
