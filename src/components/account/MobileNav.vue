@@ -13,7 +13,7 @@ const toggleAddPopUp = () => {
 
 <template>
     <nav translate="no"
-        class="fixed z-50 bottom-0 w-full flex items-center xbg-red-400 overflow-hidden pt-24 pb-3">
+        class="fixed z-50 bottom-0 w-full flex items-center overflow-hidden pt-24 pb-3">
 
         <!-- Floating Add buttons for Pet & Reminder -->
         <Transition name="popup">

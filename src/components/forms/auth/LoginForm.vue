@@ -150,7 +150,7 @@ import authService from "@/services/auth";
 import userService from "@/services/user";
 import { useUserStore } from "@/stores/tempUser";
 import { useMainUserStore } from "@/stores/mainUserDetails";
-import Logo from "@/components/others/Logo.vue";
+import Logo from "@/components/reusable/Logo.vue";
 
 const router = useRouter();
 const tempUserStore = useUserStore();

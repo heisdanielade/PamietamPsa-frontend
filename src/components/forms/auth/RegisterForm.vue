@@ -151,7 +151,7 @@ import { ref, computed, inject } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/stores/tempUser";
 import authService from "@/services/auth";
-import Logo from "@/components/others/Logo.vue";
+import Logo from "@/components/reusable/Logo.vue";
 
 const router = useRouter();
 

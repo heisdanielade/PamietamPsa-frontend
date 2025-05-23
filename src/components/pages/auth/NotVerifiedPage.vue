@@ -76,7 +76,7 @@ import authService from "@/services/auth";
 import { useUserStore } from "@/stores/tempUser";
 import { ref, onMounted, inject, reactive } from "vue";
 import { useRouter } from "vue-router";
-import Logo from "@/components/others/Logo.vue";
+import Logo from "@/components/reusable/Logo.vue";
 
 const router = useRouter();
 const loading = ref(false);

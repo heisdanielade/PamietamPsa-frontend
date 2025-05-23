@@ -12,7 +12,7 @@ const handleLogout = () => {
 <template>
   <!-- Sidebar for larger screens -->
   <div v-scroll-reveal
-    class="sidebar relative not-shown p-5 hidden lg:flex flex-col items-center bg-zinc-900 text-white rounded-3xl shadow-xl">
+    class="sidebar relative not-shown p-5 flex flex-col items-center bg-zinc-900 text-white rounded-3xl shadow-xl">
     <!-- Logo / App Icon -->
     <router-link to="/" class="absolute top-5">
       <img src="/src/assets/images/logos/3d-logo.png" alt="App Logo" class="w-9 h-9" />

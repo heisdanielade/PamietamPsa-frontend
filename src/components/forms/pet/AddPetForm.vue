@@ -162,7 +162,7 @@ import { ref, computed, onMounted, inject } from "vue";
 import { useRouter } from "vue-router";
 import Multiselect from '@vueform/multiselect'
 import petService from "@/services/pet"
-import Logo from "@/components/others/Logo.vue";
+import Logo from "@/components/reusable/Logo.vue";
 
 
 // Random pet fact

@@ -1,6 +1,6 @@
 
 <script setup>
-import AuthBackground from "@/components/others/PawBackground.vue";
+import AuthBackground from "@/components/reusable/PawBackground.vue";
 
 import { ref, onMounted, onUnmounted } from 'vue';
 

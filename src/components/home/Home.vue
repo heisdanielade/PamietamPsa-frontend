@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import AuthBackground from "@/components/others/PawBackground.vue";
+import AuthBackground from "@/components/reusable/PawBackground.vue";
 
 
 const isLoggedIn = computed(() => {

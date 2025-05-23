@@ -1,9 +1,9 @@
 <script setup>
-  import Header from "@/components/home/Header.vue";
+  import Header from "@/components/reusable/Header.vue";
   import Home from "@/components/home/Home.vue";
   import Explore from "@/components/home/Explore.vue";
   import Preview from "@/components/home/Preview.vue";
-  import Footer from "@/components/home/Footer.vue";
+  import Footer from "@/components/reusable/Footer.vue";
 </script>
 
 
