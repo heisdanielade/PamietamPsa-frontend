@@ -1,11 +1,19 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
 
 const isVisible = ref(false);
 
 const toggleAddPopUp = () => {
     isVisible.value = !isVisible.value;
 };
+
+
+const route = useRoute();
+// Helper computed properties for route-specific logic
+const isHomePage = computed(() => route.name === "MyProfile");
+const isSettingsPage = computed(() => route.name === "Settings");
+
 
 </script>
 
@@ -50,19 +58,21 @@ const toggleAddPopUp = () => {
 
 
         <!-- Other nav buttons -->
-        <div
-            class="relative z-20 bg-dark shadow w-full h-[4.3rem] text-gray-100 rounded-3xl px-5 pt-4 pb-3 mx-3 flex items-center justify-between max-w-screen-lg">
+        <div class="relative z-20 bg-dark shadow w-full h-[4.3rem] text-gray-100 rounded-3xl px-5 pt-4 pb-3 mx-3 flex items-center justify-between max-w-screen-lg">
 
             <!-- Home button -->
-            <button @click="" type="button" id="goToHome"
-                class="active inline-flex flex-col items-center justify-center p-1 w-[2.125rem] h-[2.125rem] focus:outline-none">
+            <router-link to="/u/profile" id="goToHome"
+                :class="[
+                    isHomePage ? 'active' : '',
+                ]"
+                class="inline-flex flex-col items-center justify-center p-1 w-[2.125rem] h-[2.125rem] focus:outline-none">
                 <i class="text-lg fa-solid fa-house"></i>
                 <span class="function x-translate-y-1 text-[0.65rem] text-center">
                     Home
                 </span>
                 <!-- Screen reader only -->
                 <span class="sr-only">Go to home</span>
-            </button>
+            </router-link>
 
 
             <!-- Pets button -->
@@ -115,6 +125,9 @@ const toggleAddPopUp = () => {
 
             <!-- Settings button -->
             <router-link to="/u/settings" id="goToSettings"
+                :class="[
+                    isSettingsPage ? 'active' : '',
+                ]"
                 class="inline-flex flex-col items-center justify-center p-1 w-[2.125rem] h-[2.125rem] focus:outline-none">
                 <i class="text-lg fa-solid fa-gear"></i>
                 <span class="function x-translate-y-1 text-[0.65rem] text-center">
