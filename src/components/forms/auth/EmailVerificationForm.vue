@@ -17,12 +17,14 @@
                             <logo />
                         </router-link>
                     </div>
-                    <p class="text-gray-500 text-center opacity-90 mt-3">Please check your email</p>
+                    <p class="text-gray-500 text-center text-sm opacity-90 mt-3">
+                        We sent a verification code to <span class="font-semibold">{{ email }}</span>
+                    </p>
 
                     <!-- OR Separator -->
                     <div class="flex items-center mt-7 mb-6">
                         <div class="flex-1 h-px bg-gray-300"></div>
-                        <span class="px-3 text-gray-500 text-sm">OTP</span>
+                        <span class="px-3 text-gray-500 text-sm">Email OTP</span>
                         <div class="flex-1 h-px bg-gray-300"></div>
                     </div>
 
@@ -75,13 +77,21 @@
 
 
                     <p class="mt-5 text-gray-600 text-center text-[0.825rem]">
-                        <router-link to="/x" class="text-purple-500 font-medium hover:underline">
-                            Resend code
-                        </router-link>
+
+                        <span @click="handleClickResend"
+                            :class="[
+                                'font-medium',
+                                canResend ? 'text-purple-500 hover:underline cursor-pointer' : 'text-gray-400 cursor-not-allowed']">
+                            <template v-if="canResend">Click to </template>
+                            Resend
+                        </span>
+                        <span v-if="!canResend">in {{ timeRemaining }} seconds</span>
                     </p>
+
+
                 </div>
             </div>
-            
+
             <!-- Footer Note -->
             <div class="mt-6 mb-10 p-5 text-[0.825rem] font-normal text-gray-600 text-center">
                 By proceeding, you agree to our
@@ -113,16 +123,21 @@ input[type=number] {
 </style>
 
 
+
+
 <script setup>
-import { reactive, ref, computed, onMounted, inject } from "vue";
+import { reactive, ref, computed, onMounted, inject, watch } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from '@/stores/tempUser';
 import authService from "@/services/auth";
-import Logo from "@/components/others/Logo.vue";
+import Logo from "@/components/reusable/Logo.vue";
 
 const userStore = useUserStore();
 const router = useRouter();
 const email = userStore.email;
+
+const emailResendCode = reactive({ email: "" });
+emailResendCode.email = userStore.email;
 
 // Reactive state
 const otpArray = ref(["", "", "", "", "", ""]);
@@ -131,13 +146,48 @@ const user = reactive({
     otp: computed(() => otpArray.value.join(""))
 });
 
-onMounted(() => {
-    user.email = email;
-});
 
 const otpRefs = ref([]);
 const loading = ref(false);
 const toast = inject("toast");
+
+
+const timeRemaining = ref(0);
+const canResend = ref(false);
+let intervalId;
+
+const RESEND_INTERVAL_INITIAL = 60 // first time
+const RESEND_INTERVAL_COOLDOWN = 120 // after clicking
+
+
+function startTimer(seconds) {
+    timeRemaining.value = seconds
+    canResend.value = false
+
+    clearInterval(intervalId)
+    intervalId = setInterval(() => {
+        timeRemaining.value--
+
+        if (timeRemaining.value <= 0) {
+            clearInterval(intervalId)
+            canResend.value = true
+        }
+    }, 1000)
+}
+
+function handleClickResend() {
+    if (!canResend.value) return
+
+    handleResendVerificationEmail() // your existing resend code
+
+    const now = Date.now()
+    localStorage.setItem('lastResendTime', now.toString())
+    localStorage.setItem('resendCooldown', RESEND_INTERVAL_COOLDOWN.toString())
+
+
+    startTimer(RESEND_INTERVAL_COOLDOWN)
+}
+
 
 const handleInput = (index, event) => {
     let value = event.target.value;
@@ -156,23 +206,21 @@ const handleDelete = (index, event) => {
         otpRefs.value[index - 1].focus();
     }
 };
-// Handle paste event
 const handlePaste = (event) => {
     event.preventDefault();
     let pasteData = (event.clipboardData || window.clipboardData).getData("text");
     pasteData = pasteData.replace(/\D/g, "").slice(0, 6); // Extract only first 4 digits
     if (pasteData.length === 4) {
         otpArray.value = pasteData.split("");
-        otpRefs.value[3].focus(); // Move focus to the last input
+        otpRefs.value[3].focus();
     }
 };
 
-// Computed OTP value 
+
 const getOtpValue = () => otpArray.value.join("");
 defineExpose({ getOtpValue });
 
 
-// Check if form is valid
 const isFormValid = computed(() => otpArray.value.every((digit) => digit !== ""));
 
 
@@ -184,10 +232,12 @@ const handleCodeVerification = async () => {
         await authService.verifyEmail(user);
         if (toast) {
             toast.value.showToast("Verified successfully.", "success");
-        } else {
-            console.error("Toast reference is not available.");
         }
         setTimeout(() => {
+            
+            localStorage.removeItem("lastResendTime");
+            localStorage.removeItem("resendCooldown");
+            
             userStore.clearUser();
             authService.loginRedirect(router);
         }, 1000);
@@ -201,4 +251,57 @@ const handleCodeVerification = async () => {
         loading.value = false;
     }
 };
+
+
+const handleResendVerificationEmail = async () => {
+    try {
+        await authService.resendVerificationEmail(emailResendCode);
+        if (toast) {
+            toast.value.showToast("Verification email sent.", "success");
+        } else {
+            toast.error("Process failed. Retry.");
+        }
+        setTimeout(() => {
+            router.push("/u/verify-email");
+        }, 500);
+        console.log("(i) Resend verification email process (timed) triggered.");
+    } catch (error) {
+        console.error("(e) Error during process:", error);
+        if (toast && error.response) {
+            toast.value.showToast(error.response.data.message || "Process failed, Retry.", "error");
+        }
+    }
+};
+
+
+
+
+onMounted(() => {
+    user.email = email;
+
+    const now = Date.now()
+    const lastResendStr = localStorage.getItem('lastResendTime')
+    const cooldownStr = localStorage.getItem('resendCooldown')
+
+    if (!lastResendStr || !cooldownStr) {
+        // First visit — force 60 second timer
+        localStorage.setItem('lastResendTime', now.toString())
+        localStorage.setItem('resendCooldown', RESEND_INTERVAL_INITIAL.toString())
+        startTimer(RESEND_INTERVAL_INITIAL)
+        return
+    }
+
+    const lastResend = parseInt(lastResendStr, 10)
+    const cooldown = parseInt(cooldownStr, 10)
+    const elapsed = Math.floor((now - lastResend) / 1000)
+    const remaining = cooldown - elapsed
+
+    if (remaining > 0) {
+        startTimer(remaining)
+    } else {
+        timeRemaining.value = 0
+        canResend.value = true
+    }
+})
+
 </script>
