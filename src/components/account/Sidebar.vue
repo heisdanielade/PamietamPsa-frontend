@@ -12,17 +12,17 @@ const handleLogout = () => {
 <template>
   <!-- Sidebar for larger screens -->
   <div v-scroll-reveal
-    class="sidebar not-shown w-[4.5rem] hidden lg:flex flex-col items-center py-6 bg-zinc-900 text-white rounded-3xl shadow-xl">
+    class="sidebar relative not-shown p-5 hidden lg:flex flex-col items-center bg-zinc-900 text-white rounded-3xl shadow-xl">
     <!-- Logo / App Icon -->
-    <router-link to="/" class="mb-10">
-      <img src="/src/assets/images/logos/3d-logo.png" alt="App Logo" class="w-8 h-8" />
+    <router-link to="/" class="absolute top-5">
+      <img src="/src/assets/images/logos/3d-logo.png" alt="App Logo" class="w-9 h-9" />
     </router-link>
 
     <!-- Nav Links -->
-    <nav class="flex flex-col space-y-7 text-zinc-300">
+    <nav class="mt-[4.5rem] flex flex-col space-y-7 text-zinc-300">
       <!-- Dashboard -->
       <router-link to="/u/profile" class="group relative">
-        <i class="ri-dashboard-line text-2xl hover:text-white"></i>
+        <i class="ri-dashboard-line text-2xl hover:text-purple-500"></i>
         <span
           class="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
           Dashboard
@@ -31,7 +31,7 @@ const handleLogout = () => {
 
       <!-- Pets -->
       <router-link to="/u/pets" class="group relative">
-        <i class="fa-solid fa-cat text-xl hover:text-white"></i>
+        <i class="fa-solid fa-cat text-xl hover:text-purple-500"></i>
         <span
           class="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
           My Pets
@@ -40,7 +40,7 @@ const handleLogout = () => {
 
       <!-- Reminders -->
       <router-link to="/u/reminders" class="group relative">
-        <i class="ri-notification-2-line text-2xl hover:text-white"></i>
+        <i class="ri-notification-2-line text-2xl hover:text-purple-500"></i>
         <span
           class="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
           Reminders
@@ -49,7 +49,7 @@ const handleLogout = () => {
 
       <!-- Settings -->
       <router-link to="/u/settings" class="group relative">
-        <i class="ri-settings-3-line text-2xl hover:text-white"></i>
+        <i class="ri-settings-3-line text-2xl hover:text-purple-500"></i>
         <span
           class="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
           Settings
@@ -58,7 +58,7 @@ const handleLogout = () => {
 
       <!-- Sign Out -->
       <span @click="handleLogout()" class="group relative mb-2 custom-cursor">
-        <i class="ri-logout-box-r-line text-2xl hover:text-red-400"></i>
+        <i class="ri-logout-box-r-line text-2xl text-purple-400 hover:text-purple-500 transition-all"></i>
         <span
           class="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md bg-zinc-800 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
           Sign Out

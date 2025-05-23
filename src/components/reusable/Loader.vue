@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import Logo from "@/components/others/Logo.vue";
+import Logo from "@/components/reusable/Logo.vue";
 </script>
 
 <style scoped>
