@@ -3,8 +3,9 @@ import { ref, onBeforeMount, provide } from 'vue';
 import userService from "@/services/user";
 import { useMainUserStore } from '@/stores/mainUserDetails';
 import { isTokenValid } from "@/utils/auth";
-import RequestToast from "@/components/others/RequestToast.vue";
-import Loader from "@/components/others/Loader.vue";
+import RequestToast from "@/components/reusable/RequestToast.vue";
+import Loader from "@/components/reusable/Loader.vue";
+
 
 const toastRef = ref(null);
 provide('toast', toastRef); // Make toast globally available
@@ -23,11 +24,11 @@ const getUserDetails = async () => {
     } catch (error) {
       console.error("(e) Error retrieving logged in user details", error);
     } finally {
-      await new Promise(resolve => setTimeout(resolve, 1150)); 
+      await new Promise(resolve => setTimeout(resolve, 900)); 
       isLoading.value = false;
     }
   } else {
-      await new Promise(resolve => setTimeout(resolve, 1000)); 
+      await new Promise(resolve => setTimeout(resolve, 900)); 
       isLoading.value = false;
   };
 };
