@@ -18,7 +18,7 @@ import MobileNav from "@/components/account/MobileNav.vue";
     <Header></Header>
 
     <div
-        class="flex items-start mb-48 md:mb-0 mt-[7.5rem] md:mt-32 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
+        class="flex items-start mb-48 md:mb-0 mt-[7.5rem] md:mt-28 md:max-w-screen-md md:mx-auto lg:mx-auto lg:max-w-screen-lg">
         <!-- Sidebar Section -->
         <Sidebar class="hidden lg:flex relative z-40"></Sidebar>
 

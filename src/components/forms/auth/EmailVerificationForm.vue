@@ -184,7 +184,6 @@ function handleClickResend() {
     localStorage.setItem('lastResendTime', now.toString())
     localStorage.setItem('resendCooldown', RESEND_INTERVAL_COOLDOWN.toString())
 
-
     startTimer(RESEND_INTERVAL_COOLDOWN)
 }
 
@@ -234,10 +233,8 @@ const handleCodeVerification = async () => {
             toast.value.showToast("Verified successfully.", "success");
         }
         setTimeout(() => {
-            
             localStorage.removeItem("lastResendTime");
             localStorage.removeItem("resendCooldown");
-            
             userStore.clearUser();
             authService.loginRedirect(router);
         }, 1000);
