@@ -22,7 +22,7 @@
   import { ref } from "vue";
   
   const visible = ref(false);
-  const message = ref("Registration successful.");
+  const message = ref(" ");
   const toastType = ref("success");
   
   const showToast = (msg, type = "success", duration = 3000) => {

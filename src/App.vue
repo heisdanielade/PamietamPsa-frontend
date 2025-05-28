@@ -24,11 +24,11 @@ const getUserDetails = async () => {
     } catch (error) {
       console.error("(e) Error retrieving logged in user details", error);
     } finally {
-      await new Promise(resolve => setTimeout(resolve, 900)); 
+      await new Promise(resolve => setTimeout(resolve, 850)); 
       isLoading.value = false;
     }
   } else {
-      await new Promise(resolve => setTimeout(resolve, 900)); 
+      await new Promise(resolve => setTimeout(resolve, 850)); 
       isLoading.value = false;
   };
 };

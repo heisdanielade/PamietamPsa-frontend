@@ -174,10 +174,12 @@ const togglePasswordVisibility = () => {
 };
 
 // Validation functions
+const emailRegex = /^(?!.*\.\.)(?!.*\.$)(?!^\.)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 const validateEmail = () => {
   if (!user.value.email) {
     emailError.value = "Email is required.";
-  } else if (!/^\S+@\S+\.\S+$/.test(user.value.email)) {
+  } else if (!emailRegex.test(user.value.email)) {
     emailError.value = "Invalid email address.";
   } else {
     emailError.value = "";
