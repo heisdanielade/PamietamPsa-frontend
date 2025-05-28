@@ -12,6 +12,7 @@ import VerifyEmailPage from '@/components/pages/auth/VerifyEmailPage.vue';
 import NotVerifiedPage from '@/components/pages/auth/NotVerifiedPage.vue';
 // ---------------------------------------------------------------
 import MyProfilePage from '@/components/pages/account/MyProfile.vue';
+import SettingsPage from '@/components/pages/account/SettingsPage.vue';
 // ---------------------------------------------------------------
 import PetFormsPage from '@/components/pages/account/PetFormsPage.vue';
 // ---------------------------------------------------------------
@@ -73,7 +74,7 @@ const routes = [
     meta: { title: "Profile", requiresAuth: true } 
   },
 
-  { path: '/u/settings', name: 'MySettings', component: MyProfilePage, // to change
+  { path: '/u/settings', name: 'Settings', component: SettingsPage, // to change
     meta: { title: "Settings", requiresAuth: true } 
   },
 
