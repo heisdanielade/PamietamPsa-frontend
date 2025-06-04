@@ -118,6 +118,11 @@ router.beforeEach(async (to, from, next) => {
   }
 }
 
+  if (!isValid) {
+    console.log("Token is invalid or expired. Logging out...");
+    localStorage.removeItem('token');
+  }
+
   // Redirect if not authenticated
   if (to.meta.requiresAuth && !isValid) {
     return next("/u/login");
